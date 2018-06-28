@@ -35,6 +35,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     annotationProcessor 'info.izumin.android:droidux-processor:0.6.0'
+    implementation 'com.github.rettyeng.redux-kt:redux-kt-core:0.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
