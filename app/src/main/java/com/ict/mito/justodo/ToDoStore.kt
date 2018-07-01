@@ -16,4 +16,5 @@ object ToDoStore {
         return ToDoState()
     }
 
+    fun getState() = this.store.state
 }
