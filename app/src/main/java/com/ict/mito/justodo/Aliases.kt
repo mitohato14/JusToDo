@@ -1,5 +1,6 @@
 package com.ict.mito.justodo
 
+import com.ict.mito.justodo.state.ToDoState
 import me.retty.reduxkt.ActionCreator
 import me.retty.reduxkt.AsyncActionCreator
 import me.retty.reduxkt.Middleware

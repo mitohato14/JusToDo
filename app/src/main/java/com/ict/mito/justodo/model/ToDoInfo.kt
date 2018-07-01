@@ -1,4 +1,4 @@
-package com.ict.mito.justodo
+package com.ict.mito.justodo.model
 
 data class ToDoInfo(
     var name: String = "",

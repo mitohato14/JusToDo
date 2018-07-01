@@ -1,8 +1,8 @@
-package com.ict.mito.justodo
+package com.ict.mito.justodo.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.ict.mito.justodo.ui.main.MainFragment
+import com.ict.mito.justodo.R
 
 class MainActivity : AppCompatActivity() {
 
