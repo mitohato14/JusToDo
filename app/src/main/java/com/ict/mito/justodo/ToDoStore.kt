@@ -12,8 +12,8 @@ object ToDoStore {
                 listOf()
         )
     }
-    
-    private fun getInitialState() : ToDoState {
+
+    private fun getInitialState(): ToDoState {
         return ToDoState()
     }
 

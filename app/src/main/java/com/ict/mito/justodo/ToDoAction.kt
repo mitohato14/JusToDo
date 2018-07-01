@@ -1,4 +1,3 @@
 package com.ict.mito.justodo
 
-interface ToDoAction {
-}
+interface ToDoAction
