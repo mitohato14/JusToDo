@@ -17,4 +17,7 @@ object ToDoStore {
     }
 
     fun getState() = this.store.state
+
+    fun subscribe(subscriber: Subscriber) = this.store.subscribe(subscriber)
+    fun unsubscribe(subscriber: Subscriber) = this.store.unsubscribe(subscriber)
 }
