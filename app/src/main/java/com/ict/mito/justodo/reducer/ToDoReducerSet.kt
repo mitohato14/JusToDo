@@ -15,7 +15,7 @@ class ToDoReducerSet {
                     action,
                     state
             )
-            is ToDoAction.onUpdateToDoAction -> onUpdateToDoAction(
+            is ToDoAction.OnUpdateToDoAction -> onUpdateToDoAction(
                     action,
                     state
             )
@@ -33,7 +33,7 @@ class ToDoReducerSet {
         ) = state
 
         private fun onUpdateToDoAction(
-            action: ToDoAction.onUpdateToDoAction,
+            action: ToDoAction.OnUpdateToDoAction,
             state: ToDoState
         ) = state // TODO:ここでToDo編集後に情報が更新されたリストを渡す
     }
