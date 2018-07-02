@@ -31,8 +31,8 @@ object ToDoStore {
     fun dispatch(actionCreator: ActionCreator) = store.dispatch(actionCreator)
     fun dispatch(actionCreator: AsyncActionCreator) = store.dispatch(actionCreator)
     fun dispatch(
-            actionCreator: AsyncActionCreator,
-            callback: (ToDoState) -> Unit
+        actionCreator: AsyncActionCreator,
+        callback: (ToDoState) -> Unit
     ) = store.dispatch(
             actionCreator,
             callback
