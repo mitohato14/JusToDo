@@ -11,6 +11,7 @@ interface ToDoAction : Action {
 
     class onUpdateToDoAction(
         val taskId: String,
+        val index: Int,
         val toDoInfo: ToDoInfo
     ) : ToDoAction
 }
