@@ -1,9 +1,9 @@
 package com.ict.mito.justodo.model
 
 data class ToDoInfo(
-    var id: String = "",
-    var title: String = "",
-    var content: String = "",
-    var dueData: Int = -1,
-    var deadline: Int = 101
+    val id: String,
+    val title: String,
+    val content: String,
+    val dueData: Int,
+    val deadline: Int
 )
