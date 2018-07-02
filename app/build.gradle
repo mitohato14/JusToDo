@@ -31,6 +31,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0-alpha3'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-alpha3'
     implementation 'info.izumin.android:droidux:0.6.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
