@@ -10,6 +10,7 @@ class ToDoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     var binding: CardTodoBinding? = null
 
     init {
+        bind()
     }
 
     fun bind() {
