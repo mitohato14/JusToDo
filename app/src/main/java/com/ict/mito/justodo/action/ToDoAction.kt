@@ -9,7 +9,7 @@ interface ToDoAction : Action {
 
     class OnEditToDoAction(val taskId: String) : ToDoAction
 
-    class onUpdateToDoAction(
+    class OnUpdateToDoAction(
         val taskId: String,
         val index: Int,
         val toDoInfo: ToDoInfo

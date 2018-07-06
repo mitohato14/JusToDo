@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">JusToDo</string>
+    <string name="due">残り</string>
+    <string name="default_due_date">0</string>
+    <string name="day">日</string>
+    <string name="title">タイトル</string>
 </resources>

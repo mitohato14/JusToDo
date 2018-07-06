@@ -28,14 +28,27 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha3'
+
+//    androidx
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
+//    androidx view
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+//    material view
+    implementation 'com.google.android.material:material:1.0.0-alpha3'
+
+//    droidux
     implementation 'info.izumin.android:droidux:0.6.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     annotationProcessor 'info.izumin.android:droidux-processor:0.6.0'
+
+//    redux-kt
     implementation 'com.github.rettyeng.redux-kt:redux-kt-core:0.0.2'
+
+//    test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
