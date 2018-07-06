@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
+import com.ict.mito.justodo.view.ToDoInfoAdapter
 
 class MainFragment : Fragment() {
 
@@ -27,6 +29,10 @@ class MainFragment : Fragment() {
         )
 
         val binding: MainFragmentBinding? = DataBindingUtil.bind(view)
+        binding?.let {
+            it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
+            it.adapter = ToDoInfoAdapter(listOf())
+        }
 
         return view
     }
