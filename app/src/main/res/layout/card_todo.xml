@@ -40,7 +40,7 @@
                     android:id="@+id/due_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/default_due_date"
+                    android:text="@{todoInfo.dueData}"
                     android:textSize="@dimen/due_date_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title"
+                android:text="@{todoInfo.title}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/due_date_constraint"
                 app:layout_constraintTop_toTopOf="parent"/>
