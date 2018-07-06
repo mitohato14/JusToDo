@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
 
@@ -18,10 +20,14 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(
+        val view = inflater.inflate(
                 R.layout.main_fragment,
                 container,
                 false
         )
+
+        val binding: MainFragmentBinding? = DataBindingUtil.bind(view)
+
+        return view
     }
 }
