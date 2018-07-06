@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/margin_float_action_button"
-            android:background="@drawable/ic_add_white"
-            android:elevation="@dimen/elevation_float_action_button"/>
+            android:elevation="@dimen/elevation_float_action_button"
+            android:src="@drawable/ic_add_white"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
