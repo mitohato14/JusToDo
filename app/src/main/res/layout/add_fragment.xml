@@ -42,6 +42,7 @@
             android:layout_marginTop="10dp"
             android:layout_margin="@dimen/base_margin"
             android:autofillHints="@string/description_auto_fill_hints"
+            android:background="@color/transparent"
             android:hint="@string/description"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
