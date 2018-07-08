@@ -13,6 +13,10 @@
         <variable
             name="layoutManager"
             type="androidx.recyclerview.widget.RecyclerView.LayoutManager"/>
+
+        <variable
+            name="addOnClick"
+            type="android.view.View.OnClickListener"/>
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,6 +38,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/margin_float_action_button"
             android:elevation="@dimen/elevation_float_action_button"
+            android:onClick="@{addOnClick}"
             android:src="@drawable/ic_add_white"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
