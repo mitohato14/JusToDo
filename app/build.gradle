@@ -37,7 +37,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
     implementation 'androidx.cardview:cardview:1.0.0-beta01'
 //    material view
-    implementation 'com.google.android.material:material:1.0.0-alpha3'
+    implementation 'com.google.android.material:material:1.0.0-beta01'
 
 //    droidux
     implementation 'info.izumin.android:droidux:0.6.0'
