@@ -36,9 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/base_margin"
             android:autofillHints="@string/title_fill_hints"
-            android:text="@{title}"
             android:hint="@string/title"
             android:inputType="text"
+            android:text="@{title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -56,7 +56,6 @@
 
         <EditText
             android:id="@+id/todo_description"
-            android:text="@{description}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -65,20 +64,21 @@
             android:background="@color/transparent"
             android:hint="@string/description"
             android:inputType="textMultiLine"
+            android:text="@{description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/todo_title"
+            app:layout_constraintTop_toBottomOf="@id/datePicker"
             tools:targetApi="o"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{dateOnClick}"
-            android:text="@{dateString}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/todo_description"/>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="@{dateOnClick}"-->
+        <!--android:text="@{dateString}"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@id/todo_description"/>-->
 
         <Button
             android:layout_width="wrap_content"
