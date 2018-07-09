@@ -51,6 +51,9 @@ dependencies {
 //    redux-kt
     implementation 'com.github.rettyeng.redux-kt:redux-kt-core:0.0.2'
 
+//    LazyDatePicker
+    implementation 'com.mikhaellopez:lazydatepicker:1.0.0'
+
 //    test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
