@@ -44,6 +44,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="o"/>
 
+        <com.mikhaellopez.lazydatepicker.LazyDatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/todo_title"
+            app:ldp_hint_color="@color/colorAccent"
+            app:ldp_text_color="@color/colorPrimary"/>
+
         <EditText
             android:id="@+id/todo_description"
             android:text="@{description}"
