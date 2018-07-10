@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.action.ToDoAction
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.store.ToDoStore
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.Calendar
@@ -45,7 +47,7 @@ class AddFragment : Fragment() {
                         dueData = 0, // 残り期日を計算して
                         deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
                 )
-//                Storeにデータ追加
+                ToDoStore.dispatch(ToDoAction.OnCreateToDoAction(toDoInfo))
             }
             it.setDateOnClick {
 //                日付取得ダイアログを取る
