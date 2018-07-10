@@ -49,9 +49,6 @@ class AddFragment : Fragment() {
                 )
                 ToDoStore.dispatch(ToDoAction.OnCreateToDoAction(toDoInfo))
             }
-            it.setDateOnClick {
-//                日付取得ダイアログを取る
-            }
         }
         return view
     }
