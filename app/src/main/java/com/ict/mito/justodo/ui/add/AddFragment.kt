@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.action.ToDoAction
+import com.ict.mito.justodo.action.ToDoActionCreatorProducer
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.ToDoInfo
 import com.ict.mito.justodo.store.ToDoStore
@@ -47,7 +47,7 @@ class AddFragment : Fragment() {
                         dueData = 0, // 残り期日を計算して
                         deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
                 )
-                ToDoStore.dispatch(ToDoAction.OnCreateToDoAction(toDoInfo))
+                ToDoStore.dispatch(ToDoActionCreatorProducer.produceCreateToDoAction(toDoInfo))
             }
         }
         return view
