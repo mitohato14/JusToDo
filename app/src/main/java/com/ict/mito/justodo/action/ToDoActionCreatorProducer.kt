@@ -6,10 +6,14 @@ import com.ict.mito.justodo.model.ToDoInfo
 class ToDoActionCreatorProducer {
 
     companion object {
-        fun produceCreateToDoAction(toDoInfo: ToDoInfo): AsyncActionCreator = { _, _, callback ->
-            callback { _, _ ->
-                ToDoAction.OnCreateToDoAction(toDoInfo)
-            }
+//        fun produceCreateToDoAction(toDoInfo: ToDoInfo): AsyncActionCreator = { _, _, callback ->
+//            callback { _, _ ->
+//                ToDoAction.OnCreateToDoAction(toDoInfo)
+//            }
+//        }
+        
+        fun produceCreateToDoAction(toDoInfo: ToDoInfo) {//: ActionCreator<ToDoState> {//= { _, _ ->
+             ToDoAction.OnCreateToDoAction(toDoInfo)
         }
 
         fun produceEditToDoAction(taskId: String): AsyncActionCreator = { _, _, callback ->
