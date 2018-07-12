@@ -11,8 +11,8 @@ class ToDoActionCreatorProducer {
 //                ToDoAction.OnCreateToDoAction(toDoInfo)
 //            }
 //        }
-        
-        fun produceCreateToDoAction(toDoInfo: ToDoInfo) {//: ActionCreator<ToDoState> {//= { _, _ ->
+
+        fun produceCreateToDoAction(toDoInfo: ToDoInfo) { // : ActionCreator<ToDoState> {//= { _, _ ->
              ToDoAction.OnCreateToDoAction(toDoInfo)
         }
 
