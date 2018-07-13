@@ -2,21 +2,19 @@ package com.ict.mito.justodo.action
 
 import com.ict.mito.justodo.AsyncActionCreator
 import com.ict.mito.justodo.model.ToDoInfo
-import com.ict.mito.justodo.state.ToDoState
-import me.retty.reduxkt.ActionCreator
 
 class ToDoActionCreatorProducer {
 
     companion object {
-//        fun produceCreateToDoAction(toDoInfo: ToDoInfo): AsyncActionCreator = { _, _, callback ->
-//            callback { _, _ ->
-//                ToDoAction.OnCreateToDoAction(toDoInfo)
-//            }
-//        }
-
-        fun produceCreateToDoAction(toDoInfo: ToDoInfo) : ActionCreator<ToDoState> = { _, _ ->
-             ToDoAction.OnCreateToDoAction(toDoInfo)
+        fun produceCreateToDoAction(toDoInfo: ToDoInfo): AsyncActionCreator = { _, _, callback ->
+            callback { _, _ ->
+                ToDoAction.OnCreateToDoAction(toDoInfo)
+            }
         }
+
+//        fun produceCreateToDoAction(toDoInfo: ToDoInfo) : ActionCreator = { _, _ ->
+//             ToDoAction.OnCreateToDoAction(toDoInfo)
+//        }
 
         fun produceEditToDoAction(taskId: String): AsyncActionCreator = { _, _, callback ->
             callback { _, _ ->
