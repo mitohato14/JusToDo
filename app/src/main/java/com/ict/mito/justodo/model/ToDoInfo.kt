@@ -4,6 +4,6 @@ data class ToDoInfo(
     val id: String,
     val title: String,
     val description: String,
-    val dueData: Int,
+    val dueData: String,
     val deadline: Int
 )

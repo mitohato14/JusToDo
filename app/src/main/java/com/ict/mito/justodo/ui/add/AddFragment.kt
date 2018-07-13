@@ -58,7 +58,7 @@ class AddFragment : Fragment() {
                         id = "",
                         title = binding?.title ?: "",
                         description = binding?.description ?: "",
-                        dueData = 0, // 残り期日を計算して
+                        dueData = "0", // 残り期日を計算して
                         deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
                 )
                 ToDoStore.dispatch(ToDoActionCreatorProducer.produceCreateToDoAction(toDoInfo))
