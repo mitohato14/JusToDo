@@ -22,18 +22,18 @@ object ToDoStore {
         return ToDoState()
     }
 
-    fun getState() = store.state
+    fun getState() = this.store.state
 
-    fun subscribe(subscriber: Subscriber) = store.subscribe(subscriber)
-    fun unsubscribe(subscriber: Subscriber) = store.unsubscribe(subscriber)
+    fun subscribe(subscriber: Subscriber) = this.store.subscribe(subscriber)
+    fun unsubscribe(subscriber: Subscriber) = this.store.unsubscribe(subscriber)
 
-    fun dispatch(action: Action) = store.dispatch(action)
-    fun dispatch(actionCreator: ActionCreator) = store.dispatch(actionCreator)
-    fun dispatch(actionCreator: AsyncActionCreator) = store.dispatch(actionCreator)
+    fun dispatch(action: Action) = this.store.dispatch(action)
+    fun dispatch(actionCreator: ActionCreator) = this.store.dispatch(actionCreator)
+    fun dispatch(actionCreator: AsyncActionCreator) = this.store.dispatch(actionCreator)
     fun dispatch(
         actionCreator: AsyncActionCreator,
         callback: (ToDoState) -> Unit
-    ) = store.dispatch(
+    ) = this.store.dispatch(
             actionCreator,
             callback
     )
