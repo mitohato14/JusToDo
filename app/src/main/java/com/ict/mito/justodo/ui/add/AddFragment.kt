@@ -38,10 +38,10 @@ class AddFragment : Fragment() {
                 container,
                 false
         )
+        binding = DataBindingUtil.bind(view)
         setupView()
 
         ToDoStore.subscribe(subscriber)
-        binding = DataBindingUtil.bind(view)
 
         return view
     }
@@ -62,6 +62,8 @@ class AddFragment : Fragment() {
                         deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
                 )
                 ToDoStore.dispatch(ToDoActionCreatorProducer.produceCreateToDoAction(toDoInfo))
+                fragmentManager?.popBackStack()
+                activity?.finish()
             }
         }
     }
