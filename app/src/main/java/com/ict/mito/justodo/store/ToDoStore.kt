@@ -22,7 +22,7 @@ object ToDoStore {
         return ToDoState()
     }
 
-    fun getState() = this.store.state
+    fun getState(): ToDoState = this.store.state
 
     fun subscribe(subscriber: Subscriber) = this.store.subscribe(subscriber)
     fun unsubscribe(subscriber: Subscriber) = this.store.unsubscribe(subscriber)
