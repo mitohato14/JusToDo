@@ -5,11 +5,11 @@ import me.retty.reduxkt.Action
 
 interface ToDoAction : Action {
 
-    class OnCreateToDoAction(val toDoInfo: ToDoInfo) : ToDoAction
+    data class OnCreateToDoAction(val toDoInfo: ToDoInfo) : ToDoAction
 
-    class OnEditToDoAction(val taskId: String) : ToDoAction
+    data class OnEditToDoAction(val taskId: String) : ToDoAction
 
-    class OnUpdateToDoAction(
+    data class OnUpdateToDoAction(
         val taskId: String,
         val index: Int,
         val toDoInfo: ToDoInfo
