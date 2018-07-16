@@ -2,6 +2,7 @@ package com.ict.mito.justodo.reducer
 
 import com.ict.mito.justodo.action.CreateToDoAction
 import com.ict.mito.justodo.action.DeleteToDoAction
+import com.ict.mito.justodo.action.UpdateToDoAction
 import com.ict.mito.justodo.state.ToDoState
 import info.izumin.android.droidux.annotation.Dispatchable
 import info.izumin.android.droidux.annotation.Reducer
@@ -17,6 +18,12 @@ class ToDoReducer {
         state: ToDoState,
         action: CreateToDoAction
     ): ToDoState = ToDoState(state.toDoInfoList + action.toDoInfo)
+
+    @Dispatchable(UpdateToDoAction::class)
+    fun update(
+        state: ToDoState,
+        action: UpdateToDoAction
+    ): ToDoState = ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + action.toDoInfo)
 
     @Dispatchable(DeleteToDoAction::class)
     fun delete(
