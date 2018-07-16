@@ -50,7 +50,8 @@ class AddFragment : Fragment() {
                         title = binding?.title ?: "",
                         description = binding?.description ?: "",
                         dueData = "0", // 残り期日を計算して
-                        deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
+                        deadline = 0, // binding.dateStringをフォーマットに合わせて変換して
+                        completed = false
                 )
                 fragmentManager?.popBackStack()
                 activity?.finish()
