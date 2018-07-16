@@ -40,6 +40,8 @@ class ToDoReducer {
     ) : ToDoState {
         val completedToDoInfo = state.getToDoById(action.taskId).copy(completed = true)
         return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + completedToDoInfo)
+        val toDoInfo = state.getToDoById(action.taskId).copy(completed = true)
+        return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + toDoInfo)
     }
 
     @Dispatchable(UncompletedToDoAction::class)
@@ -55,5 +57,7 @@ class ToDoReducer {
                         state.getToDoById(action.taskId) +
                         uncompletedToDoInfo
         )
+        val toDoInfo = state.getToDoById(action.taskId).copy(completed = false)
+        return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + toDoInfo)
     }
 }
