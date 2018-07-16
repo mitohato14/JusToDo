@@ -6,10 +6,10 @@ import info.izumin.android.droidux.Action
 /**
  * Created by mito on 2018/07/16.
  */
-class CreateToDoInfo(toDoInfo: ToDoInfo) : Action
-class EditToDoInfo(taskId: String) : Action
+class CreateToDoInfo(val toDoInfo: ToDoInfo) : Action
+class EditToDoInfo(val taskId: String) : Action
 class UpdateToDoInfo(
-    taskId: String,
-    toDoInfo: ToDoInfo
+    val taskId: String,
+    val toDoInfo: ToDoInfo
 ) : Action
-class DeleteToDoInfo(taskId: String) : Action
+class DeleteToDoInfo(val taskId: String) : Action
