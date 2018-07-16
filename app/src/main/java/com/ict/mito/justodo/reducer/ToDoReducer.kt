@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.reducer
 
+import com.ict.mito.justodo.action.CompletedToDoAction
 import com.ict.mito.justodo.action.CreateToDoAction
 import com.ict.mito.justodo.action.DeleteToDoAction
 import com.ict.mito.justodo.action.UpdateToDoAction
@@ -30,4 +31,13 @@ class ToDoReducer {
         state: ToDoState,
         action: DeleteToDoAction
     ): ToDoState = ToDoState(state.toDoInfoList - state.getToDoById(action.taskId))
+
+    @Dispatchable(CompletedToDoAction::class)
+    fun completed(
+        state: ToDoState,
+        action: CompletedToDoAction
+    ) : ToDoState {
+        val completedToDoInfo = state.getToDoById(action.taskId).copy(completed = true)
+        return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + completedToDoInfo)
+    }
 }
