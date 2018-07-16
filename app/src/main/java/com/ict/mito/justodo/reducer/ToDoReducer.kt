@@ -16,8 +16,8 @@ class ToDoReducer {
     @Dispatchable(CreateToDoInfo::class)
     fun create(
         state: ToDoState,
-        toDoInfo: ToDoInfo
-    ): ToDoState = ToDoState(state.toDoInfoList + toDoInfo)
+        action: CreateToDoInfo
+    ): ToDoState = ToDoState(state.toDoInfoList + action.toDoInfo)
 
     @Dispatchable(DeleteToDoInfo::class)
     fun delete(
