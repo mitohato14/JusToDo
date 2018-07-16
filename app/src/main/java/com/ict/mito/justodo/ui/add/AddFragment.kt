@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.Subscriber
-import com.ict.mito.justodo.action.ToDoActionCreatorProducer
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.ToDoInfo
-import com.ict.mito.justodo.store.ToDoStore
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -23,10 +20,6 @@ class AddFragment : Fragment() {
     }
 
     private var binding: AddFragmentBinding? = null
-
-    private val subscriber: Subscriber = { _, _ ->
-        setupView()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +33,6 @@ class AddFragment : Fragment() {
         )
         binding = DataBindingUtil.bind(view)
         setupView()
-
-        ToDoStore.subscribe(subscriber)
 
         return view
     }
@@ -61,15 +52,9 @@ class AddFragment : Fragment() {
                         dueData = "0", // 残り期日を計算して
                         deadline = 0 // binding.dateStringをフォーマットに合わせて変換して
                 )
-                ToDoStore.dispatch(ToDoActionCreatorProducer.produceCreateToDoAction(toDoInfo))
                 fragmentManager?.popBackStack()
                 activity?.finish()
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        ToDoStore.unsubscribe(subscriber)
     }
 }
