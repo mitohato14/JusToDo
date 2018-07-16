@@ -37,9 +37,7 @@ class ToDoReducer {
     fun completed(
         state: ToDoState,
         action: CompletedToDoAction
-    ) : ToDoState {
-        val completedToDoInfo = state.getToDoById(action.taskId).copy(completed = true)
-        return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + completedToDoInfo)
+    ): ToDoState {
         val toDoInfo = state.getToDoById(action.taskId).copy(completed = true)
         return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + toDoInfo)
     }
@@ -48,15 +46,7 @@ class ToDoReducer {
     fun uncompleted(
         state: ToDoState,
         action: CompletedToDoAction
-    ) : ToDoState {
-        val completedToDoInfo = state.getToDoById(action.taskId).copy(completed = false)
-        return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + completedToDoInfo)
-        val uncompletedToDoInfo = state.getToDoById(action.taskId).copy(completed = false)
-        return ToDoState(
-                state.toDoInfoList -
-                        state.getToDoById(action.taskId) +
-                        uncompletedToDoInfo
-        )
+    ): ToDoState {
         val toDoInfo = state.getToDoById(action.taskId).copy(completed = false)
         return ToDoState(state.toDoInfoList - state.getToDoById(action.taskId) + toDoInfo)
     }

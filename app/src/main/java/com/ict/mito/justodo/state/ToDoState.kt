@@ -12,5 +12,4 @@ data class ToDoState(val toDoInfoList: List<ToDoInfo> = emptyList()) {
             .fromIterable(toDoInfoList)
             .filter { id == it.id }
             .blockingFirst()
-
 }
