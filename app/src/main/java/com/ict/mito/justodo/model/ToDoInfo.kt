@@ -5,5 +5,6 @@ data class ToDoInfo(
     val title: String,
     val description: String,
     val dueData: String,
-    val deadline: Int
+    val deadline: Int,
+    val completed: Boolean
 )

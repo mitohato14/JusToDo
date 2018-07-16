@@ -13,3 +13,4 @@ class UpdateToDoInfo(
     val toDoInfo: ToDoInfo
 ) : Action
 class DeleteToDoInfo(val taskId: String) : Action
+class CompleteToDoInfo(val taskId: String) : Action
