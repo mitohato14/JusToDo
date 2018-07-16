@@ -9,7 +9,7 @@ import info.izumin.android.droidux.Action
 class CreateToDoInfo(toDoInfo: ToDoInfo) : Action
 class EditToDoInfo(taskId: String) : Action
 class UpdateToDoInfo(
-        taskId: String,
-        toDoInfo: ToDoInfo
+    taskId: String,
+    toDoInfo: ToDoInfo
 ) : Action
 class DeleteToDoInfo(taskId: String) : Action

@@ -13,7 +13,7 @@ class ToDoActionCreatorProducer {
 //            }
 //        }
 //
-        fun produceCreateToDoAction(toDoInfo: ToDoInfo) : ActionCreator = { _, _ ->
+        fun produceCreateToDoAction(toDoInfo: ToDoInfo): ActionCreator = { _, _ ->
              ToDoAction.OnCreateToDoAction(toDoInfo)
         }
 
