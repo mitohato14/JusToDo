@@ -14,3 +14,4 @@ class UpdateToDoAction(
 ) : Action
 class DeleteToDoAction(val taskId: String) : Action
 class CompletedToDoAction(val taskId: String) : Action
+class UncompletedToDoAction(val taskId: String) : Action
