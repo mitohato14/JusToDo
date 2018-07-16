@@ -7,7 +7,7 @@ import io.reactivex.Flowable
 /**
  * Created by mito on 2018/07/16.
  */
-interface ToDoStore : BaseStore{
+interface ToDoStore : BaseStore {
     fun getState(): ToDoState
     fun observeState(): Flowable<ToDoState>
 }
