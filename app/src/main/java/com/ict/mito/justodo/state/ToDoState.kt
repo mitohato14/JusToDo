@@ -8,7 +8,7 @@ import io.reactivex.Observable
  */
 data class ToDoState(val toDoInfoList: List<ToDoInfo> = emptyList()) {
 
-    fun getToDoById(id: String) = Observable
+    fun getToDoById(id: String): ToDoInfo = Observable
             .fromIterable(toDoInfoList)
             .filter { id == it.id }
             .blockingFirst()
