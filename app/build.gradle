@@ -48,9 +48,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     annotationProcessor 'info.izumin.android:droidux-processor:0.6.0'
 
-//    redux-kt
-    implementation 'com.github.rettyeng.redux-kt:redux-kt-core:0.0.2'
-
 //    LazyDatePicker
     implementation 'com.mikhaellopez:lazydatepicker:1.0.0'
 
