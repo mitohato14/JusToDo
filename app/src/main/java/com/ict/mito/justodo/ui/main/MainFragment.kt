@@ -9,9 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
-import com.ict.mito.justodo.view.ToDoInfoAdapter
+import com.ict.mito.justodo.store.ToDoStore
+import com.ict.mito.justodo.ui.add.AddActivity
+import org.jetbrains.anko.startActivity
+import javax.inject.Inject
 
 class MainFragment : Fragment() {
+
+    @Inject
+    lateinit var store: ToDoStore
 
     companion object {
         fun newInstance() = MainFragment()
@@ -31,7 +37,9 @@ class MainFragment : Fragment() {
         val binding: MainFragmentBinding? = DataBindingUtil.bind(view)
         binding?.let {
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
-            it.adapter = ToDoInfoAdapter(listOf())
+            it.setAddOnClick {
+                context?.startActivity<AddActivity>("store" to store)
+            }
         }
 
         return view

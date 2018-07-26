@@ -4,4 +4,8 @@
     <string name="default_due_date">0</string>
     <string name="day">日</string>
     <string name="title">タイトル</string>
+    <string name="title_fill_hints">ToDo title</string>
+    <string name="description_auto_fill_hints">ToDo description</string>
+    <string name="description">説明</string>
+    <string name="create_todo_button">追加</string>
 </resources>

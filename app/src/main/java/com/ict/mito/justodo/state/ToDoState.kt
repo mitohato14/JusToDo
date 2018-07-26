@@ -1,6 +1,15 @@
 package com.ict.mito.justodo.state
 
 import com.ict.mito.justodo.model.ToDoInfo
-import me.retty.reduxkt.StateType
+import io.reactivex.Observable
 
-data class ToDoState constructor(val todoInfoList: List<ToDoInfo> = emptyList()) : StateType
+/**
+ * Created by mito on 2018/07/14.
+ */
+data class ToDoState(val toDoInfoList: List<ToDoInfo> = emptyList()) {
+
+    fun getToDoById(id: String): ToDoInfo = Observable
+            .fromIterable(toDoInfoList)
+            .filter { id == it.id }
+            .blockingFirst()
+}
