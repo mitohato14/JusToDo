@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.module
+package com.ict.mito.justodo.store
 
 import com.ict.mito.justodo.reducer.ToDoReducer
 import com.ict.mito.justodo.state.ToDoState
