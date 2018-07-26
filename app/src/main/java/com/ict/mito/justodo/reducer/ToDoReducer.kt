@@ -5,6 +5,7 @@ import com.ict.mito.justodo.action.CreateToDoAction
 import com.ict.mito.justodo.action.DeleteToDoAction
 import com.ict.mito.justodo.action.UncompletedToDoAction
 import com.ict.mito.justodo.action.UpdateToDoAction
+import com.ict.mito.justodo.model.ToDoInfo
 import com.ict.mito.justodo.state.ToDoState
 import info.izumin.android.droidux.annotation.Dispatchable
 import info.izumin.android.droidux.annotation.Reducer
@@ -12,7 +13,7 @@ import info.izumin.android.droidux.annotation.Reducer
 /**
  * Created by mito on 2018/07/16.
  */
-@Reducer(ToDoState::class)
+@Reducer(ToDoInfo::class)
 class ToDoReducer {
 
     @Dispatchable(CreateToDoAction::class)
