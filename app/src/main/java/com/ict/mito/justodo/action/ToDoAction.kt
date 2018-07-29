@@ -9,8 +9,8 @@ import com.ict.mito.justodo.model.ToDoInfo
 sealed class ToDoAction : ReduxAction {
     class AddToDo(val toDoInfo: ToDoInfo) : ToDoAction()
     class UpdateToDo(
-            val taskId: String,
-            val toDoInfo: ToDoInfo
+        val taskId: String,
+        val toDoInfo: ToDoInfo
     ) : ToDoAction()
     class DeleteToDo(val taskId: String) : ToDoAction()
     class CompleteToDo(val taskId: String) : ToDoAction()
