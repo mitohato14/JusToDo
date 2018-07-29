@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.ToDoStore
 import com.ict.mito.justodo.databinding.MainFragmentBinding
-import com.ict.mito.justodo.store.ToDoStore
 import com.ict.mito.justodo.ui.add.AddActivity
 import org.jetbrains.anko.startActivity
 import javax.inject.Inject
