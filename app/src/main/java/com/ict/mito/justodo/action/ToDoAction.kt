@@ -7,7 +7,7 @@ import com.ict.mito.justodo.model.ToDoInfo
  * Created by mito on 2018/07/14.
  */
 sealed class ToDoAction : ReduxAction {
-    class InitToDO : ToDoAction()
+    class InitToDo : ToDoAction()
     class AddToDo(val toDoInfo: ToDoInfo) : ToDoAction()
     class UpdateToDo(
         val taskId: String,
