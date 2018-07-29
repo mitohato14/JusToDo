@@ -9,7 +9,7 @@ import com.ict.mito.justodo.state.ToDoState
 /**
  * Created by mito on 2018/07/30.
  */
-class ToDoApplication : Application() {
+class App : Application() {
 
     companion object {
         val store: ToDoStore = SubscribableStore(
