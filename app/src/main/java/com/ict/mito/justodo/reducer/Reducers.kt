@@ -10,6 +10,8 @@ fun rootReducers(
     state: ToDoState,
     action: ToDoAction
 ): ToDoState = when (action) {
+    is ToDoAction.InitToDO -> ToDoState.INITIAL
+
     is ToDoAction.AddToDo -> addToDoReducer(
             state,
             action
