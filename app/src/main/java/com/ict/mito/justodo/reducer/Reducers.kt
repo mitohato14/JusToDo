@@ -6,7 +6,7 @@ import com.ict.mito.justodo.state.ToDoState
 /**
  * Created by mito on 2018/07/29.
  */
-fun rootReducers(
+fun rootReducer(
     state: ToDoState,
     action: ToDoAction
 ): ToDoState = when (action) {
