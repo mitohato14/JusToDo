@@ -1,12 +1,13 @@
 package com.ict.mito.justodo.state
 
+import com.github.rozag.redux.core.ReduxState
 import com.ict.mito.justodo.model.ToDoInfo
 import io.reactivex.Observable
 
 /**
  * Created by mito on 2018/07/14.
  */
-data class ToDoState(val toDoInfoList: List<ToDoInfo> = emptyList()) {
+data class ToDoState(val toDoInfoList: List<ToDoInfo> = emptyList()) : ReduxState {
 
     fun getToDoById(id: String): ToDoInfo = Observable
             .fromIterable(toDoInfoList)
