@@ -8,15 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.ToDoStore
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 import com.ict.mito.justodo.ui.add.AddActivity
-import javax.inject.Inject
 
 class MainFragment : Fragment() {
-
-    @Inject
-    lateinit var store: ToDoStore
 
     companion object {
         fun newInstance() = MainFragment()
