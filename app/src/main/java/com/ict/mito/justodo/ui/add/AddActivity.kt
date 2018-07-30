@@ -58,7 +58,7 @@ class AddActivity : AppCompatActivity(), ReduxSubscribableStore.Subscriber<ToDoS
                     context,
                     AddActivity::class.java
             )
-          context?.startActivity(intent)
+            context?.startActivity(intent)
         }
     }
 }
