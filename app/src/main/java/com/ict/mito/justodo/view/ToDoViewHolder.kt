@@ -25,5 +25,6 @@ class ToDoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     fun setToDoInfo(toDoInfo: ToDoInfo) {
         binding?.todoInfo = toDoInfo
+        binding?.executePendingBindings()
     }
 }
