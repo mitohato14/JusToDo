@@ -11,7 +11,6 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.ToDoStore
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 import com.ict.mito.justodo.ui.add.AddActivity
-import org.jetbrains.anko.startActivity
 import javax.inject.Inject
 
 class MainFragment : Fragment() {
@@ -38,7 +37,7 @@ class MainFragment : Fragment() {
         binding?.let {
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
             it.setAddOnClick {
-                context?.startActivity<AddActivity>("store" to store)
+                AddActivity.start(this@MainFragment.context)
             }
         }
 

@@ -1,5 +1,7 @@
 package com.ict.mito.justodo.ui.add
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.rozag.redux.base.ReduxSubscribableStore
@@ -48,5 +50,15 @@ class AddActivity : AppCompatActivity(), ReduxSubscribableStore.Subscriber<ToDoS
     override fun onStop() {
         super.onStop()
         subscription.cancel()
+    }
+
+    companion object {
+        fun start(context: Context?) {
+            val intent = Intent(
+                    context,
+                    AddActivity::class.java
+            )
+          context?.startActivity(intent)
+        }
     }
 }
