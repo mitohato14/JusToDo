@@ -15,7 +15,6 @@ import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.ToDoInfo
 import com.ict.mito.justodo.state.ToDoState
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Locale
 
 class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
@@ -54,14 +53,14 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
                     "MM/dd(E)",
                     Locale.JAPAN
             )
-            it.dateString = stringFormat.format(Calendar.getInstance().time)
+//            it.todoInfo?.deadline = stringFormat.format(Calendar.getInstance().time)
             it.setAddOnClick {
                 val toDoInfo = ToDoInfo(
                         id = "",
-                        title = binding?.title ?: "",
-                        description = binding?.description ?: "",
+                        title = binding?.todoInfo?.title ?: "",
+                        description = binding?.todoInfo?.description ?: "",
                         dueData = "0", // 残り期日を計算して
-                        deadline = stringFormat.format(binding?.dateString),
+                        deadline = stringFormat.format(binding?.todoInfo?.deadline),
                         completed = false
                 )
                 store.dispatch(ToDoAction.AddToDo(toDoInfo))

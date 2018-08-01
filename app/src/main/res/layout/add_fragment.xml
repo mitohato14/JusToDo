@@ -6,16 +6,8 @@
     <data>
 
         <variable
-            name="title"
-            type="String"/>
-
-        <variable
-            name="description"
-            type="String"/>
-
-        <variable
-            name="dateString"
-            type="String"/>
+            name="todoInfo"
+            type="com.ict.mito.justodo.model.ToDoInfo"/>
 
         <variable
             name="addOnClick"
@@ -35,7 +27,7 @@
             android:autofillHints="@string/title_fill_hints"
             android:hint="@string/title"
             android:inputType="text"
-            android:text="@{title}"
+            android:text="@{todoInfo.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -60,7 +52,7 @@
             android:background="@color/transparent"
             android:hint="@string/description"
             android:inputType="textMultiLine"
-            android:text="@{description}"
+            android:text="@{todoInfo.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/datePicker"
