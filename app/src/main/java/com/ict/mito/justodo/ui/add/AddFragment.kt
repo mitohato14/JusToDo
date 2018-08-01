@@ -14,10 +14,10 @@ import com.ict.mito.justodo.action.ToDoAction
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.ToDoInfo
 import com.ict.mito.justodo.state.ToDoState
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
+    private var todoInfo: ToDoInfo = ToDoInfo()
+
     override fun onNewState(state: ToDoState) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -49,21 +49,9 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
 
     private fun setupView() {
         binding?.let {
-            val stringFormat = SimpleDateFormat(
-                    "MM/dd(E)",
-                    Locale.JAPAN
-            )
-//            it.todoInfo?.deadline = stringFormat.format(Calendar.getInstance().time)
+            it.todoInfo = todoInfo
             it.setAddOnClick {
-                val toDoInfo = ToDoInfo(
-                        id = "",
-                        title = binding?.todoInfo?.title ?: "",
-                        description = binding?.todoInfo?.description ?: "",
-                        dueData = "0", // 残り期日を計算して
-                        deadline = stringFormat.format(binding?.todoInfo?.deadline),
-                        completed = false
-                )
-                store.dispatch(ToDoAction.AddToDo(toDoInfo))
+                store.dispatch(ToDoAction.AddToDo(todoInfo))
                 fragmentManager?.popBackStack()
                 activity?.finish()
             }
