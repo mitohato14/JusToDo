@@ -61,7 +61,7 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
                         title = binding?.title ?: "",
                         description = binding?.description ?: "",
                         dueData = "0", // 残り期日を計算して
-                        deadline = 0, // binding.dateStringをフォーマットに合わせて変換して
+                        deadline = stringFormat.format(binding?.dateString),
                         completed = false
                 )
                 store.dispatch(ToDoAction.AddToDo(toDoInfo))
