@@ -8,7 +8,9 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.ToDoStore
 import com.ict.mito.justodo.state.ToDoState
 
-class MainActivity : AppCompatActivity(), ReduxSubscribableStore.Subscriber<ToDoState> {
+class MainActivity :
+        AppCompatActivity(),
+        ReduxSubscribableStore.Subscriber<ToDoState> {
     private val store: ToDoStore = App.store
     private lateinit var subscription: ReduxSubscribableStore.Subscription
 
