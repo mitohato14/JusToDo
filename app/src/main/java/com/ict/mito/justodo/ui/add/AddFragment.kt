@@ -34,16 +34,16 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val view = inflater.inflate(
+    ): View? {
+        binding = DataBindingUtil.inflate(
+                inflater,
                 R.layout.add_fragment,
                 container,
                 false
         )
-        binding = DataBindingUtil.bind(view)
         setupView()
 
-        return view
+        return binding?.root
     }
 
     private fun setupView() {
