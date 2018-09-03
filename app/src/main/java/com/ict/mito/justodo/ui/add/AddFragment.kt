@@ -19,7 +19,6 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
     private var todoInfo: ToDoInfo = ToDoInfo()
 
     override fun onNewState(state: ToDoState) {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
     private val store: ToDoStore = App.store

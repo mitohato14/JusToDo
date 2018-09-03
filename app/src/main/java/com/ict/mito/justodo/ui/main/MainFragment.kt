@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
         )
 
         val binding: MainFragmentBinding? = DataBindingUtil.bind(view)
-        binding?.let {
+        binding?.let { it ->
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
             it.setAddOnClick {
                 AddActivity.start(this@MainFragment.context)
