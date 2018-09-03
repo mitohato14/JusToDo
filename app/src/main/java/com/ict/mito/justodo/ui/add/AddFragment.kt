@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.github.rozag.redux.base.ReduxSubscribableStore
 import com.ict.mito.justodo.App
 import com.ict.mito.justodo.R
@@ -29,6 +30,7 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
     }
 
     private var binding: AddFragmentBinding? = null
+    private lateinit var viewModel: AddViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,6 +57,11 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
                 activity?.finish()
             }
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(AddViewModel::class.java)
     }
 
     override fun onStart() {
