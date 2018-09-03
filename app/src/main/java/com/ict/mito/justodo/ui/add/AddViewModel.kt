@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel
 /**
  * Created by mito on 2018/09/04.
  */
-class AddViewModel : ViewModel() {
-}
+class AddViewModel : ViewModel()
