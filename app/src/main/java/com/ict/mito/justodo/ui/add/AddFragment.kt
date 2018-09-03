@@ -47,7 +47,7 @@ class AddFragment : Fragment(), ReduxSubscribableStore.Subscriber<ToDoState> {
     }
 
     private fun setupView() {
-        binding?.let {
+        binding?.let { it ->
             it.todoInfo = todoInfo
             it.setAddOnClick {
                 store.dispatch(ToDoAction.AddToDo(todoInfo))
