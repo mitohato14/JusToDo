@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 
@@ -27,6 +28,9 @@ class MainFragment : Fragment() {
                         false
                 )
 
+        binding?.setAddOnClick {
+            it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
+        }
         return binding?.root
     }
 
