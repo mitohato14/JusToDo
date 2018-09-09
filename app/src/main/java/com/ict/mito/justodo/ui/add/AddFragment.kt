@@ -38,7 +38,6 @@ class AddFragment : Fragment() {
             it.todoInfo = todoInfo
             it.setAddOnClick {
                 fragmentManager?.popBackStack()
-                activity?.finish()
             }
         }
     }
