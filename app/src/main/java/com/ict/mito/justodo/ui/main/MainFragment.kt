@@ -12,10 +12,6 @@ import com.ict.mito.justodo.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(

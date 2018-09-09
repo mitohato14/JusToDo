@@ -14,10 +14,6 @@ import com.ict.mito.justodo.model.ToDoInfo
 class AddFragment : Fragment() {
     private var todoInfo: ToDoInfo = ToDoInfo()
 
-    companion object {
-        fun newInstance() = AddFragment()
-    }
-
     private var binding: AddFragmentBinding? = null
     private lateinit var viewModel: AddViewModel
 
