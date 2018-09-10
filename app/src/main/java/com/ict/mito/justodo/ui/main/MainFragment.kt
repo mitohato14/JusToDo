@@ -11,6 +11,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
+import com.ict.mito.justodo.model.GlobalValue
+import com.ict.mito.justodo.view.ToDoInfoAdapter
 
 class MainFragment : Fragment() {
 
@@ -31,7 +33,7 @@ class MainFragment : Fragment() {
     
         binding?.let { it ->
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
-//            it.adapter = ToDoInfoAdapter(todoInfoArrayList)
+            it.adapter = ToDoInfoAdapter(GlobalValue.toDoInfoList)
             it.setAddOnClick {
                 it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
             }
