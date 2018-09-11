@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.model.ToDoInfo
 
-class ToDoInfoAdapter(private val todoInfoList: List<ToDoInfo>)
+class ToDoInfoAdapter(private val todoInfoList: ArrayList<ToDoInfo>)
     : RecyclerView.Adapter<ToDoViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
