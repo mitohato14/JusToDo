@@ -38,7 +38,7 @@ class AddFragment : Fragment() {
         binding?.let { it ->
             it.todoInfo = todoInfo
             it.setAddOnClick {
-                GlobalValue.toDoInfoList.add(todoInfo)
+                GlobalValue.toDoInfoList.add(viewModel.todoInfo?.value ?: ToDoInfo())
                 fragmentManager?.popBackStack()
             }
         }
