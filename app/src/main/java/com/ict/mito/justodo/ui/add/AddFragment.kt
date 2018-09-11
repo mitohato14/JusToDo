@@ -13,8 +13,6 @@ import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
 
 class AddFragment : Fragment() {
-    private var todoInfo: ToDoInfo = ToDoInfo()
-
     private var binding: AddFragmentBinding? = null
     private lateinit var viewModel: AddViewModel
 
@@ -36,7 +34,7 @@ class AddFragment : Fragment() {
 
     private fun setupView() {
         binding?.let { it ->
-            it.todoInfo = todoInfo
+            it.viewmodel = viewModel
             it.setAddOnClick {
                 GlobalValue.toDoInfoList.add(viewModel.todoInfo?.value ?: ToDoInfo())
                 fragmentManager?.popBackStack()
