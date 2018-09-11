@@ -23,6 +23,8 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        
         val binding: MainFragmentBinding? =
                 DataBindingUtil.inflate(
                         inflater,
@@ -39,10 +41,5 @@ class MainFragment : Fragment() {
             }
         }
         return binding?.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
     }
 }
