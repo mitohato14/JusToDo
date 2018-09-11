@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
+import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
 
 class AddFragment : Fragment() {
@@ -37,6 +38,7 @@ class AddFragment : Fragment() {
         binding?.let { it ->
             it.todoInfo = todoInfo
             it.setAddOnClick {
+                GlobalValue.toDoInfoList.add(todoInfo)
                 fragmentManager?.popBackStack()
             }
         }
