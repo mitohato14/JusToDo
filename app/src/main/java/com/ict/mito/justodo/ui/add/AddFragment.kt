@@ -21,6 +21,8 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProviders.of(this).get(AddViewModel::class.java)
+        
         binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.add_fragment,
@@ -40,10 +42,5 @@ class AddFragment : Fragment() {
                 fragmentManager?.popBackStack()
             }
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AddViewModel::class.java)
     }
 }
