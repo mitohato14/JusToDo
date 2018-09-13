@@ -38,7 +38,7 @@ class AddFragment : Fragment() {
         binding?.let { it ->
             it.viewmodel = viewModel
             it.setAddOnClick {
-                GlobalValue.toDoInfoList.add(viewModel.todoInfo?.value ?: ToDoInfo())
+                GlobalValue.toDoInfoList.add(viewModel.todoInfoLiveData?.value ?: ToDoInfo())
                 fragmentManager?.popBackStack()
             }
             it.setLifecycleOwner(this)
