@@ -39,6 +39,7 @@ class MainFragment : Fragment() {
             it.setAddOnClick {
                 it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
             }
+            it.setLifecycleOwner(this)
         }
         return binding?.root
     }

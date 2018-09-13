@@ -41,6 +41,7 @@ class AddFragment : Fragment() {
                 GlobalValue.toDoInfoList.add(viewModel.todoInfo?.value ?: ToDoInfo())
                 fragmentManager?.popBackStack()
             }
+            it.setLifecycleOwner(this)
         }
     }
 }
