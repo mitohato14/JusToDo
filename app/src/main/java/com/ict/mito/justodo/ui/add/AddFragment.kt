@@ -37,8 +37,14 @@ class AddFragment : Fragment() {
     private fun setupView() {
         binding?.let { it ->
             it.viewmodel = viewModel
-            it.setAddOnClick {
-                GlobalValue.toDoInfoList.add(viewModel.todoInfoLiveData?.value ?: ToDoInfo())
+            it.setAddOnClick { _ ->
+                val toDoInfo = ToDoInfo(
+                        id = GlobalValue.toDoInfoList.size.toString(),
+                        title = it.todoTitle.text.toString(),
+                        description = it.todoDescription.text.toString(),
+                        completed = false
+                )
+                GlobalValue.toDoInfoList.add(toDoInfo)
                 fragmentManager?.popBackStack()
             }
             it.setLifecycleOwner(this)
