@@ -24,7 +24,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        
+
         val binding: MainFragmentBinding? =
                 DataBindingUtil.inflate(
                         inflater,
@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
                         container,
                         false
                 )
-    
+
         binding?.let { it ->
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
             it.adapter = ToDoInfoAdapter(GlobalValue.toDoInfoList)

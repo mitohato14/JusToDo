@@ -22,7 +22,7 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProviders.of(this).get(AddViewModel::class.java)
-        
+
         binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.add_fragment,

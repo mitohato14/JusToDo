@@ -15,26 +15,22 @@ class AddViewModel : ViewModel() {
             }
             return field
         }
-    
+
     fun onTitleChanged(
-            c: CharSequence,
-            start: Int,
-            before: Int,
-            count: Int
+        c: CharSequence,
+        start: Int,
+        before: Int,
+        count: Int
     ) {
-        
         todoInfoLiveData?.value = todoInfoLiveData?.value?.copy(title = c.toString())
-        
     }
-    
+
     fun onDescriptionChanged(
-            c: CharSequence,
-            start: Int,
-            before: Int,
-            count: Int
+        c: CharSequence,
+        start: Int,
+        before: Int,
+        count: Int
     ) {
-        
         todoInfoLiveData?.value = todoInfoLiveData?.value?.copy(description = c.toString())
-        
     }
 }
