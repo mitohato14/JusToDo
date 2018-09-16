@@ -52,6 +52,7 @@
             android:autofillHints="@string/description_auto_fill_hints"
             android:background="@color/transparent"
             android:hint="@string/description"
+            android:onTextChanged="@{viewmodel::onDescriptionChanged}"
             android:inputType="textMultiLine"
             android:text="@{viewmodel.todoInfoLiveData.description}"
             app:layout_constraintEnd_toEndOf="parent"
