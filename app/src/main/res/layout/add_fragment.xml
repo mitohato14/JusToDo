@@ -26,6 +26,7 @@
             android:layout_margin="@dimen/base_margin"
             android:autofillHints="@string/title_fill_hints"
             android:hint="@string/title"
+            android:onTextChanged="@{viewmodel::onTitleChanged}"
             android:inputType="text"
             android:text="@{viewmodel.todoInfoLiveData.title}"
             app:layout_constraintEnd_toEndOf="parent"
