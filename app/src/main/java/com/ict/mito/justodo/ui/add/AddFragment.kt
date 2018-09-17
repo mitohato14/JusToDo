@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -39,18 +40,30 @@ class AddFragment : Fragment() {
         binding?.let { it ->
             it.viewmodel = viewModel
             it.setAddOnClick { _ ->
-                val toDoInfo = ToDoInfo(
-                        id = GlobalValue.toDoInfoList.size.toString(),
-                        title = it.todoTitle.text.toString(),
-                        description = it.todoDescription.text.toString(),
-                        dueData = (it.datePicker.date.time - Date().time).toString(),
-                        deadline = it.datePicker.date.time.toString(),
-                        completed = false
-                )
-                GlobalValue.toDoInfoList.add(toDoInfo)
-                fragmentManager?.popBackStack()
+                setAddClick(it)
             }
             it.setLifecycleOwner(this)
         }
+    }
+
+    private fun setAddClick(it: AddFragmentBinding) {
+        if (it.datePicker.date == null) {
+            Toast.makeText(
+                    context,
+                    "Please write date",
+                    Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+        val toDoInfo = ToDoInfo(
+                id = GlobalValue.toDoInfoList.size.toString(),
+                title = it.todoTitle.text.toString(),
+                description = it.todoDescription.text.toString(),
+                dueData = (it.datePicker.date.time - Date().time).toString(),
+                deadline = it.datePicker.date.time.toString(),
+                completed = false
+        )
+        GlobalValue.toDoInfoList.add(toDoInfo)
+        fragmentManager?.popBackStack()
     }
 }
