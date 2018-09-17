@@ -22,7 +22,7 @@ class AddViewModel : ViewModel() {
         before: Int,
         count: Int
     ) {
-        todoInfoLiveData?.value = todoInfoLiveData?.value?.copy(title = c.toString())
+        todoInfoLiveData?.value?.title = c.toString()
     }
 
     fun onDescriptionChanged(
@@ -31,6 +31,6 @@ class AddViewModel : ViewModel() {
         before: Int,
         count: Int
     ) {
-        todoInfoLiveData?.value = todoInfoLiveData?.value?.copy(description = c.toString())
+        todoInfoLiveData?.value?.description = c.toString()
     }
 }
