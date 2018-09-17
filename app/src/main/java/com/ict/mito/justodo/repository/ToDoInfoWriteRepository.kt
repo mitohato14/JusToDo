@@ -1,12 +1,16 @@
 package com.ict.mito.justodo.repository
 
+import com.ict.mito.justodo.model.ToDoInfo
+
 /**
  * Created by mito on 2018/09/17.
  */
 interface ToDoInfoWriteRepository {
-    fun saveAll()
+    fun saveAll(todos: List<ToDoInfo>)
 
-    fun add()
+    fun add(toDoInfo: ToDoInfo)
 
-    fun remove()
+    fun remove(toDoInfo: ToDoInfo)
+    
+    fun remove(id: String)
 }
