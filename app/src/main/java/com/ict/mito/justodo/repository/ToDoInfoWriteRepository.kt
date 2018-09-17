@@ -6,7 +6,7 @@ import com.ict.mito.justodo.model.ToDoInfo
  * Created by mito on 2018/09/17.
  */
 interface ToDoInfoWriteRepository {
-    fun saveAll(todos: List<ToDoInfo>)
+    fun saveAll(todos: ArrayList<ToDoInfo>)
 
     fun add(toDoInfo: ToDoInfo)
 

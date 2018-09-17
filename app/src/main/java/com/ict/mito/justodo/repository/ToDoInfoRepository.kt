@@ -6,27 +6,33 @@ import com.ict.mito.justodo.model.ToDoInfo
  * Created by mito on 2018/09/17.
  */
 class ToDoInfoRepository : ToDoInfoReadRepository, ToDoInfoWriteRepository{
+    private var todos: ArrayList<ToDoInfo> = arrayListOf()
+
     override fun getAll(): List<ToDoInfo> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return todos
     }
     
     override fun getById(id: String): ToDoInfo {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
     
-    override fun saveAll(todos: List<ToDoInfo>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun saveAll(todos: ArrayList<ToDoInfo>) {
+        this.todos = todos
     }
     
     override fun add(toDoInfo: ToDoInfo) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        todos.add(toDoInfo)
     }
     
     override fun remove(toDoInfo: ToDoInfo) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        todos.remove(toDoInfo)
     }
     
     override fun remove(id: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        todos.forEach {
+            if (it.id == id) {
+                todos.remove(it)
+            }
+        }
     }
 }
