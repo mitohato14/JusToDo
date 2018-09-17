@@ -11,6 +11,7 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
+import java.util.Date
 
 class AddFragment : Fragment() {
     private var binding: AddFragmentBinding? = null
@@ -42,6 +43,8 @@ class AddFragment : Fragment() {
                         id = GlobalValue.toDoInfoList.size.toString(),
                         title = it.todoTitle.text.toString(),
                         description = it.todoDescription.text.toString(),
+                        dueData = (it.datePicker.date.time - Date().time).toString(),
+                        deadline = it.datePicker.date.time.toString(),
                         completed = false
                 )
                 GlobalValue.toDoInfoList.add(toDoInfo)
