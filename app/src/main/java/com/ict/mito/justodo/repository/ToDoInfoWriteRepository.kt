@@ -11,6 +11,6 @@ interface ToDoInfoWriteRepository {
     fun add(toDoInfo: ToDoInfo)
 
     fun remove(toDoInfo: ToDoInfo)
-    
+
     fun remove(id: String)
 }

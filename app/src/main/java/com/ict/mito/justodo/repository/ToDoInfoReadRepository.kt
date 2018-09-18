@@ -8,5 +8,5 @@ import com.ict.mito.justodo.model.ToDoInfo
 interface ToDoInfoReadRepository {
     fun getAll(): List<ToDoInfo>
 
-    fun getById(id: String): ToDoInfo
+    fun getById(id: String): ToDoInfo?
 }
