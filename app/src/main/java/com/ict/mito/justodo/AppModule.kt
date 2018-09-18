@@ -12,7 +12,7 @@ import javax.inject.Singleton
  * Created by mito on 2018/09/18.
  */
 @Module
-abstract class module {
+abstract class AppModule {
     @Singleton
     @Binds
     abstract fun provideRepository(
