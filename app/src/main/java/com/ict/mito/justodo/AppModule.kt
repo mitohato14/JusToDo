@@ -16,9 +16,9 @@ abstract class AppModule {
     @Singleton
     @Binds
     abstract fun provideRepository(
-            impl: ToDoInfoRepositoryImpl
+        impl: ToDoInfoRepositoryImpl
     ): ToDoInfoRepository
-    
+
     @ContributesAndroidInjector
     abstract fun contributeMainActivity(): MainActivity
 }

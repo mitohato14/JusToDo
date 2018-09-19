@@ -13,11 +13,10 @@ import javax.inject.Inject
 class App : Application(), HasActivityInjector {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-    
+
     override fun onCreate() {
         super.onCreate()
-        
     }
-    
+
     override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
 }

@@ -10,7 +10,7 @@ import javax.inject.Inject
  * Created by mito on 2018/09/04.
  */
 class AddViewModel @Inject constructor(
-        repository: ToDoInfoRepository
+    repository: ToDoInfoRepository
 ) : ViewModel() {
     var todoInfoLiveData: MutableLiveData<ToDoInfo>? = null
         get() {

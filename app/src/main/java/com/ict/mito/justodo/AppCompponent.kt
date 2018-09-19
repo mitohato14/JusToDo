@@ -18,7 +18,7 @@ import javax.inject.Singleton
 interface AppCompponent {
     @Component.Builder
     interface Builder {
-        
+
         @BindsInstance
         fun application(application: App)
         fun build(): AppCompponent
