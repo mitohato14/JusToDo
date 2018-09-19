@@ -3,6 +3,7 @@ package com.ict.mito.justodo
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 /**
@@ -15,7 +16,7 @@ import javax.inject.Singleton
             AppModule::class
         ]
 )
-interface AppCompponent {
+interface AppCompponent : AndroidInjector<AppInjector> {
     @Component.Builder
     interface Builder {
 
