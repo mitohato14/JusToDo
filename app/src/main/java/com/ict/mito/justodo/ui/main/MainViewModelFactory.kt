@@ -12,7 +12,8 @@ class MainViewModelFactory @Inject constructor(
         private val repository: ToDoInfoRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MainViewModel(repository)
+        return MainViewModel(repository) as T
     }
 }
