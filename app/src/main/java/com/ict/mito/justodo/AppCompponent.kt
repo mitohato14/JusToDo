@@ -1,5 +1,7 @@
 package com.ict.mito.justodo
 
+import com.ict.mito.justodo.ui.add.AddFragmentModule
+import com.ict.mito.justodo.ui.main.MainFragmentModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -13,7 +15,9 @@ import javax.inject.Singleton
 @Component(
         modules = [
             AndroidInjectionModule::class,
-            AppModule::class
+            AppModule::class,
+            MainFragmentModule::class,
+            AddFragmentModule::class
         ]
 )
 interface AppCompponent : AndroidInjector<AppInjector> {
