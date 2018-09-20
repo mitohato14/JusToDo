@@ -13,17 +13,24 @@ import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
 import java.util.Date
+import javax.inject.Inject
 
 class AddFragment : Fragment() {
     private var binding: AddFragmentBinding? = null
     private lateinit var viewModel: AddViewModel
+    
+    @Inject
+    lateinit var addViewModelFactory: AddViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(AddViewModel::class.java)
+        viewModel = ViewModelProviders.of(
+                this,
+                addViewModelFactory
+        ).get(AddViewModel::class.java)
 
         binding = DataBindingUtil.inflate(
                 inflater,
