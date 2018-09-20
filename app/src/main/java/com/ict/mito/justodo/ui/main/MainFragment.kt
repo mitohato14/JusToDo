@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.view.ToDoInfoAdapter
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 class MainFragment : Fragment() {
@@ -47,5 +49,10 @@ class MainFragment : Fragment() {
             it.setLifecycleOwner(this)
         }
         return binding?.root
+    }
+    
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 }
