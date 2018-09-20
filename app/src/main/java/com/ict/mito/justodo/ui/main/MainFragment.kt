@@ -13,17 +13,22 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.view.ToDoInfoAdapter
+import javax.inject.Inject
 
 class MainFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
+    @Inject
+    lateinit var mainFragmentFactory: MainViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        val viewModel = ViewModelProviders.of(
+                this,
+                mainFragmentFactory
+                ).get(MainViewModel::class.java)
 
         val binding: MainFragmentBinding? =
                 DataBindingUtil.inflate(
