@@ -18,7 +18,7 @@ import javax.inject.Inject
 class AddFragment : Fragment() {
     private var binding: AddFragmentBinding? = null
     private lateinit var viewModel: AddViewModel
-    
+
     @Inject
     lateinit var addViewModelFactory: AddViewModelFactory
 

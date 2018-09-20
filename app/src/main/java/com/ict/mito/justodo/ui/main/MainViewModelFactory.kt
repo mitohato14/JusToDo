@@ -9,9 +9,9 @@ import javax.inject.Inject
  * Created by mito on 2018/09/20.
  */
 class MainViewModelFactory @Inject constructor(
-        private val repository: ToDoInfoRepository
+    private val repository: ToDoInfoRepository
 ) : ViewModelProvider.NewInstanceFactory() {
-    
+
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return MainViewModel(repository) as T
