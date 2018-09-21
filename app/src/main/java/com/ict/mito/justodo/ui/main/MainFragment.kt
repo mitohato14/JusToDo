@@ -20,7 +20,7 @@ import javax.inject.Inject
 class MainFragment : Fragment() {
 
     @Inject
-    lateinit var mainFragmentFactory: MainViewModelFactory
+    lateinit var mainViewModelFactory: MainViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
     ): View? {
         val viewModel = ViewModelProviders.of(
                 this,
-                mainFragmentFactory
+                mainViewModelFactory
                 ).get(MainViewModel::class.java)
 
         val binding: MainFragmentBinding? =
