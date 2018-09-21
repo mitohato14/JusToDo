@@ -10,7 +10,7 @@ import javax.inject.Inject
 class AppInjector : HasDispatchFragmentInjector {
     @Inject
     lateinit var supportFragmentInjector: DispatchingAndroidInjector<Fragment>
-
+    
     override fun dispatchingFragmentInjector(): DispatchingAndroidInjector<Fragment> =
             supportFragmentInjector
 }
