@@ -4,7 +4,6 @@ import com.ict.mito.justodo.repository.ToDoInfoRepository
 import com.ict.mito.justodo.repository.ToDoInfoRepositoryImpl
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import javax.inject.Singleton
 
 /**
@@ -18,7 +17,7 @@ abstract class AppModule {
         impl: ToDoInfoRepositoryImpl
     ): ToDoInfoRepository
 
-    @Singleton
-    @Provides
-    fun provideApplication(): App = App()
+//    @Singleton
+//    @Provides
+//    fun provideApplication(): App = App()
 }

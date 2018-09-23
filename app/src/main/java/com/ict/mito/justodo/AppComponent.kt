@@ -19,5 +19,4 @@ import javax.inject.Singleton
             AddFragmentModule::class
         ]
 )
-interface AppComponent : AndroidInjector<App> {
-}
+interface AppComponent : AndroidInjector<App>
