@@ -75,7 +75,7 @@ class AddFragment : Fragment() {
         GlobalValue.toDoInfoList.add(toDoInfo)
         fragmentManager?.popBackStack()
     }
-    
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

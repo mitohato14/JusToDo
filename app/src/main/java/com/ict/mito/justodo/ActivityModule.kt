@@ -14,7 +14,7 @@ abstract class ActivityModule {
             modules = [
                 MainActivityModule::class
             ]
-    
+
     )
     abstract fun mainActivity(): MainActivity
 }

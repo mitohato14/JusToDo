@@ -26,5 +26,4 @@ class App : Application(), HasActivityInjector, HasSupportFragmentInjector {
     override fun onCreate() {
         super.onCreate()
     }
-
 }
