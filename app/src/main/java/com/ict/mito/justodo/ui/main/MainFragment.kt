@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
         val viewModel = ViewModelProviders.of(
                 this,
                 mainViewModelFactory
-                ).get(MainViewModel::class.java)
+        ).get(MainViewModel::class.java)
 
         val binding: MainFragmentBinding? =
                 DataBindingUtil.inflate(
