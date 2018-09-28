@@ -11,10 +11,10 @@ import com.ict.mito.justodo.repository.ToDoInfoRepository
  */
 class MainViewModel(repository: ToDoInfoRepository) : ViewModel() {
     var todos: LiveData<List<ToDoInfo>>? = null
-    get() {
-        if (field == null) {
-            field = MutableLiveData<List<ToDoInfo>>()
+        get() {
+            if (field == null) {
+                field = MutableLiveData<List<ToDoInfo>>()
+            }
+            return field
         }
-        return field
-    }
 }

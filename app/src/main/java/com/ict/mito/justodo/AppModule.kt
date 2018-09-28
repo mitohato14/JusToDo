@@ -10,5 +10,4 @@ import dagger.Module
             RepositoryModule::class
         ]
 )
-class AppModule {
-}
+class AppModule
