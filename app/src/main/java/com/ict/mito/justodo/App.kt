@@ -12,12 +12,7 @@ import javax.inject.Inject
 /**
  * Created by mito on 2018/09/18.
  */
-class App : Application(), HasActivityInjector, HasSupportFragmentInjector {
-
-    @Inject
-    lateinit var dispatchFragmentInjector: AppInjector
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> =
-            dispatchFragmentInjector.supportFragmentInjector
+class App : Application(), HasActivityInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
