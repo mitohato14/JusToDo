@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
@@ -18,35 +16,36 @@ import java.util.Date
 import javax.inject.Inject
 
 class AddFragment : Fragment() {
-    private var binding: AddFragmentBinding? = null
+    private lateinit var binding: AddFragmentBinding
     private lateinit var viewModel: AddViewModel
 
     @Inject
-    lateinit var addViewModelFactory: AddViewModelFactory
+    lateinit var todoViewModelProvider: AddViewModelFactory.Provider
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(
-                this,
-                addViewModelFactory
-        ).get(AddViewModel::class.java)
-
-        binding = DataBindingUtil.inflate(
+        binding = AddFragmentBinding.inflate(
                 inflater,
-                R.layout.add_fragment,
                 container,
                 false
         )
+
+        val factory = todoViewModelProvider.provide()
+        viewModel = ViewModelProviders.of(
+                this,
+                factory
+        ).get(AddViewModel::class.java)
+
         setupView()
 
-        return binding?.root
+        return binding.root
     }
 
     private fun setupView() {
-        binding?.let { it ->
+        binding.also { it ->
             it.viewmodel = viewModel
             it.setAddOnClick { _ ->
                 setAddClick(it)
