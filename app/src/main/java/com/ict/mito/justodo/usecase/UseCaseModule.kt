@@ -10,11 +10,11 @@ import dagger.Module
 abstract class UseCaseModule {
     @Binds
     abstract fun provideAddToDoUseCase(
-            impl: AddToDoUseCaseImpl
+        impl: AddToDoUseCaseImpl
     ): AddToDoUseCase
-    
+
     @Binds
     abstract fun provideEditToDoUseCase(
-            impl: EditToDoUseCaseImpl
+        impl: EditToDoUseCaseImpl
     ): EditToDoUseCase
 }

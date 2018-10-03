@@ -19,9 +19,9 @@ class AddViewModelFactory private constructor(
                     repository = repository,
                     todoInfoLiveDataFactory = ToDoInfoLiveDataFactory()
             ) as T
-    
+
     class Provider @Inject constructor(
-            private val repository: ToDoInfoRepository
+        private val repository: ToDoInfoRepository
     ) {
         fun provide(): AddViewModelFactory = AddViewModelFactory(repository)
     }
