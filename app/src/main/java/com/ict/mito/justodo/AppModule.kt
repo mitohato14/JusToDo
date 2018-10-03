@@ -1,5 +1,6 @@
 package com.ict.mito.justodo
 
+import com.ict.mito.justodo.usecase.UseCaseModule
 import dagger.Module
 
 /**
@@ -7,7 +8,8 @@ import dagger.Module
  */
 @Module(
         includes = [
-            RepositoryModule::class
+            RepositoryModule::class,
+            UseCaseModule::class
         ]
 )
 class AppModule
