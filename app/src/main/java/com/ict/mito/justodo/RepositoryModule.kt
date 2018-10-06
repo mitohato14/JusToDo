@@ -16,8 +16,4 @@ abstract class RepositoryModule {
     abstract fun provideRepository(
         impl: ToDoInfoRepositoryImpl
     ): ToDoInfoRepository
-
-//    @Singleton
-//    @Provides
-//    fun provideApplication(): App = App()
 }
