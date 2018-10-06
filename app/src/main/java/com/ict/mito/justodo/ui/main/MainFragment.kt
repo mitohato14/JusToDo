@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
                 mainViewModelFactory
         ).get(MainViewModel::class.java)
 
-        val binding: MainFragmentBinding? =
+        val binding: MainFragmentBinding =
                 DataBindingUtil.inflate(
                         inflater,
                         R.layout.main_fragment,
@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
                         false
                 )
 
-        binding?.let { it ->
+        binding.also { it ->
             it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
             it.adapter = ToDoInfoAdapter(GlobalValue.toDoInfoList)
             it.setAddOnClick {
@@ -48,7 +48,7 @@ class MainFragment : Fragment() {
             }
             it.setLifecycleOwner(this)
         }
-        return binding?.root
+        return binding.root
     }
 
     override fun onAttach(context: Context?) {
