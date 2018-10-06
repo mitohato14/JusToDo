@@ -1,7 +1,7 @@
 package com.ict.mito.justodo
 
 import android.app.Activity
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Created by mito on 2018/09/18.
  */
-class App : Application(), HasActivityInjector {
+class App : MultiDexApplication(), HasActivityInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
