@@ -20,7 +20,7 @@ class ToDoInfoRepositoryImpl : ToDoInfoRepository {
         TODO("Must implementation")
     }
 
-    override fun saveAll(todos: ArrayList<ToDoInfo>): Completable{
+    override fun saveAll(todos: ArrayList<ToDoInfo>): Completable {
         TODO("Must implementation")
     }
 

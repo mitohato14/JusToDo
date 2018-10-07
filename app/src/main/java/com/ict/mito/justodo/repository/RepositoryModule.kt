@@ -1,7 +1,5 @@
 package com.ict.mito.justodo.repository
 
-import com.ict.mito.justodo.repository.ToDoInfoRepository
-import com.ict.mito.justodo.repository.ToDoInfoRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
