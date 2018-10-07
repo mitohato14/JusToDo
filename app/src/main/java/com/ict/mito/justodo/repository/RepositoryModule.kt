@@ -1,4 +1,4 @@
-package com.ict.mito.justodo
+package com.ict.mito.justodo.repository
 
 import com.ict.mito.justodo.repository.ToDoInfoRepository
 import com.ict.mito.justodo.repository.ToDoInfoRepositoryImpl

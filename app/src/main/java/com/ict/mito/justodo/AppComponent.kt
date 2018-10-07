@@ -1,5 +1,6 @@
 package com.ict.mito.justodo
 
+import com.ict.mito.justodo.ui.ActivityModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import javax.inject.Singleton

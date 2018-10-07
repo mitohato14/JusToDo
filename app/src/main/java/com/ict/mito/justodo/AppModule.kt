@@ -1,5 +1,6 @@
 package com.ict.mito.justodo
 
+import com.ict.mito.justodo.repository.RepositoryModule
 import com.ict.mito.justodo.usecase.UseCaseModule
 import dagger.Module
 

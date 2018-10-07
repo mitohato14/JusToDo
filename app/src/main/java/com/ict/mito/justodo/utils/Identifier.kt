@@ -1,4 +1,4 @@
-package com.ict.mito.justodo
+package com.ict.mito.justodo.utils
 
 /**
  * Created by mito on 2018/10/02.

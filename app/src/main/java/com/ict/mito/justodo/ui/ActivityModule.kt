@@ -1,4 +1,4 @@
-package com.ict.mito.justodo
+package com.ict.mito.justodo.ui
 
 import com.ict.mito.justodo.ui.main.MainActivity
 import com.ict.mito.justodo.ui.main.MainActivityModule
