@@ -20,16 +20,17 @@ import javax.inject.Inject
 class MainFragment : Fragment() {
 
     @Inject
-    lateinit var mainViewModelFactory: MainViewModelFactory
+    lateinit var mainViewModelFactoryProvider: MainViewModelFactory.Provider
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val factory = mainViewModelFactoryProvider.provide()
         val viewModel = ViewModelProviders.of(
                 this,
-                mainViewModelFactory
+                factory
         ).get(MainViewModel::class.java)
 
         val binding: MainFragmentBinding =
