@@ -1,30 +1,33 @@
 package com.ict.mito.justodo.view
 
-import android.view.View
-import androidx.databinding.DataBindingUtil
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.databinding.CardTodoBinding
 import com.ict.mito.justodo.model.ToDoInfo
 
-class ToDoViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-    var binding: CardTodoBinding? = null
+class ToDoViewHolder(private val binding: CardTodoBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    init {
-        bind()
-    }
-
-    fun bind() {
-        if (binding == null) {
-            binding = DataBindingUtil.bind(view)
-        }
+    fun bind(toDoInfo: ToDoInfo) {
+        binding.todoInfo = toDoInfo
+        binding.executePendingBindings()
     }
 
     fun unbind() {
-        binding?.unbind()
+        binding.unbind()
     }
 
-    fun setToDoInfo(toDoInfo: ToDoInfo) {
-        binding?.todoInfo = toDoInfo
-        binding?.executePendingBindings()
+    companion object {
+        fun create(
+            inflater: LayoutInflater,
+            parent: ViewGroup,
+            attachToRoot: Boolean
+        ): ToDoViewHolder = ToDoViewHolder(
+            CardTodoBinding.inflate(
+                    inflater,
+                    parent,
+                    attachToRoot
+            )
+        )
     }
 }
