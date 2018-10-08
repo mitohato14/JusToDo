@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.databinding.AddFragmentBinding
-import com.ict.mito.justodo.model.GlobalValue
 import com.ict.mito.justodo.model.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
 import java.util.Date
@@ -64,14 +63,14 @@ class AddFragment : Fragment() {
             return
         }
         val toDoInfo = ToDoInfo(
-                id = GlobalValue.toDoInfoList.size.toString(),
+                id = "1",
                 title = it.todoTitle.text.toString(),
                 description = it.todoDescription.text.toString(),
                 dueData = (it.datePicker.date.time - Date().time).toString(),
                 deadline = it.datePicker.date.time.toString(),
                 completed = false
         )
-        GlobalValue.toDoInfoList.add(toDoInfo)
+//        TODO: Add todo
         fragmentManager?.popBackStack()
     }
 
