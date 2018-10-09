@@ -11,10 +11,6 @@
             type="com.ict.mito.justodo.view.ToDoInfoAdapter"/>
 
         <variable
-            name="layoutManager"
-            type="androidx.recyclerview.widget.RecyclerView.LayoutManager"/>
-
-        <variable
             name="addOnClick"
             type="android.view.View.OnClickListener"/>
     </data>
@@ -30,7 +26,7 @@
             android:layout_height="match_parent"
             android:adapter="@{adapter}"
             android:scrollbars="vertical"
-            app:layoutManager="@{layoutManager}"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"

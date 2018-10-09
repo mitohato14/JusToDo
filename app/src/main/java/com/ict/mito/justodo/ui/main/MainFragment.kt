@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.MainFragmentBinding
 import com.ict.mito.justodo.view.ToDoInfoAdapter
@@ -41,7 +40,6 @@ class MainFragment : Fragment() {
                 )
 
         binding.also { it ->
-            it.layoutManager = LinearLayoutManager(this.context?.applicationContext)
             it.adapter = ToDoInfoAdapter(viewModel.todos?.value ?: listOf())
             it.setAddOnClick {
                 it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
