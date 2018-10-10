@@ -4,10 +4,12 @@ import com.ict.mito.justodo.model.ToDoInfo
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
+import javax.inject.Singleton
 
 /**
  * Created by mito on 2018/09/18.
  */
+@Singleton
 class ToDoInfoRepositoryImpl : ToDoInfoRepository {
     private var todos: ArrayList<ToDoInfo> = arrayListOf()
 
