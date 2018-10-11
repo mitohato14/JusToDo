@@ -19,7 +19,6 @@ class App : MultiDexApplication(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-//        DaggerApp
         DaggerAppComponent.builder().build().inject(this)
     }
 }
