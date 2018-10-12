@@ -1,15 +1,15 @@
 package com.ict.mito.justodo.ui.add
 
 import androidx.lifecycle.ViewModel
-import com.ict.mito.justodo.model.ToDoInfoLiveDataFactory
-import com.ict.mito.justodo.repository.ToDoInfoRepository
+import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 
 /**
  * Created by mito on 2018/09/04.
  */
 class AddViewModel(
-    repository: ToDoInfoRepository,
-    todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
+        repository: ToDoInfoRepository,
+        todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
     val todoInfoLiveData = todoInfoLiveDataFactory.create()
 

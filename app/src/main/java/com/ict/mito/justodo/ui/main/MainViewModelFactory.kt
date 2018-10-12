@@ -2,7 +2,7 @@ package com.ict.mito.justodo.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ict.mito.justodo.repository.ToDoInfoRepository
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import javax.inject.Inject
 
 /**

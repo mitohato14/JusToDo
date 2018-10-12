@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.model
+package com.ict.mito.justodo.domain
 
 import com.ict.mito.justodo.utils.Identifier
 

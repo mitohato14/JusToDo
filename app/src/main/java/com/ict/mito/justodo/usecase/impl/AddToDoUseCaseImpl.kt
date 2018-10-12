@@ -1,7 +1,8 @@
-package com.ict.mito.justodo.usecase
+package com.ict.mito.justodo.usecase.impl
 
-import com.ict.mito.justodo.model.ToDoInfo
-import com.ict.mito.justodo.repository.ToDoInfoRepository
+import com.ict.mito.justodo.domain.ToDoInfo
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import com.ict.mito.justodo.usecase.AddToDoUseCase
 import io.reactivex.Completable
 import javax.inject.Inject
 

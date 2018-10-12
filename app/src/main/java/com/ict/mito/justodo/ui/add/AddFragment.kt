@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.databinding.AddFragmentBinding
-import com.ict.mito.justodo.model.ToDoId
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoId
+import com.ict.mito.justodo.domain.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
 import java.util.Date
 import java.util.UUID

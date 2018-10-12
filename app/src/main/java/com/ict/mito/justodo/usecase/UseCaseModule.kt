@@ -1,5 +1,7 @@
 package com.ict.mito.justodo.usecase
 
+import com.ict.mito.justodo.usecase.impl.AddToDoUseCaseImpl
+import com.ict.mito.justodo.usecase.impl.EditToDoUseCaseImpl
 import dagger.Binds
 import dagger.Module
 

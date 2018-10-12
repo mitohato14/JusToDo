@@ -1,6 +1,7 @@
-package com.ict.mito.justodo.repository
+package com.ict.mito.justodo.repository.impl
 
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoInfo
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single

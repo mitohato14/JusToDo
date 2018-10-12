@@ -2,8 +2,8 @@ package com.ict.mito.justodo.ui.add
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ict.mito.justodo.model.ToDoInfoLiveDataFactory
-import com.ict.mito.justodo.repository.ToDoInfoRepository
+import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import javax.inject.Inject
 
 /**

@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.model
+package com.ict.mito.justodo.domain.livedata
 
 /**
  * Created by mito on 2018/10/03.
