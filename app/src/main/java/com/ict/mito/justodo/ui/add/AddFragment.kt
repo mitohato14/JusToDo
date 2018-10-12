@@ -13,6 +13,7 @@ import com.ict.mito.justodo.model.ToDoId
 import com.ict.mito.justodo.model.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
 import java.util.Date
+import java.util.UUID
 import javax.inject.Inject
 
 class AddFragment : Fragment() {
@@ -64,7 +65,7 @@ class AddFragment : Fragment() {
             return
         }
         val toDoInfo = ToDoInfo(
-                id = ToDoId("1"),
+                id = ToDoId(UUID.randomUUID().toString()),
                 title = it.todoTitle.text.toString(),
                 description = it.todoDescription.text.toString(),
                 dueData = (it.datePicker.date.time - Date().time).toString(),
