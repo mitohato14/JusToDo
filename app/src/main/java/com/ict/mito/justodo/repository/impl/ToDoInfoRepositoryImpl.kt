@@ -37,7 +37,7 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
         TODO("Must implementation")
     }
 
-    override fun remove(id: String): Completable {
+    override fun remove(id: ToDoId): Completable {
         TODO("Must implementation")
     }
 }
