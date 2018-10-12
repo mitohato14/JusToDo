@@ -12,7 +12,6 @@ import javax.inject.Inject
 class AddToDoUseCaseImpl @Inject constructor(
     private val repository: ToDoInfoRepository
 ) : AddToDoUseCase {
-    override fun execute(todo: ToDoInfo): Completable {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
-    }
+    override fun execute(todo: ToDoInfo): Completable =
+            Completable.create { repository.add(todo) }
 }
