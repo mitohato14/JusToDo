@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.domain.repository
 
+import com.ict.mito.justodo.domain.ToDoId
 import com.ict.mito.justodo.domain.ToDoInfo
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -10,5 +11,5 @@ import io.reactivex.Single
 interface ToDoInfoReadRepository {
     fun getAll(): Single<List<ToDoInfo>>
 
-    fun getById(id: String): Maybe<ToDoInfo?>
+    fun getById(id: ToDoId): Maybe<ToDoInfo?>
 }
