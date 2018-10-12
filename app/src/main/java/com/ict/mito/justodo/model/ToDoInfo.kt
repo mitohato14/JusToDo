@@ -1,7 +1,7 @@
 package com.ict.mito.justodo.model
 
 data class ToDoInfo(
-    val id: String,
+    val id: ToDoId,
     var title: String,
     var description: String,
     val dueData: String,

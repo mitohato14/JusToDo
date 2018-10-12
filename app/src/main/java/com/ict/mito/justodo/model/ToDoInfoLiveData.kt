@@ -8,6 +8,13 @@ import androidx.lifecycle.MutableLiveData
 class ToDoInfoLiveData : MutableLiveData<ToDoInfo>() {
     override fun onActive() {
         super.onActive()
-        value = ToDoInfo()
+        value = ToDoInfo(
+                id = ToDoId(""),
+                title = "",
+                description = "",
+                dueData = "",
+                deadline = "",
+                completed = false
+        )
     }
 }

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.databinding.AddFragmentBinding
+import com.ict.mito.justodo.model.ToDoId
 import com.ict.mito.justodo.model.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
 import java.util.Date
@@ -63,7 +64,7 @@ class AddFragment : Fragment() {
             return
         }
         val toDoInfo = ToDoInfo(
-                id = "1",
+                id = ToDoId("1"),
                 title = it.todoTitle.text.toString(),
                 description = it.todoDescription.text.toString(),
                 dueData = (it.datePicker.date.time - Date().time).toString(),
