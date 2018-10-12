@@ -8,8 +8,8 @@ import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
  * Created by mito on 2018/09/04.
  */
 class AddViewModel(
-        repository: ToDoInfoRepository,
-        todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
+    repository: ToDoInfoRepository,
+    todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
     val todoInfoLiveData = todoInfoLiveDataFactory.create()
 
