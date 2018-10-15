@@ -1,16 +1,16 @@
 package com.ict.mito.justodo.ui.main
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import io.reactivex.rxkotlin.subscribeBy
 
 /**
  * Created by mito on 2018/09/04.
  */
 class MainViewModel(
-        private val repository: ToDoInfoRepository
+    private val repository: ToDoInfoRepository
 ) : ViewModel() {
     var todos: MutableLiveData<List<ToDoInfo>>? = null
         get() {
@@ -20,12 +20,15 @@ class MainViewModel(
             }
             return field
         }
-    
-    @SuppressLint("CheckResult")
-    fun readAll() {
-        repository.getAll().subscribe { it ->
-            todos?.value = it
-        }
-        
+
+    private fun readAll() {
+        repository.getAll().subscribeBy(
+                onSuccess = {
+                    todos?.value = it
+                },
+                onError = {
+                    TODO("エラーハンドリング")
+                }
+        )
     }
 }
