@@ -9,7 +9,7 @@ import java.sql.Date
  * Created by mito on 2018/09/04.
  */
 class AddViewModel(
-    repository: ToDoInfoRepository,
+    private val repository: ToDoInfoRepository,
     todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
     val todoInfoLiveData = todoInfoLiveDataFactory.create()

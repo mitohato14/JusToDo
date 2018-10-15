@@ -9,7 +9,9 @@ import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 /**
  * Created by mito on 2018/09/04.
  */
-class MainViewModel(repository: ToDoInfoRepository) : ViewModel() {
+class MainViewModel(
+        private val repository: ToDoInfoRepository
+) : ViewModel() {
     var todos: LiveData<List<ToDoInfo>>? = null
         get() {
             if (field == null) {
