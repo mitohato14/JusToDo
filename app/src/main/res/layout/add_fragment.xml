@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="viewmodel"
             type="com.ict.mito.justodo.ui.add.AddViewModel"/>
@@ -39,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/base_margin"
+            android:date="@{viewmodel.date}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/todo_title"
             app:ldp_hint_color="@color/colorAccent"
@@ -68,6 +71,7 @@
             android:onClick="@{addOnClick}"
             android:text="@string/create_todo_button"
             android:textColor="@color/colorAccent"
+            android:visibility="@{viewmodel.addable ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

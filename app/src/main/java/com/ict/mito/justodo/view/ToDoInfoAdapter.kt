@@ -3,7 +3,7 @@ package com.ict.mito.justodo.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoInfo
 
 class ToDoInfoAdapter(private val todoInfoList: List<ToDoInfo>)
     : RecyclerView.Adapter<ToDoViewHolder>() {

@@ -1,5 +1,7 @@
 package com.ict.mito.justodo.usecase
 
+import com.ict.mito.justodo.usecase.impl.AddToDoUseCaseImpl
+import com.ict.mito.justodo.usecase.impl.RemoveToDoUseCaseImpl
 import dagger.Binds
 import dagger.Module
 
@@ -15,6 +17,6 @@ abstract class UseCaseModule {
 
     @Binds
     abstract fun provideEditToDoUseCase(
-        impl: EditToDoUseCaseImpl
-    ): EditToDoUseCase
+        impl: RemoveToDoUseCaseImpl
+    ): RemoveToDoUseCase
 }

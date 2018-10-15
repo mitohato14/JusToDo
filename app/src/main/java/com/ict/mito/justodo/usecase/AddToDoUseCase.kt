@@ -1,6 +1,6 @@
 package com.ict.mito.justodo.usecase
 
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoInfo
 import io.reactivex.Completable
 
 /**

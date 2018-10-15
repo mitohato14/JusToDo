@@ -1,6 +1,8 @@
-package com.ict.mito.justodo.repository
+package com.ict.mito.justodo.repository.impl
 
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoId
+import com.ict.mito.justodo.domain.ToDoInfo
+import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
@@ -18,7 +20,7 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
         TODO("Must implementation")
     }
 
-    override fun getById(id: String): Maybe<ToDoInfo?> {
+    override fun getById(id: ToDoId): Maybe<ToDoInfo?> {
 //        todos.find { it.id == id }
         TODO("Must implementation")
     }
@@ -35,7 +37,7 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
         TODO("Must implementation")
     }
 
-    override fun remove(id: String): Completable {
+    override fun remove(id: ToDoId): Completable {
         TODO("Must implementation")
     }
 }

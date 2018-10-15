@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.databinding.CardTodoBinding
-import com.ict.mito.justodo.model.ToDoInfo
+import com.ict.mito.justodo.domain.ToDoInfo
 
 class ToDoViewHolder(private val binding: CardTodoBinding) : RecyclerView.ViewHolder(binding.root) {
 
