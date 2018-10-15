@@ -1,6 +1,6 @@
 package com.ict.mito.justodo.ui.main
 
-import androidx.lifecycle.LiveData
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ict.mito.justodo.domain.ToDoInfo
@@ -12,11 +12,20 @@ import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 class MainViewModel(
         private val repository: ToDoInfoRepository
 ) : ViewModel() {
-    var todos: LiveData<List<ToDoInfo>>? = null
+    var todos: MutableLiveData<List<ToDoInfo>>? = null
         get() {
             if (field == null) {
-                field = MutableLiveData<List<ToDoInfo>>()
+                field = MutableLiveData()
+                readAll()
             }
             return field
         }
+    
+    @SuppressLint("CheckResult")
+    fun readAll() {
+        repository.getAll().subscribe { it ->
+            todos?.value = it
+        }
+        
+    }
 }
