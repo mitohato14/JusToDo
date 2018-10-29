@@ -35,7 +35,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     implementation 'com.android.support:multidex:2.0.0'
-    kapt "androidx.databinding:databinding-compiler:3.3.0-alpha13"
+    kapt "androidx.databinding:databinding-compiler:3.4.0-alpha02"
 //    navigation
     implementation "android.arch.navigation:navigation-common-ktx:$navigation_version"
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
