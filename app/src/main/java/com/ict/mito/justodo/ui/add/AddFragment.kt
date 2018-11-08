@@ -6,19 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
-import com.ict.mito.justodo.domain.ToDoId
-import com.ict.mito.justodo.domain.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
-import java.util.Date
-import java.util.UUID
 import javax.inject.Inject
 
 class AddFragment : Fragment() {
-    private lateinit var binding: AddFragmentBinding
-    private lateinit var viewModel: AddViewModel
 
     @Inject
     lateinit var todoViewModelProvider: AddViewModelFactory.Provider
@@ -28,31 +24,28 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = AddFragmentBinding.inflate(
-                inflater,
-                container,
-                false
-        )
-
         val factory = todoViewModelProvider.provide()
-        viewModel = ViewModelProviders.of(
+        val viewModel = ViewModelProviders.of(
                 this,
                 factory
         ).get(AddViewModel::class.java)
 
-        setupView()
+        val binding: AddFragmentBinding = DataBindingUtil.inflate(
+                inflater,
+                R.layout.add_fragment,
+                container,
+                false
+        )
 
-        return binding.root
-    }
-
-    private fun setupView() {
         binding.also { it ->
             it.viewmodel = viewModel
-            it.setAddOnClick { _ ->
-                setAddClick(it)
+            it.setAddOnClick {
+                setAddClick(binding)
             }
             it.setLifecycleOwner(this)
         }
+
+        return binding.root
     }
 
     private fun setAddClick(it: AddFragmentBinding) {
@@ -64,14 +57,14 @@ class AddFragment : Fragment() {
             ).show()
             return
         }
-        val toDoInfo = ToDoInfo(
-                id = ToDoId(UUID.randomUUID().toString()),
-                title = it.todoTitle.text.toString(),
-                description = it.todoDescription.text.toString(),
-                dueData = (it.datePicker.date.time - Date().time).toString(),
-                deadline = it.datePicker.date.time.toString(),
-                completed = false
-        )
+//        val toDoInfo = ToDoInfo(
+//                id = ToDoId(UUID.randomUUID().toString()),
+//                title = it.todoTitle.text.toString(),
+//                description = it.todoDescription.text.toString(),
+//                dueData = (it.datePicker.date.time - Date().time).toString(),
+//                deadline = it.datePicker.date.time.toString(),
+//                completed = false
+//        )
 //        TODO: Add todo
         fragmentManager?.popBackStack()
     }
