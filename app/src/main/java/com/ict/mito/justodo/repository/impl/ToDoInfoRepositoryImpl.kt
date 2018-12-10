@@ -16,28 +16,30 @@ import javax.inject.Singleton
 class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
     private var todos: ArrayList<ToDoInfo> = arrayListOf()
 
-    override fun getAll(): Single<List<ToDoInfo>> {
-        TODO("Must implementation")
-    }
+    override fun getAll(): Single<List<ToDoInfo>> = Single.just(todos)
 
-    override fun getById(id: ToDoId): Maybe<ToDoInfo?> {
-//        todos.find { it.id == id }
-        TODO("Must implementation")
-    }
+    override fun getById(id: ToDoId): Maybe<ToDoInfo?> =
+            Maybe.create { todos.find { todo -> id == todo.id } }
 
-    override fun saveAll(todos: ArrayList<ToDoInfo>): Completable {
-        TODO("Must implementation")
-    }
+    override fun saveAll(todos: ArrayList<ToDoInfo>): Completable =
+            Completable.create {
+                this.todos = todos
+            }
 
-    override fun add(toDoInfo: ToDoInfo): Completable {
-        TODO("Must implementation")
-    }
+    override fun add(toDoInfo: ToDoInfo): Completable =
+            Completable.create {
+                todos.add(toDoInfo)
+            }
 
-    override fun remove(toDoInfo: ToDoInfo): Completable {
-        TODO("Must implementation")
-    }
+    override fun remove(toDoInfo: ToDoInfo): Completable =
+            Completable.create {
+                todos.remove(toDoInfo)
+            }
 
-    override fun remove(id: ToDoId): Completable {
-        TODO("Must implementation")
-    }
+    override fun remove(id: ToDoId): Completable =
+            Completable.create {
+                getById(id).map { todo ->
+                    todos.remove(todo)
+                }
+            }
 }
