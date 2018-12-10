@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
     private var todos: ArrayList<ToDoInfo> = arrayListOf()
 
-    override fun getAll(): Single<List<ToDoInfo>> = Single.just(todos)
+    override fun getAll(): Single<ArrayList<ToDoInfo>> = Single.just(todos)
 
     override fun getById(id: ToDoId): Maybe<ToDoInfo?> =
             Maybe.create { todos.find { todo -> id == todo.id } }
