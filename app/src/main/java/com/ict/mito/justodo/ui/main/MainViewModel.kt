@@ -1,6 +1,6 @@
 package com.ict.mito.justodo.ui.main
 
-import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
@@ -12,19 +12,19 @@ import io.reactivex.rxkotlin.subscribeBy
 class MainViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
-    var todos: MutableLiveData<List<ToDoInfo>>? = null
-        get() {
-            if (field == null) {
-                field = MutableLiveData()
-                readAll()
-            }
-            return field
-        }
+    val todos: ObservableArrayList<ToDoInfo> = ObservableArrayList()
+
+    init {
+        readAll()
+    }
 
     private fun readAll() {
         repository.getAll().subscribeBy(
                 onSuccess = {
-                    todos?.value = it
+                    todos.apply {
+                        clear()
+                        addAll(it)
+                    }
                 },
                 onError = {
                     TODO("エラーハンドリング")

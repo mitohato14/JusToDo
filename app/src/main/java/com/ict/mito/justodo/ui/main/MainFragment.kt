@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
                 )
 
         binding.also { it ->
-            it.adapter = ToDoInfoAdapter(viewModel.todos?.value ?: listOf())
+            it.adapter = ToDoInfoAdapter(viewModel.todos)
             it.setAddOnClick {
                 it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
             }
