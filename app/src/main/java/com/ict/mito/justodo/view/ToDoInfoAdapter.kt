@@ -9,18 +9,18 @@ import com.ict.mito.justodo.domain.ToDoInfo
 
 class ToDoInfoAdapter(private val todoInfoList: ObservableArrayList<ToDoInfo>)
     : RecyclerView.Adapter<ToDoViewHolder>() {
-    
+
     init {
         todoInfoList.addOnListChangedCallback(
                 object : ObservableList.OnListChangedCallback<ObservableArrayList<ToDoInfo>>() {
                     override fun onChanged(sender: ObservableArrayList<ToDoInfo>?) {
                         notifyDataSetChanged()
                     }
-    
+
                     override fun onItemRangeRemoved(sender: ObservableArrayList<ToDoInfo>?, positionStart: Int, itemCount: Int) {
                         notifyItemRangeRemoved(positionStart, itemCount)
                     }
-    
+
                     override fun onItemRangeMoved(sender: ObservableArrayList<ToDoInfo>?, fromPosition: Int, toPosition: Int, itemCount: Int) {
                         for (i in 0..itemCount) {
                             notifyItemMoved(
@@ -29,14 +29,14 @@ class ToDoInfoAdapter(private val todoInfoList: ObservableArrayList<ToDoInfo>)
                             )
                         }
                     }
-    
+
                     override fun onItemRangeInserted(sender: ObservableArrayList<ToDoInfo>?, positionStart: Int, itemCount: Int) {
                         notifyItemRangeInserted(
                                 positionStart,
                                 itemCount
                         )
                     }
-    
+
                     override fun onItemRangeChanged(sender: ObservableArrayList<ToDoInfo>?, positionStart: Int, itemCount: Int) {
                         notifyItemRangeChanged(
                                 positionStart,
