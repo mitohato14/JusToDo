@@ -27,7 +27,7 @@ class MainViewModel(
                     }
                 },
                 onError = {
-                    TODO("エラーハンドリング")
+                    todos
                 }
         )
     }
