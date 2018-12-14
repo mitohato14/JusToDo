@@ -42,4 +42,9 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
                     todos.remove(todo)
                 }
             }
+
+    override fun store(toDoInfo: ToDoInfo): Single<ToDoInfo> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+    
 }
