@@ -6,5 +6,12 @@ data class ToDoInfo(
     var description: String,
     val dueData: String,
     val deadline: String,
-    val completed: Boolean
-)
+    private var completed: Boolean
+) {
+    fun complete() {
+        completed = true
+    }
+    fun uncomplete() {
+        completed = true
+    }
+}
