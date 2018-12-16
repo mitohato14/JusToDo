@@ -1,7 +1,7 @@
 package com.ict.mito.justodo.ui.main
 
 import com.ict.mito.justodo.ui.todo.add.AddFragment
-import com.ict.mito.justodo.ui.todo.list.MainFragment
+import com.ict.mito.justodo.ui.todo.list.ToDoListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,7 +11,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MainActivityModule {
     @ContributesAndroidInjector
-    abstract fun mainFragment(): MainFragment
+    abstract fun mainFragment(): ToDoListFragment
 
     @ContributesAndroidInjector
     abstract fun addFragment(): AddFragment

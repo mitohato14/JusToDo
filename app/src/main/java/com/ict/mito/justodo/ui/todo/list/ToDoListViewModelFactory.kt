@@ -8,18 +8,18 @@ import javax.inject.Inject
 /**
  * Created by mito on 2018/09/20.
  */
-class MainViewModelFactory private constructor(
+class ToDoListViewModelFactory private constructor(
     private val repository: ToDoInfoRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MainViewModel(repository) as T
+        return ToDOListViewModel(repository) as T
     }
 
     class Provider @Inject constructor(
         private val repository: ToDoInfoRepository
     ) {
-        fun provide(): MainViewModelFactory = MainViewModelFactory(repository)
+        fun provide(): ToDoListViewModelFactory = ToDoListViewModelFactory(repository)
     }
 }

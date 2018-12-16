@@ -9,7 +9,7 @@ import io.reactivex.rxkotlin.subscribeBy
 /**
  * Created by mito on 2018/09/04.
  */
-class MainViewModel(
+class ToDOListViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
     val todos: ObservableArrayList<ToDoInfo> = ObservableArrayList()

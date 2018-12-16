@@ -15,26 +15,26 @@ import com.ict.mito.justodo.view.ToDoInfoAdapter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class ToDoListFragment : Fragment() {
 
     @Inject
-    lateinit var mainViewModelFactoryProvider: MainViewModelFactory.Provider
+    lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val factory = mainViewModelFactoryProvider.provide()
+        val factory = toDoListViewModelFactoryProvider.provide()
         val viewModel = ViewModelProviders.of(
                 this,
                 factory
-        ).get(MainViewModel::class.java)
+        ).get(ToDOListViewModel::class.java)
 
         val binding: MainFragmentBinding =
                 DataBindingUtil.inflate(
                         inflater,
-                        R.layout.main_fragment,
+                        R.layout.todo_list__fragment,
                         container,
                         false
                 )
