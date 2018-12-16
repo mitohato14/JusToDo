@@ -18,7 +18,7 @@ abstract class UseCaseModule {
     ): AddToDoUseCase
 
     @Binds
-    abstract fun provideEditToDoUseCase(
+    abstract fun provideRemoveToDoUseCase(
         impl: RemoveToDoUseCaseImpl
     ): RemoveToDoUseCase
 
