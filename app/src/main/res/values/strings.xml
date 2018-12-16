@@ -8,4 +8,5 @@
     <string name="description_auto_fill_hints">ToDo description</string>
     <string name="description">説明</string>
     <string name="create_todo_button">追加</string>
+    <string name="line">line</string>
 </resources>
