@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.ict.mito.justodo.ui.main.MainFragment"
+        android:name="com.ict.mito.justodo.ui.todo.list.MainFragment"
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
@@ -20,6 +20,6 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.ict.mito.justodo.ui.add.AddFragment"
+        android:name="com.ict.mito.justodo.ui.todo.add.AddFragment"
         android:label="AddFragment"/>
 </navigation>

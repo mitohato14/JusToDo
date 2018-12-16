@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.ui.add
+package com.ict.mito.justodo.ui.todo.add
 
 import androidx.lifecycle.ViewModel
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory

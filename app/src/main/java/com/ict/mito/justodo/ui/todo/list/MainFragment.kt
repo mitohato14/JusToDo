@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.ui.main
+package com.ict.mito.justodo.ui.todo.list
 
 import android.content.Context
 import android.os.Bundle

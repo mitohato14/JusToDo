@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.ui.main
+package com.ict.mito.justodo.ui.todo.list
 
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel

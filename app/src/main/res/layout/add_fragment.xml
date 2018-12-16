@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ict.mito.justodo.ui.add.AddViewModel"/>
+            type="com.ict.mito.justodo.ui.todo.add.AddViewModel"/>
 
         <variable
             name="addOnClick"

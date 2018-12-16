@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.ui.main
+package com.ict.mito.justodo.ui.todo.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

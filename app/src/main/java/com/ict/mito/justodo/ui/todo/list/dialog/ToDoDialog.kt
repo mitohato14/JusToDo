@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.ui.main.dialog
+package com.ict.mito.justodo.ui.todo.list.dialog
 
 import androidx.fragment.app.DialogFragment
 
