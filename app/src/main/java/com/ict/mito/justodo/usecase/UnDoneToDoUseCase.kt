@@ -6,6 +6,6 @@ import io.reactivex.Completable
 /**
  * Created by mito on 2018-12-13.
  */
-interface CompleteToDoUseCase {
+interface UnDoneToDoUseCase {
     fun execute(id: ToDoId): Completable
 }
