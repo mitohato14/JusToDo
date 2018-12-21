@@ -34,7 +34,7 @@ class ToDoListFragment : Fragment() {
         val binding: TodoListFragmentBinding =
                 DataBindingUtil.inflate(
                         inflater,
-                        R.layout.todo_list__fragment,
+                        R.layout.todo_list_fragment,
                         container,
                         false
                 )
