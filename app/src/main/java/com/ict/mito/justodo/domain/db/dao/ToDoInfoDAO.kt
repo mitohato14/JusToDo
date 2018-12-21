@@ -21,8 +21,8 @@ interface ToDoInfoDAO {
     fun findAll(): LiveData<List<ToDoInfo>>
 
     @Update
-    fun updateToDoInfo(toDoInfoDAO: ToDoInfoDAO)
+    fun updateToDoInfo(toDoInfo: ToDoInfo)
 
     @Delete
-    fun deleteToDoInfo(toDoInfoDAO: ToDoInfoDAO)
+    fun deleteToDoInfo(toDoInfo: ToDoInfo)
 }

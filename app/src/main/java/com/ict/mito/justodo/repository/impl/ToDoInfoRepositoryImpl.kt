@@ -18,7 +18,7 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
 
     override fun getAll(): Single<ArrayList<ToDoInfo>> = Single.just(todos)
 
-    override fun getById(id: ToDoId): Maybe<ToDoInfo?> =
+    override fun getById(id: Long): Maybe<ToDoInfo?> =
             Maybe.create { todos.find { todo -> id == todo.id } }
 
     override fun saveAll(todos: ArrayList<ToDoInfo>): Completable =
@@ -36,7 +36,7 @@ class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
                 todos.remove(toDoInfo)
             }
 
-    override fun remove(id: ToDoId): Completable =
+    override fun remove(id: Long): Completable =
             Completable.create {
                 getById(id).map { todo ->
                     todos.remove(todo)

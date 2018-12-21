@@ -1,6 +1,5 @@
 package com.ict.mito.justodo.domain.repository
 
-import com.ict.mito.justodo.domain.ToDoId
 import com.ict.mito.justodo.domain.ToDoInfo
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -15,7 +14,7 @@ interface ToDoInfoWriteRepository {
 
     fun remove(toDoInfo: ToDoInfo): Completable
 
-    fun remove(id: ToDoId): Completable
+    fun remove(id: Long): Completable
 
     fun store(toDoInfo: ToDoInfo): Single<ToDoInfo>
 }

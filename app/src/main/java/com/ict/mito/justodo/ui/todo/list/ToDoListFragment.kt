@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.databinding.MainFragmentBinding
+import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.view.ToDoInfoAdapter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -31,7 +31,7 @@ class ToDoListFragment : Fragment() {
                 factory
         ).get(ToDOListViewModel::class.java)
 
-        val binding: MainFragmentBinding =
+        val binding: TodoListFragmentBinding =
                 DataBindingUtil.inflate(
                         inflater,
                         R.layout.todo_list__fragment,

@@ -12,5 +12,5 @@ import javax.inject.Inject
 class RemoveToDoUseCaseImpl @Inject constructor(
     private val repository: ToDoInfoRepository
 ) : RemoveToDoUseCase {
-    override fun execute(id: ToDoId): Completable = repository.remove(id)
+    override fun execute(id: Long): Completable = repository.remove(id)
 }
