@@ -5,5 +5,4 @@ import androidx.fragment.app.DialogFragment
 /**
  * Created by mito on 2018-12-15.
  */
-class ToDoDetailDialogFragment : DialogFragment() {
-}
+class ToDoDetailDialogFragment : DialogFragment()

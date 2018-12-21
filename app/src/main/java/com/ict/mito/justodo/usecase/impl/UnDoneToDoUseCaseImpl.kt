@@ -10,9 +10,9 @@ import javax.inject.Inject
  * Created by mito on 2018-12-14.
  */
 class UnDoneToDoUseCaseImpl @Inject constructor(
-        repository: ToDoInfoRepository
+    repository: ToDoInfoRepository
 ) : UnDoneToDoUseCase {
     override fun execute(id: ToDoId): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -16,6 +16,6 @@ interface ToDoInfoWriteRepository {
     fun remove(toDoInfo: ToDoInfo): Completable
 
     fun remove(id: ToDoId): Completable
-    
+
     fun store(toDoInfo: ToDoInfo): Single<ToDoInfo>
 }

@@ -15,13 +15,13 @@ import com.ict.mito.justodo.domain.ToDoInfo
 interface ToDoInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createToDo(toDoInfo: ToDoInfo)
-    
+
     @Query("SELECT * FROM ToDoInfo")
     fun findAll(): List<ToDoInfo>
-    
+
     @Update
     fun updateToDoInfo(toDoInfoDAO: ToDoInfoDAO)
-    
+
     @Delete
     fun deleteToDoInfo(toDoInfoDAO: ToDoInfoDAO)
 }

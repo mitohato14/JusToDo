@@ -24,11 +24,11 @@ abstract class UseCaseModule {
 
     @Binds
     abstract fun provideDoneToDoUseCase(
-            impl: DoneToDoUseCaseImpl
+        impl: DoneToDoUseCaseImpl
     ): DoneToDoUseCase
-    
+
     @Binds
     abstract fun provideUnDoneToDoUseCase(
-            impl: UnDoneToDoUseCaseImpl
+        impl: UnDoneToDoUseCaseImpl
     ): UnDoneToDoUseCase
 }
