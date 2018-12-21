@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.domain.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -16,8 +17,8 @@ interface ToDoInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createToDo(toDoInfo: ToDoInfo)
 
-    @Query("SELECT * FROM ToDoInfo")
-    fun findAll(): List<ToDoInfo>
+    @Query("SELECT * FROM justodo_todo_table")
+    fun findAll(): LiveData<List<ToDoInfo>>
 
     @Update
     fun updateToDoInfo(toDoInfoDAO: ToDoInfoDAO)
