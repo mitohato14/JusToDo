@@ -1,7 +1,7 @@
 package com.ict.mito.justodo.repository.impl
 
-import com.ict.mito.justodo.domain.ToDoId
 import com.ict.mito.justodo.domain.ToDoInfo
+import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import io.reactivex.Completable
 import io.reactivex.Maybe
@@ -13,7 +13,9 @@ import javax.inject.Singleton
  * Created by mito on 2018/09/18.
  */
 @Singleton
-class ToDoInfoRepositoryImpl @Inject constructor() : ToDoInfoRepository {
+class ToDoInfoRepositoryImpl @Inject constructor(
+        private val toDoInfoDAO: ToDoInfoDAO
+) : ToDoInfoRepository {
     private var todos: ArrayList<ToDoInfo> = arrayListOf()
 
     override fun getAll(): Single<ArrayList<ToDoInfo>> = Single.just(todos)
