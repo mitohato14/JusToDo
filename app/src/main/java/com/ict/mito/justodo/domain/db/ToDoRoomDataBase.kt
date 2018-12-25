@@ -27,8 +27,8 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                         context,
                         ToDoRoomDataBase::class.java,
-                        "todo_database"
-                ).build()
+                        "justodo.db"
+                ).allowMainThreadQueries().build()
                 
                 INSTANCE = instance
                 return instance
