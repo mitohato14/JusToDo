@@ -14,7 +14,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class ToDoInfoRepositoryImpl @Inject constructor(
-        private val toDoInfoDAO: ToDoInfoDAO
+        private val dao: ToDoInfoDAO
 ) : ToDoInfoRepository {
     private var todos: ArrayList<ToDoInfo> = arrayListOf()
 

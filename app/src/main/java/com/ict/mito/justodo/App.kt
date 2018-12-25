@@ -2,6 +2,7 @@ package com.ict.mito.justodo
 
 import android.app.Activity
 import androidx.multidex.MultiDexApplication
+import com.ict.mito.justodo.domain.db.DataBaseModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -19,6 +20,10 @@ class App : MultiDexApplication(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder().build().inject(this)
+        DaggerAppComponent
+                .builder()
+                .dataBaseModule(DataBaseModule(applicationContext))
+                .build()
+                .inject(this)
     }
 }
