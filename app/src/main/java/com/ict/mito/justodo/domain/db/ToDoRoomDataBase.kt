@@ -11,7 +11,7 @@ import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
  * Created by mito on 2018-12-18.
  */
 @Database(entities = [ToDoInfo::class], version = 1)
-public abstract class ToDoRoomDataBase : RoomDatabase() {
+abstract class ToDoRoomDataBase : RoomDatabase() {
     abstract fun todoInfoDao(): ToDoInfoDAO
     
     companion object {
