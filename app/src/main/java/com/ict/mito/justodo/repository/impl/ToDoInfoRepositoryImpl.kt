@@ -23,11 +23,6 @@ class ToDoInfoRepositoryImpl @Inject constructor(
     override fun getById(id: Long): Maybe<ToDoInfo?> =
             Maybe.create { todos.find { todo -> id == todo.id } }
 
-    override fun saveAll(todos: ArrayList<ToDoInfo>): Completable =
-            Completable.create {
-                this.todos = todos
-            }
-
     override fun add(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 todos.add(toDoInfo)

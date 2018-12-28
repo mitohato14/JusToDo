@@ -8,7 +8,6 @@ import io.reactivex.Single
  * Created by mito on 2018/09/17.
  */
 interface ToDoInfoWriteRepository {
-    fun saveAll(todos: ArrayList<ToDoInfo>): Completable
 
     fun add(toDoInfo: ToDoInfo): Completable
 
