@@ -69,7 +69,7 @@ class AddFragment : Fragment() {
         fragmentManager?.popBackStack()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
     }
