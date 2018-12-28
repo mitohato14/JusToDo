@@ -40,7 +40,8 @@ class ToDoInfoRepositoryImpl @Inject constructor(
                 }
             }
 
-    override fun store(toDoInfo: ToDoInfo): Single<ToDoInfo> {
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
-    }
+    override fun store(toDoInfo: ToDoInfo): Completable =
+        Completable.create {
+        }
 }
