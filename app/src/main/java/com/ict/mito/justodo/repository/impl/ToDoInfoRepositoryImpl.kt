@@ -42,7 +42,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
             }
 
     override fun store(toDoInfo: ToDoInfo): Completable =
-        Completable.create {
-            dao.updateToDoInfo(toDoInfo)
-        }
+            Completable.create {
+                dao.updateToDoInfo(toDoInfo)
+            }
 }
