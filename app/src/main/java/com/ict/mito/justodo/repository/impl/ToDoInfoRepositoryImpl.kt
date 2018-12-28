@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.repository.impl
 
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
@@ -19,29 +20,34 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
     private var todos: LiveData<List<ToDoInfo>> = dao.findAll()
 
-    override fun getAll(): Single<List<ToDoInfo>> = Single.just(todos.value)
+    @WorkerThread
+    override suspend fun getAll(): Single<List<ToDoInfo>> = Single.just(todos.value)
 
     override fun getById(id: Long): Maybe<ToDoInfo?> =
             Maybe.create { todos.value?.find { todo -> id == todo.id } }
 
-    override fun add(toDoInfo: ToDoInfo): Completable =
+    @WorkerThread
+    override suspend fun add(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 dao.createToDo(toDoInfo)
             }
 
-    override fun remove(toDoInfo: ToDoInfo): Completable =
+    @WorkerThread
+    override suspend fun remove(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 dao.deleteToDoInfo(toDoInfo)
             }
 
-    override fun remove(id: Long): Completable =
+    @WorkerThread
+    override suspend fun remove(id: Long): Completable =
             Completable.create {
                 getById(id).map { todo ->
                     dao.deleteToDoInfo(todo)
                 }
             }
 
-    override fun store(toDoInfo: ToDoInfo): Completable =
+    @WorkerThread
+    override suspend fun store(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 dao.updateToDoInfo(toDoInfo)
             }

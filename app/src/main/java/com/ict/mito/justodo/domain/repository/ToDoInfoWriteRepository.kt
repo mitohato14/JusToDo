@@ -7,11 +7,11 @@ import io.reactivex.Completable
  * Created by mito on 2018/09/17.
  */
 interface ToDoInfoWriteRepository {
-    fun add(toDoInfo: ToDoInfo): Completable
+    suspend fun add(toDoInfo: ToDoInfo): Completable
 
-    fun remove(toDoInfo: ToDoInfo): Completable
+    suspend fun remove(toDoInfo: ToDoInfo): Completable
 
-    fun remove(id: Long): Completable
+    suspend fun remove(id: Long): Completable
 
-    fun store(toDoInfo: ToDoInfo): Completable
+    suspend fun store(toDoInfo: ToDoInfo): Completable
 }
