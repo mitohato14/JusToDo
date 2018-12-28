@@ -14,7 +14,7 @@ class ToDoListViewModelFactory private constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ToDOListViewModel(repository) as T
+        return ToDoListViewModel(repository) as T
     }
 
     class Provider @Inject constructor(

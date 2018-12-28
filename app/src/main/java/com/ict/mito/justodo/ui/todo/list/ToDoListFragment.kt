@@ -29,7 +29,7 @@ class ToDoListFragment : Fragment() {
         val viewModel = ViewModelProviders.of(
                 this,
                 factory
-        ).get(ToDOListViewModel::class.java)
+        ).get(ToDoListViewModel::class.java)
 
         val binding: TodoListFragmentBinding =
                 DataBindingUtil.inflate(
