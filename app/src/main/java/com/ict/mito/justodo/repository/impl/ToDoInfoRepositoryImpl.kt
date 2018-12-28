@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.repository.impl
 
+import androidx.lifecycle.LiveData
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
@@ -16,32 +17,32 @@ import javax.inject.Singleton
 class ToDoInfoRepositoryImpl @Inject constructor(
         private val dao: ToDoInfoDAO
 ) : ToDoInfoRepository {
-    private var todos: ArrayList<ToDoInfo> = arrayListOf()
+    private var todos: LiveData<List<ToDoInfo>> = dao.findAll()
 
-    override fun getAll(): Single<ArrayList<ToDoInfo>> = Single.just(todos)
+    override fun getAll(): Single<List<ToDoInfo>> = Single.just(todos.value)
 
     override fun getById(id: Long): Maybe<ToDoInfo?> =
-            Maybe.create { todos.find { todo -> id == todo.id } }
+            Maybe.create { todos.value?.find { todo -> id == todo.id } }
 
     override fun add(toDoInfo: ToDoInfo): Completable =
             Completable.create {
-                todos.add(toDoInfo)
+                dao.createToDo(toDoInfo)
             }
 
     override fun remove(toDoInfo: ToDoInfo): Completable =
             Completable.create {
-                todos.remove(toDoInfo)
+                dao.deleteToDoInfo(toDoInfo)
             }
 
     override fun remove(id: Long): Completable =
             Completable.create {
                 getById(id).map { todo ->
-                    todos.remove(todo)
+                    dao.deleteToDoInfo(todo)
                 }
             }
 
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     override fun store(toDoInfo: ToDoInfo): Completable =
         Completable.create {
+            dao.updateToDoInfo(toDoInfo)
         }
 }
