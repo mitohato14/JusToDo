@@ -19,9 +19,9 @@ class ToDoListViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
     private var parentJob = Job()
-    private val coroutineContext: CoroutineContext
+    private val mainCoroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main
-    private val scope = CoroutineScope(coroutineContext)
+    private val scope = CoroutineScope(mainCoroutineContext)
     
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
 
