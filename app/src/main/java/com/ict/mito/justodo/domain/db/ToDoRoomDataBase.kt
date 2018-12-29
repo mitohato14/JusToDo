@@ -13,11 +13,11 @@ import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 @Database(entities = [ToDoInfo::class], version = 1)
 abstract class ToDoRoomDataBase : RoomDatabase() {
     abstract fun todoInfoDao(): ToDoInfoDAO
-    
+
     companion object {
         @Volatile
         private var INSTANCE: ToDoRoomDataBase? = null
-        
+
         fun getDataBase(context: Context): ToDoRoomDataBase {
             val tmpInstance = INSTANCE
             if (tmpInstance != null) {
@@ -29,7 +29,7 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
                         ToDoRoomDataBase::class.java,
                         "justodo.db"
                 ).allowMainThreadQueries().build()
-                
+
                 INSTANCE = instance
                 return instance
             }

@@ -22,7 +22,7 @@ class ToDoListViewModel(
     private val mainCoroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(mainCoroutineContext)
-    
+
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
 
     init {

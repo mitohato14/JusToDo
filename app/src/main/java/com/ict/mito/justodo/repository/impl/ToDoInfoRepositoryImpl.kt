@@ -16,7 +16,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class ToDoInfoRepositoryImpl @Inject constructor(
-        private val dao: ToDoInfoDAO
+    private val dao: ToDoInfoDAO
 ) : ToDoInfoRepository {
     private var todos: LiveData<List<ToDoInfo>> = dao.findAll()
 
