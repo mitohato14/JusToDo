@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
+import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.view.ToDoInfoAdapter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -19,6 +21,8 @@ class ToDoListFragment : Fragment() {
 
     @Inject
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
+
+    private val adapter: ToDoInfoAdapter = ToDoInfoAdapter(listOf())
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +35,10 @@ class ToDoListFragment : Fragment() {
                 factory
         ).get(ToDoListViewModel::class.java)
 
+        viewModel.todos.observe(this, Observer<List<ToDoInfo>> {
+            adapter.setToDoListData(it)
+        })
+
         val binding: TodoListFragmentBinding =
                 DataBindingUtil.inflate(
                         inflater,
@@ -39,8 +47,9 @@ class ToDoListFragment : Fragment() {
                         false
                 )
 
+        adapter.setToDoListData(viewModel.todos.value ?: listOf())
         binding.also { it ->
-            it.adapter = ToDoInfoAdapter(viewModel.todos)
+            it.adapter = adapter
             it.setAddOnClick {
                 it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
             }
