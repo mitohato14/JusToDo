@@ -11,10 +11,6 @@
             name="viewmodel"
             type="com.ict.mito.justodo.ui.todo.add.AddViewModel"/>
 
-        <variable
-            name="addOnClick"
-            type="android.view.View.OnClickListener"/>
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/base_margin"
             android:background="@color/transparent"
-            android:onClick="@{addOnClick}"
+            android:onClick="@{viewmodel::onClickAddToDoInfo}"
             android:text="@string/create_todo_button"
             android:textColor="@color/colorAccent"
             android:visibility="@{viewmodel.addable ? View.VISIBLE : View.GONE}"
