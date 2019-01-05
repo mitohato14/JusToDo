@@ -10,6 +10,7 @@ class ToDoInfoAdapter(private var todoInfoList: List<ToDoInfo>)
 
     fun setToDoListData(newData: List<ToDoInfo>) {
         todoInfoList = newData
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
