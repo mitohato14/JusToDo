@@ -21,5 +21,13 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.ict.mito.justodo.ui.todo.add.AddFragment"
-        android:label="AddFragment"/>
+        android:label="AddFragment">
+        <action
+            android:id="@+id/action_addFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
 </navigation>
