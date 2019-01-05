@@ -17,7 +17,7 @@ interface ToDoInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createToDo(toDoInfo: ToDoInfo)
 
-    @Query("SELECT * FROM justodo_todo_table")
+    @Query("SELECT * FROM justodo_todo_table ORDER BY id ASC")
     fun findAll(): LiveData<List<ToDoInfo>>
 
     @Update
