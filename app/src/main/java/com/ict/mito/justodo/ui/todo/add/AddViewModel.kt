@@ -21,7 +21,7 @@ class AddViewModel(
     todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
     val todoInfoLiveData = todoInfoLiveDataFactory.create()
-    
+
     private var parentJob = Job()
     private val mainCoroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main

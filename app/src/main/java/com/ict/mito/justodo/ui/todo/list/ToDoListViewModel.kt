@@ -25,7 +25,7 @@ class ToDoListViewModel(
     private val mainCoroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(mainCoroutineContext)
-    
+
     lateinit var navController: NavController
 
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
@@ -44,7 +44,7 @@ class ToDoListViewModel(
                 }
         )
     }
-    
+
     fun fabOnClick(view: View) {
         navController.navigate(R.id.action_mainFragment_to_addFragment)
     }

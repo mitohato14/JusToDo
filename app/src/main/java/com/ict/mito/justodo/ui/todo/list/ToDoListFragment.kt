@@ -46,13 +46,12 @@ class ToDoListFragment : Fragment() {
             it.navController = findNavController()
         }
 
-        val binding: TodoListFragmentBinding =
-                DataBindingUtil.inflate(
-                        inflater,
-                        R.layout.todo_list_fragment,
-                        container,
-                        false
-                )
+        val binding: TodoListFragmentBinding = DataBindingUtil.inflate(
+                inflater,
+                R.layout.todo_list_fragment,
+                container,
+                false
+        )
 
         adapter.setToDoListData(viewModel.todos.value ?: listOf())
         binding.also { it ->
