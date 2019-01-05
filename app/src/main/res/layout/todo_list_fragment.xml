@@ -11,8 +11,8 @@
             type="com.ict.mito.justodo.view.ToDoInfoAdapter"/>
 
         <variable
-            name="addOnClick"
-            type="android.view.View.OnClickListener"/>
+            name="viewmodel"
+            type="com.ict.mito.justodo.ui.todo.list.ToDoListViewModel"/>
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,7 +34,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/margin_float_action_button"
             android:elevation="@dimen/elevation_float_action_button"
-            android:onClick="@{addOnClick}"
+            android:onClick="@{viewmodel::fabOnClick}"
             android:src="@drawable/ic_add_white"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.domain.ToDoInfo
@@ -35,9 +36,12 @@ class ToDoListFragment : Fragment() {
                 factory
         ).get(ToDoListViewModel::class.java)
 
-        viewModel.todos.observe(this, Observer<List<ToDoInfo>> {
-            adapter.setToDoListData(it)
-        })
+        viewModel.also {
+            it.todos.observe(this, Observer<List<ToDoInfo>> {
+                adapter.setToDoListData(it)
+            })
+            it.navController = findNavController()
+        }
 
         val binding: TodoListFragmentBinding =
                 DataBindingUtil.inflate(
