@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.sql.Date
+import java.util.Date
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -29,7 +29,7 @@ class AddViewModel(
 
     lateinit var navController: NavController
 
-    var date: Date? = null
+    private var date: Date? = null
 
     var addable: Boolean = false
         get() = date != null
@@ -59,5 +59,9 @@ class AddViewModel(
             }
         }
         navController.navigate(R.id.action_addFragment_to_mainFragment)
+    }
+
+    fun onDateChanged(date: Date) {
+        this.date = date
     }
 }

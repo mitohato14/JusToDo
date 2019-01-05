@@ -39,6 +39,9 @@ class AddFragment : Fragment() {
         )
 
         binding.also { it ->
+            it.datePicker.setOnDatePickListener { dateSelected ->
+                viewModel.onDateChanged(dateSelected)
+            }
             it.viewmodel = viewModel
             it.setLifecycleOwner(this)
         }
