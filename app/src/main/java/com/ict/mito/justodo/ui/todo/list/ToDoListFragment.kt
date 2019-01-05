@@ -52,9 +52,8 @@ class ToDoListFragment : Fragment() {
                 false
         )
 
-        adapter.setToDoListData(viewModel.todos.value ?: listOf())
         binding.also { it ->
-            it.adapter = adapter
+            it.adapter = viewModel.adapter
             it.viewmodel = viewModel
             it.setLifecycleOwner(this)
         }

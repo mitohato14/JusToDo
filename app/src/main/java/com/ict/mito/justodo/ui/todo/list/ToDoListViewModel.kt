@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import com.ict.mito.justodo.view.ToDoInfoAdapter
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,7 @@ class ToDoListViewModel(
     lateinit var navController: NavController
 
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
+    val adapter: ToDoInfoAdapter = ToDoInfoAdapter(todos.value ?: listOf())
 
     init {
         readAll()
@@ -47,6 +49,11 @@ class ToDoListViewModel(
 
     fun fabOnClick(view: View) {
         navController.navigate(R.id.action_mainFragment_to_addFragment)
+    }
+
+    fun updateAdapterValue() {
+        readAll()
+        todos.value?.let { adapter.setToDoListData(it) }
     }
 
     override fun onCleared() {
