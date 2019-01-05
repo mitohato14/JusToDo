@@ -21,7 +21,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
     private var todos: LiveData<List<ToDoInfo>> = dao.findAll()
 
     @WorkerThread
-    override suspend fun getAll(): Single<List<ToDoInfo>> = Single.just(todos.value)
+    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(todos)
 
     override fun getById(id: Long): Maybe<ToDoInfo?> =
             Maybe.create { todos.value?.find { todo -> id == todo.id } }
