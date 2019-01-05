@@ -2,6 +2,8 @@ package com.ict.mito.justodo.ui.todo.add
 
 import android.view.View
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import kotlinx.coroutines.CoroutineScope
@@ -24,6 +26,8 @@ class AddViewModel(
     private val mainCoroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(mainCoroutineContext)
+
+    lateinit var navController: NavController
 
     var date: Date? = null
 
@@ -54,5 +58,6 @@ class AddViewModel(
                 repository.add(it)
             }
         }
+        navController.navigate(R.id.action_addFragment_to_mainFragment)
     }
 }

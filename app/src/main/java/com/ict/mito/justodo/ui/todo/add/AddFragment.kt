@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import dagger.android.support.AndroidSupportInjection
@@ -28,6 +29,7 @@ class AddFragment : Fragment() {
                 this,
                 factory
         ).get(AddViewModel::class.java)
+        viewModel.navController = findNavController()
 
         val binding: AddFragmentBinding = DataBindingUtil.inflate(
                 inflater,
