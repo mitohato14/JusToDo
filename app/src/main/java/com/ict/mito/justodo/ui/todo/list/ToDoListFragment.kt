@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
@@ -56,9 +55,7 @@ class ToDoListFragment : Fragment() {
         adapter.setToDoListData(viewModel.todos.value ?: listOf())
         binding.also { it ->
             it.adapter = adapter
-            it.setAddOnClick {
-                it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
-            }
+            it.viewmodel = viewModel
             it.setLifecycleOwner(this)
         }
         return binding.root
