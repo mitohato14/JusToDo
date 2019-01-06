@@ -10,7 +10,7 @@ data class ToDoInfo(
     var title: String,
     var description: String,
     @ColumnInfo(name = "due_date") val dueData: String,
-    val deadline: String,
+    var deadlineDate: Long,
     var done: Boolean
 ) {
     fun done() {
