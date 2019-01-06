@@ -30,10 +30,8 @@ class AddViewModel(
 
     lateinit var navController: NavController
 
-    private var date: Date? = null
-
     var addable: Boolean = false
-        get() = date != null
+        get() = todoInfoLiveData.value?.deadlineDate != -1L
 
     fun onTitleChanged(
         c: CharSequence,
@@ -63,7 +61,6 @@ class AddViewModel(
     }
 
     fun onDateChanged(date: java.util.Date) {
-        this.date = convertDateToSql(date)
         todoInfoLiveData.value?.deadlineDate = convertDateToSql(date).time
     }
     
