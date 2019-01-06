@@ -53,7 +53,6 @@ class ToDoListFragment : Fragment() {
         )
 
         binding.also { it ->
-            it.adapter = viewModel.adapter
             it.viewmodel = viewModel
             it.setLifecycleOwner(this)
         }

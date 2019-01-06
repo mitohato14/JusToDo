@@ -7,10 +7,6 @@
     <data>
 
         <variable
-            name="adapter"
-            type="com.ict.mito.justodo.view.ToDoInfoAdapter"/>
-
-        <variable
             name="viewmodel"
             type="com.ict.mito.justodo.ui.todo.list.ToDoListViewModel"/>
     </data>
@@ -24,7 +20,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adapter="@{adapter}"
+            android:adapter="@{viewmodel.adapter}"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
