@@ -63,7 +63,7 @@ class AddViewModel(
     fun onDateChanged(date: java.util.Date) {
         todoInfoLiveData.value?.deadlineDate = convertDateToSql(date).time
     }
-    
+
     private fun convertDateToSql(utilDate: java.util.Date): Date {
         val cal = Calendar.getInstance()
         cal.also {
