@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.util.Date
+import java.sql.Date
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -61,7 +61,32 @@ class AddViewModel(
         navController.navigate(R.id.action_addFragment_to_mainFragment)
     }
 
-    fun onDateChanged(date: Date) {
-        this.date = date
+    fun onDateChanged(date: java.util.Date) {
+        this.date = convertDateToSql(date)
+    }
+    
+    private fun convertDateToSql(utilDate: java.util.Date): Date {
+        val cal = Calendar.getInstance()
+        cal.also {
+            it.time = utilDate
+            it.set(
+                    Calendar.HOUR_OF_DAY,
+                    0
+            )
+            it.set(
+                    Calendar.MINUTE,
+                    0
+            )
+            it.set(
+                    Calendar.SECOND,
+                    0
+            )
+            it.set(
+                    Calendar.MILLISECOND,
+                    0
+            )
+        }
+
+        return Date(cal.timeInMillis)
     }
 }
