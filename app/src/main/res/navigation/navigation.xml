@@ -17,6 +17,13 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_mainFragment_to_toDoDetailDialogFragment"
+            app:destination="@id/toDoDetailDialogFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -29,5 +36,14 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/toDoDetailDialogFragment"
+        android:name="com.ict.mito.justodo.ui.todo.list.detail.ToDoDetailDialogFragment"
+        android:label="ToDoDetailDialogFragment">
+        <argument
+            android:name="ToDoId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
     </fragment>
 </navigation>
