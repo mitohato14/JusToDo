@@ -27,11 +27,15 @@ class ToDoListViewModel(
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(mainCoroutineContext)
 
-    lateinit var navController: NavController
+    var navController: NavController? = null
+        set(value) {
+            if (value == null) return
+            field = value
+            adapter.navController = value
+    }
 
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
-    val adapter: ToDoListAdapter = ToDoListAdapter(todos.value
-            ?: listOf())
+    val adapter: ToDoListAdapter = ToDoListAdapter(todos.value ?: listOf())
 
     init {
         readAll()
@@ -49,7 +53,7 @@ class ToDoListViewModel(
     }
 
     fun fabOnClick(view: View) {
-        navController.navigate(R.id.action_toDoListFragment_to_addFragment)
+        navController?.navigate(R.id.action_toDoListFragment_to_addFragment)
     }
 
     fun updateAdapterValue() {
