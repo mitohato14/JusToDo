@@ -22,8 +22,7 @@
         android:label="ToDoDetailDialogFragment">
         <argument
             android:name="ToDoId"
-            app:argType="long"
-            android:defaultValue="-1L"/>
+            app:argType="long"/>
     </fragment>
     <fragment
         android:id="@+id/toDoListFragment"

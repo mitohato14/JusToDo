@@ -1,6 +1,7 @@
 package com.ict.mito.justodo.ui.todo.list.view
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.databinding.CardTodoBinding
@@ -17,6 +18,9 @@ class ToDoViewHolder(private val binding: CardTodoBinding) : RecyclerView.ViewHo
         binding.unbind()
     }
 
+    fun setToRootOnClickListener(onClickListener: View.OnClickListener) {
+        binding.root.setOnClickListener(onClickListener)
+    }
     companion object {
         fun create(
             inflater: LayoutInflater,
