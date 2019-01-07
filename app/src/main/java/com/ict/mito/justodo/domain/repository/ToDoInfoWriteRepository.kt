@@ -14,4 +14,12 @@ interface ToDoInfoWriteRepository {
     suspend fun remove(id: Long): Completable
 
     suspend fun store(toDoInfo: ToDoInfo): Completable
+
+    suspend fun done(id: Long): Completable
+
+    suspend fun done(toDoInfo: ToDoInfo): Completable
+
+    suspend fun undone(id: Long): Completable
+
+    suspend fun undone(toDoInfo: ToDoInfo): Completable
 }
