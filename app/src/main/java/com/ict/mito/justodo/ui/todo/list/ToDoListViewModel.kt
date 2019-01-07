@@ -49,7 +49,7 @@ class ToDoListViewModel(
     }
 
     fun fabOnClick(view: View) {
-        navController.navigate(R.id.action_mainFragment_to_addFragment)
+        navController.navigate(R.id.action_toDoListFragment_to_addFragment)
     }
 
     fun updateAdapterValue() {

@@ -57,7 +57,7 @@ class AddViewModel(
                 repository.add(it)
             }
         }
-        navController.navigate(R.id.action_addFragment_to_mainFragment)
+        navController.navigate(R.id.action_addFragment_to_toDoListFragment)
     }
 
     fun onDateChanged(date: java.util.Date) {
