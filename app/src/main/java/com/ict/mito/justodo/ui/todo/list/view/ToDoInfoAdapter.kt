@@ -25,8 +25,8 @@ class ToDoInfoAdapter(private var todoInfoList: List<ToDoInfo>)
     override fun getItemCount(): Int = todoInfoList.size
 
     override fun onBindViewHolder(
-            holder: ToDoViewHolder,
-            position: Int
+        holder: ToDoViewHolder,
+        position: Int
     ) {
         holder.bind(todoInfoList[position])
     }
