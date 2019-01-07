@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.ui.todo.list.view.ToDoInfoAdapter
+import com.ict.mito.justodo.ui.todo.list.view.ToDoListAdapter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -22,7 +22,7 @@ class ToDoListFragment : Fragment() {
     @Inject
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
 
-    private val adapter: ToDoInfoAdapter = ToDoInfoAdapter(listOf())
+    private val adapter: ToDoListAdapter = ToDoListAdapter(listOf())
 
     override fun onCreateView(
         inflater: LayoutInflater,
