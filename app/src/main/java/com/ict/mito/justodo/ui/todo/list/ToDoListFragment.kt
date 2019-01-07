@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.view.ToDoInfoAdapter
+import com.ict.mito.justodo.ui.todo.list.view.ToDoInfoAdapter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

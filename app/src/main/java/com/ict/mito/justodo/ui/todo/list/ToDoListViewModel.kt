@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import com.ict.mito.justodo.view.ToDoInfoAdapter
+import com.ict.mito.justodo.ui.todo.list.view.ToDoInfoAdapter
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +30,8 @@ class ToDoListViewModel(
     lateinit var navController: NavController
 
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
-    val adapter: ToDoInfoAdapter = ToDoInfoAdapter(todos.value ?: listOf())
+    val adapter: ToDoInfoAdapter = ToDoInfoAdapter(todos.value
+            ?: listOf())
 
     init {
         readAll()

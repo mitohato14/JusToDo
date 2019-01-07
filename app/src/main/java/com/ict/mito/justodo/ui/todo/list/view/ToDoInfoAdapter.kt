@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.view
+package com.ict.mito.justodo.ui.todo.list.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -25,8 +25,8 @@ class ToDoInfoAdapter(private var todoInfoList: List<ToDoInfo>)
     override fun getItemCount(): Int = todoInfoList.size
 
     override fun onBindViewHolder(
-        holder: ToDoViewHolder,
-        position: Int
+            holder: ToDoViewHolder,
+            position: Int
     ) {
         holder.bind(todoInfoList[position])
     }

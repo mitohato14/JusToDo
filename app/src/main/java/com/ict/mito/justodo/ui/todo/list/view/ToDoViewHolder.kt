@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.view
+package com.ict.mito.justodo.ui.todo.list.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -23,11 +23,11 @@ class ToDoViewHolder(private val binding: CardTodoBinding) : RecyclerView.ViewHo
             parent: ViewGroup,
             attachToRoot: Boolean
         ): ToDoViewHolder = ToDoViewHolder(
-            CardTodoBinding.inflate(
-                    inflater,
-                    parent,
-                    attachToRoot
-            )
+                CardTodoBinding.inflate(
+                        inflater,
+                        parent,
+                        attachToRoot
+                )
         )
     }
 }
