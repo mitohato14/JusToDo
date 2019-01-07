@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.databinding.CardTodoBinding
 import com.ict.mito.justodo.domain.ToDoInfo
 
-class ToDoListViewHolder(private val binding: CardTodoBinding) : RecyclerView.ViewHolder(binding.root) {
+class ToDoListViewHolder(private val binding: CardTodoBinding)
+    : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(toDoInfo: ToDoInfo) {
         binding.todoInfo = toDoInfo

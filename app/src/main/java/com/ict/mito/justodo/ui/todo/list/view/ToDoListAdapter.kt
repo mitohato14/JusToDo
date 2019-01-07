@@ -36,8 +36,8 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>)
         holder.apply {
             bind(todoInfoList[position])
             setToRootOnClickListener(View.OnClickListener {
-                val action =
-                        ToDoListFragmentDirections.actionToDoListFragmentToToDoDetailDialogFragment(
+                val action = ToDoListFragmentDirections
+                        .actionToDoListFragmentToToDoDetailDialogFragment(
                                 todoInfoList[position].id
                         )
                 navController.navigate(action)
