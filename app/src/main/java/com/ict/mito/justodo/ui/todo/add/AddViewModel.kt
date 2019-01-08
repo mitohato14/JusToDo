@@ -1,6 +1,8 @@
 package com.ict.mito.justodo.ui.todo.add
 
 import android.view.View
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.ict.mito.justodo.R
@@ -30,8 +32,15 @@ class AddViewModel(
 
     lateinit var navController: NavController
 
-    var addable: Boolean = false
-        get() = todoInfoLiveData.value?.deadlineDate != -1L
+    var addable: MediatorLiveData<Boolean> = MediatorLiveData()
+
+    private var dateTime: MutableLiveData<Long> = MutableLiveData(-1L)
+
+    init {
+        addable.addSource(dateTime) {
+            addable.value = dateTime.value != -1L
+        }
+    }
 
     fun onTitleChanged(
         c: CharSequence,
@@ -61,7 +70,8 @@ class AddViewModel(
     }
 
     fun onDateChanged(date: java.util.Date) {
-        todoInfoLiveData.value?.deadlineDate = convertDateToSql(date).time
+        dateTime.postValue(convertDateToSql(date).time)
+        todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
     }
 
     private fun convertDateToSql(utilDate: java.util.Date): Date {
