@@ -70,7 +70,7 @@ class AddViewModel(
     }
 
     fun onDateChanged(date: java.util.Date) {
-        dateTime.postValue(convertDateToSql(date).time)
+        dateTime.value = convertDateToSql(date).time
         todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
     }
 
