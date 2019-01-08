@@ -18,13 +18,12 @@ import javax.inject.Singleton
 class ToDoInfoRepositoryImpl @Inject constructor(
     private val dao: ToDoInfoDAO
 ) : ToDoInfoRepository {
-    private var todos: LiveData<List<ToDoInfo>> = dao.findAll()
 
     @WorkerThread
-    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(todos)
+    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(dao.findAll())
 
     override fun getById(id: Long): Maybe<ToDoInfo?> =
-            Maybe.create { todos.value?.find { todo -> id == todo.id } }
+            Maybe.create { dao.findAll().value?.find { todo -> id == todo.id } }
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo): Completable =
