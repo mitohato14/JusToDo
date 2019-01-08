@@ -35,7 +35,8 @@ class ToDoListFragment : Fragment() {
         viewModel.also {
             it.todos.observe(
                     this,
-                    Observer<List<ToDoInfo>> { todoInfo ->
+                    Observer<List<ToDoInfo>> { todoInfoList ->
+                        it.adapter.setToDoListData(todoInfoList)
                     }
             )
             it.navController = findNavController()
