@@ -20,6 +20,9 @@ class ToDoListFragment : Fragment() {
 
     @Inject
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
+    
+    private lateinit var binding: TodoListFragmentBinding
+    private lateinit var viewModel: ToDoListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +30,7 @@ class ToDoListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val factory = toDoListViewModelFactoryProvider.provide()
-        val viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProviders.of(
                 this,
                 factory
         ).get(ToDoListViewModel::class.java)
@@ -42,7 +45,7 @@ class ToDoListFragment : Fragment() {
             it.navController = findNavController()
         }
 
-        val binding: TodoListFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.todo_list_fragment,
                 container,
@@ -54,6 +57,12 @@ class ToDoListFragment : Fragment() {
             it.setLifecycleOwner(this)
         }
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateAdapterValue()
+        binding.notifyChange()
     }
 
     override fun onAttach(context: Context) {
