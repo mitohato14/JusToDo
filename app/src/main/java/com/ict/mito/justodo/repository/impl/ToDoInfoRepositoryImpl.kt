@@ -20,35 +20,35 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
 
     @WorkerThread
-    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(dao.findAll())
+    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(dao.getAllToDo())
 
     override fun getById(id: Long): Maybe<ToDoInfo?> =
-            Maybe.create { dao.findAll().value?.find { todo -> id == todo.id } }
+            Maybe.create { dao.getAllToDo().value?.find { todo -> id == todo.id } }
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo): Completable =
             Completable.create {
-                dao.createToDo(toDoInfo)
+                dao.insert(toDoInfo)
             }
 
     @WorkerThread
     override suspend fun remove(toDoInfo: ToDoInfo): Completable =
             Completable.create {
-                dao.deleteToDoInfo(toDoInfo)
+                dao.delete(toDoInfo)
             }
 
     @WorkerThread
     override suspend fun remove(id: Long): Completable =
             Completable.create {
                 getById(id).map { todo ->
-                    dao.deleteToDoInfo(todo)
+                    dao.delete(todo)
                 }
             }
 
     @WorkerThread
     override suspend fun store(toDoInfo: ToDoInfo): Completable =
             Completable.create {
-                dao.updateToDoInfo(toDoInfo)
+                dao.update(toDoInfo)
             }
 
     @WorkerThread
@@ -56,7 +56,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
             Completable.create {
                 getById(id).map { toDoInfo ->
                     toDoInfo.done()
-                    dao.updateToDoInfo(toDoInfo)
+                    dao.update(toDoInfo)
                 }
             }
 
@@ -64,7 +64,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
     override suspend fun done(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 toDoInfo.done()
-                dao.updateToDoInfo(toDoInfo)
+                dao.update(toDoInfo)
             }
 
     @WorkerThread
@@ -72,7 +72,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
             Completable.create {
                 getById(id).map { toDoInfo ->
                     toDoInfo.undone()
-                    dao.updateToDoInfo(toDoInfo)
+                    dao.update(toDoInfo)
                 }
             }
 
@@ -80,6 +80,6 @@ class ToDoInfoRepositoryImpl @Inject constructor(
     override suspend fun undone(toDoInfo: ToDoInfo): Completable =
             Completable.create {
                 toDoInfo.undone()
-                dao.updateToDoInfo(toDoInfo)
+                dao.update(toDoInfo)
             }
 }
