@@ -19,21 +19,16 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
         private var INSTANCE: ToDoRoomDataBase? = null
 
         fun getDataBase(context: Context): ToDoRoomDataBase {
-            val tmpInstance = INSTANCE
-            if (tmpInstance != null) {
-                return tmpInstance
-            }
-            synchronized(this) {
+            return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                        context,
+                        context.applicationContext,
                         ToDoRoomDataBase::class.java,
-                        "justodo.db"
+                        "justodo_database"
                 )
                         .allowMainThreadQueries()
                         .build()
-
                 INSTANCE = instance
-                return instance
+                instance
             }
         }
     }
