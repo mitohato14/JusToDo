@@ -14,6 +14,7 @@ internal class DataBaseModule(private val context: Context) {
     @Provides
     internal fun provideDataBase() = ToDoRoomDataBase.getDataBase(context)
 
+    @Singleton
     @Provides
     internal fun provideDao(dataBase: ToDoRoomDataBase) = dataBase.todoInfoDao()
 }
