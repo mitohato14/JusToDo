@@ -9,7 +9,7 @@ data class ToDoInfo(
     @PrimaryKey(autoGenerate = true) val id: Long,
     var title: String,
     var description: String,
-    @ColumnInfo(name = "due_date") val dueData: String,
+    @ColumnInfo(name = "due_date") var dueData: String,
     @ColumnInfo(name = "deadline_date") var deadlineDate: Long,
     var done: Boolean
 ) {
