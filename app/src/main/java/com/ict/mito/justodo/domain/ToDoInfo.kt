@@ -6,11 +6,19 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "justodo_todo_table")
 data class ToDoInfo(
-    @PrimaryKey(autoGenerate = true) var id: Long = -1L,
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = -1L,
+
     var title: String = "",
+
     var description: String = "",
-    @ColumnInfo(name = "due_date") var dueData: String = "",
-    @ColumnInfo(name = "deadline_date") var deadlineDate: Long = -1L,
+
+    @ColumnInfo(name = "due_date")
+    var dueData: String = "",
+
+    @ColumnInfo(name = "deadline_date")
+    var deadlineDate: Long = -1L,
+
     var done: Boolean = false
 ) {
     fun done() {
