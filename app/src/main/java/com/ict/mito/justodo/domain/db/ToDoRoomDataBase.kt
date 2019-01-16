@@ -10,7 +10,7 @@ import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 /**
  * Created by mito on 2018-12-18.
  */
-@Database(entities = [ToDoInfo::class], version = 1)
+@Database(entities = [ToDoInfo::class], version = 1, exportSchema = false)
 abstract class ToDoRoomDataBase : RoomDatabase() {
     abstract fun todoInfoDao(): ToDoInfoDAO
 
@@ -23,9 +23,10 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                         context.applicationContext,
                         ToDoRoomDataBase::class.java,
-                        "justodo_database"
+                        "justodo_database_db"
                 )
                         .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
                         .build()
                 INSTANCE = instance
                 instance
