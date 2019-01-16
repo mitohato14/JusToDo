@@ -20,10 +20,15 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
 
     @WorkerThread
-    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = Single.just(dao.getAllToDo())
+    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = dao.getAllToDo()
 
-    override fun getById(id: Long): Maybe<ToDoInfo?> =
-            Maybe.create { dao.getAllToDo().value?.find { todo -> id == todo.id } }
+    override fun getById(id: Long): Maybe<ToDoInfo?> = Maybe.create {
+        dao.getAllToDo().map { todoLiveData ->
+            todoLiveData.value?.find {
+                todo -> id == todo.id
+            }
+        }
+    }
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo): Completable =

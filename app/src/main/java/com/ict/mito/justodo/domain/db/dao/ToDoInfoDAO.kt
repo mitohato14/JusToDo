@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.ict.mito.justodo.domain.ToDoInfo
+import io.reactivex.Single
 
 /**
  * Created by mito on 2018-12-18.
@@ -18,7 +19,7 @@ interface ToDoInfoDAO {
     fun insert(toDoInfo: ToDoInfo)
 
     @Query("SELECT * FROM justodo_todo_table")
-    fun getAllToDo(): LiveData<List<ToDoInfo>>
+    fun getAllToDo(): Single<LiveData<List<ToDoInfo>>>
 
     @Update
     fun update(toDoInfo: ToDoInfo)
