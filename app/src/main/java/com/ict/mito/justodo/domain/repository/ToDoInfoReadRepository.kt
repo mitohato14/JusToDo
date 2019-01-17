@@ -10,5 +10,5 @@ import io.reactivex.Single
 interface ToDoInfoReadRepository {
     suspend fun getAll(): Single<List<ToDoInfo>>
 
-    fun getById(id: Long): Maybe<ToDoInfo?>
+    fun getById(id: Long): Maybe<ToDoInfo>
 }

@@ -21,13 +21,7 @@ class ToDoInfoRepositoryImpl @Inject constructor(
     @WorkerThread
     override suspend fun getAll(): Single<List<ToDoInfo>> = dao.getAllToDo()
 
-    override fun getById(id: Long): Maybe<ToDoInfo?> = Maybe.create {
-        dao.getAllToDo().map { todos ->
-            todos.filter { todo ->
-                todo.id == id
-            }
-        }
-    }
+    override fun getById(id: Long): Maybe<ToDoInfo> = dao.getToDoInfoById(id)
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo): Completable =
