@@ -1,6 +1,5 @@
 package com.ict.mito.justodo.domain.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -19,7 +18,7 @@ interface ToDoInfoDAO {
     fun insert(toDoInfo: ToDoInfo)
 
     @Query("SELECT * FROM justodo_todo_table")
-    fun getAllToDo(): Single<LiveData<List<ToDoInfo>>>
+    fun getAllToDo(): Single<List<ToDoInfo>>
 
     @Update
     fun update(toDoInfo: ToDoInfo)

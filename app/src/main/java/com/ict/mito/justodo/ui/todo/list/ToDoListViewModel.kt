@@ -44,7 +44,7 @@ class ToDoListViewModel(
     private fun readAll() = scope.launch(Dispatchers.IO) {
         repository.getAll().subscribeBy(
                 onSuccess = {
-                    todos = it
+                    todos = MutableLiveData(it)
                 },
                 onError = {
                     todos

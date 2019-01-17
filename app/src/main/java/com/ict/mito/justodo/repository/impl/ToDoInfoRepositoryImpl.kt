@@ -1,7 +1,6 @@
 package com.ict.mito.justodo.repository.impl
 
 import androidx.annotation.WorkerThread
-import androidx.lifecycle.LiveData
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
@@ -20,12 +19,12 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
 
     @WorkerThread
-    override suspend fun getAll(): Single<LiveData<List<ToDoInfo>>> = dao.getAllToDo()
+    override suspend fun getAll(): Single<List<ToDoInfo>> = dao.getAllToDo()
 
     override fun getById(id: Long): Maybe<ToDoInfo?> = Maybe.create {
-        dao.getAllToDo().map { todoLiveData ->
-            todoLiveData.value?.find {
-                todo -> id == todo.id
+        dao.getAllToDo().map { todos ->
+            todos.filter { todo ->
+                todo.id == id
             }
         }
     }
