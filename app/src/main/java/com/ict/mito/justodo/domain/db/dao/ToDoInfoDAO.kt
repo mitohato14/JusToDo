@@ -29,4 +29,10 @@ interface ToDoInfoDAO {
 
     @Delete
     fun delete(toDoInfo: ToDoInfo)
+
+    @Query("DELETE FROM justodo_todo_table WHERE id = :id")
+    fun delete(id: Long)
+
+    @Query("DELETE FROM justodo_todo_table")
+    fun deleteAll()
 }
