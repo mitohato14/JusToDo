@@ -6,9 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "justodo_todo_table")
 data class ToDoInfo(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = -1L,
-
     var title: String = "",
 
     var description: String = "",
@@ -21,6 +18,9 @@ data class ToDoInfo(
 
     var done: Boolean = false
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = -1L
+
     fun done() {
         done = true
     }

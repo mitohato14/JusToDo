@@ -10,7 +10,6 @@ class ToDoInfoLiveData : MutableLiveData<ToDoInfo>() {
     override fun onActive() {
         super.onActive()
         value = ToDoInfo(
-                id = -1L,
                 title = "",
                 description = "",
                 dueData = "",
