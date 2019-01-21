@@ -20,7 +20,7 @@ class ToDoListFragment : Fragment() {
 
     @Inject
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
-    
+
     private lateinit var binding: TodoListFragmentBinding
     private lateinit var viewModel: ToDoListViewModel
 
