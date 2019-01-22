@@ -19,7 +19,7 @@ data class ToDoInfo(
     var done: Boolean = false
 ) {
     @PrimaryKey(autoGenerate = true)
-    var id: Long = -1L
+    var id: Long = 0
 
     fun done() {
         done = true
