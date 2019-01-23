@@ -11,7 +11,7 @@ data class ToDoInfo(
     var description: String = "",
 
     @ColumnInfo(name = "due_date")
-    var dueData: String = "",
+    var dueDate: String = "",
 
     @ColumnInfo(name = "deadline_date")
     var deadlineDate: Long = -1L,

@@ -41,7 +41,7 @@
                     android:id="@+id/due_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{todoInfo.dueData}"
+                    android:text="@{todoInfo.dueDate}"
                     android:textSize="@dimen/due_date_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
