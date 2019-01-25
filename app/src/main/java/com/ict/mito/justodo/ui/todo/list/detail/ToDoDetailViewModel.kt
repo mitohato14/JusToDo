@@ -13,18 +13,19 @@ import java.sql.Date
  */
 class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewModel() {
     lateinit var todo: LiveData<ToDoInfo>
-    var dateString: String
+    lateinit var dateString: String
     
-    init {
-        repository.getById(id).subscribeBy(
-                onSuccess = {
-                    todo = MutableLiveData(it)
-                },
-                onError = {
-                    todo
-                }
-        )
-        dateString = Date(todo.value?.deadlineDate ?: System.currentTimeMillis()).toString()
     var id: Long = -1L
+        set(value) {
+            repository.getById(value).subscribeBy (
+                    onSuccess = {
+                        todo = MutableLiveData(it)
+                    },
+                    onError = {
+                        todo
+                    }
+            )
+            dateString = Date(todo.value?.deadlineDate ?: System.currentTimeMillis()).toString()
+            field = value
     }
 }
