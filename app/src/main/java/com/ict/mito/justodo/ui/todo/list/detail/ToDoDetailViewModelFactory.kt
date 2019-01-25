@@ -17,7 +17,9 @@ class ToDoDetailViewModelFactory private constructor(
         return ToDoDetailViewModel(repository) as T
     }
 
-    class Provider @Inject constructor(private val repository: ToDoInfoRepository) {
+    class Provider @Inject constructor(
+        private val repository: ToDoInfoRepository
+    ) {
         fun provide(): ToDoDetailViewModelFactory = ToDoDetailViewModelFactory(repository)
     }
 }

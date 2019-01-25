@@ -14,10 +14,10 @@ import java.sql.Date
 class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewModel() {
     lateinit var todo: LiveData<ToDoInfo>
     lateinit var dateString: String
-    
+
     var id: Long = -1L
         set(value) {
-            repository.getById(value).subscribeBy (
+            repository.getById(value).subscribeBy(
                     onSuccess = {
                         todo = MutableLiveData(it)
                     },

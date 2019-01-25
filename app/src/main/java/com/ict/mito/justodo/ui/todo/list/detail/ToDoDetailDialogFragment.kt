@@ -17,23 +17,23 @@ import javax.inject.Inject
 class ToDoDetailDialogFragment : DialogFragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
-    
+
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val args = arguments ?: return null
         val safeArgs = ToDoDetailDialogFragmentArgs.fromBundle(args)
-        
+
         val factory = todoDetailViewModelProvider.provide()
         val viewmodel = ViewModelProviders.of(
                 this,
                 factory
         ).get(ToDoDetailViewModel::class.java)
-        
+
         viewmodel.id = safeArgs.toDoId
-    
+
         val binding: TodoDialogFragmentBinding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.todo_dialog_fragment,
@@ -44,8 +44,7 @@ class ToDoDetailDialogFragment : DialogFragment() {
             it.viewmodel = viewmodel
             it.setLifecycleOwner(this)
         }
-        
+
         return binding.root
     }
-    
 }
