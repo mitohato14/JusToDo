@@ -11,10 +11,7 @@ import java.sql.Date
 /**
  * Created by mitohato14 on 2019-01-23.
  */
-class ToDoDetailViewModel(
-    private val repository: ToDoInfoRepository,
-    private val id: Long
-) : ViewModel() {
+class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewModel() {
     lateinit var todo: LiveData<ToDoInfo>
     var dateString: String
     
@@ -28,5 +25,6 @@ class ToDoDetailViewModel(
                 }
         )
         dateString = Date(todo.value?.deadlineDate ?: System.currentTimeMillis()).toString()
+    var id: Long = -1L
     }
 }

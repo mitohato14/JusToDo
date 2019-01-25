@@ -9,25 +9,15 @@ import javax.inject.Inject
  * Created by mitohato14 on 2019-01-23.
  */
 class ToDoDetailViewModelFactory private constructor(
-    private val repository: ToDoInfoRepository,
-    private val id: Long
+    private val repository: ToDoInfoRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ToDoDetailViewModel(
-                repository,
-                id
-        ) as T
+        return ToDoDetailViewModel(repository) as T
     }
 
-    class Provider @Inject constructor(
-        private val repository: ToDoInfoRepository,
-        private val id: Long
-    ) {
-        fun provide(): ToDoDetailViewModelFactory = ToDoDetailViewModelFactory(
-                repository,
-                id
-        )
+    class Provider @Inject constructor(private val repository: ToDoInfoRepository) {
+        fun provide(): ToDoDetailViewModelFactory = ToDoDetailViewModelFactory(repository)
     }
 }
