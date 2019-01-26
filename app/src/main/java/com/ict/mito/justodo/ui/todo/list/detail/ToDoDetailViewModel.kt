@@ -13,7 +13,7 @@ import java.sql.Date
  */
 class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewModel() {
     var todo: LiveData<ToDoInfo> = MutableLiveData()
-    lateinit var dateString: String
+    var dateString: String = ""
 
     var id: Long = -1L
         set(value) {
