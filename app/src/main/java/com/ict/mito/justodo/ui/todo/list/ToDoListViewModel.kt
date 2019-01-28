@@ -52,11 +52,27 @@ class ToDoListViewModel(
         )
     }
 
+    fun updateDueDate() = scope.launch(Dispatchers.IO) {
+        repository.getAll().subscribeBy(
+                onSuccess = {
+                    it.forEach { todo ->
+                        todo.dueDate = (
+                                (todo.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
+                                ).toString()
+                        scope.launch(Dispatchers.IO) { repository.store(todo) }
+                    }
+                },
+                onError = {
+                }
+        )
+    }
+
     fun fabOnClick(view: View) {
         navController?.navigate(R.id.action_toDoListFragment_to_addFragment)
     }
 
     fun updateAdapterValue() {
+        updateDueDate()
         readAll()
         todos.value?.let { adapter.setToDoListData(it) }
     }
