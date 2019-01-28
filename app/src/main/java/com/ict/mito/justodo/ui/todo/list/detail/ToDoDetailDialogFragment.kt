@@ -1,5 +1,6 @@
 package com.ict.mito.justodo.ui.todo.list.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoDialogFragmentBinding
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 /**
