@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -63,7 +64,16 @@ class ToDoListFragment : Fragment() {
         super.onResume()
         viewModel.updateAdapterValue()
         binding.notifyChange()
+        
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.app_name)
+            it.setDisplayHomeAsUpEnabled(false)
+            it.setHomeButtonEnabled(false)
+        }
     }
+    
+    
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
