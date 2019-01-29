@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
@@ -19,6 +20,8 @@ import javax.inject.Inject
 class ToDoDetailDialogFragment : DialogFragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
+    
+    lateinit var viewmodel: ToDoDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +32,7 @@ class ToDoDetailDialogFragment : DialogFragment() {
         val safeArgs = ToDoDetailDialogFragmentArgs.fromBundle(args)
 
         val factory = todoDetailViewModelProvider.provide()
-        val viewmodel = ViewModelProviders.of(
+        viewmodel = ViewModelProviders.of(
                 this,
                 factory
         ).get(ToDoDetailViewModel::class.java)
@@ -48,6 +51,16 @@ class ToDoDetailDialogFragment : DialogFragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = viewmodel.todo.value?.title
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setHomeButtonEnabled(true)
+        }
     }
 
     override fun onAttach(context: Context) {
