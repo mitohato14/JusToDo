@@ -20,6 +20,7 @@ class ToDoDetailViewModelFactory private constructor(
     class Provider @Inject constructor(
         private val repository: ToDoInfoRepository
     ) {
-        fun provide(): ToDoDetailViewModelFactory = ToDoDetailViewModelFactory(repository)
+        fun provide(): ToDoDetailViewModelFactory =
+                ToDoDetailViewModelFactory(repository)
     }
 }

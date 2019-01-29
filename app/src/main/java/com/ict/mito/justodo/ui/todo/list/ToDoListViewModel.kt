@@ -57,7 +57,8 @@ class ToDoListViewModel(
                 onSuccess = {
                     it.forEach { todo ->
                         todo.dueDate = (
-                                (todo.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
+                                (todo.deadlineDate - System.currentTimeMillis())
+                                        / (1000 * 60 * 60 * 24)
                                 ).toString()
                         scope.launch(Dispatchers.IO) { repository.store(todo) }
                     }

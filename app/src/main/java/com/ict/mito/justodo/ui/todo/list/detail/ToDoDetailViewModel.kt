@@ -11,7 +11,9 @@ import java.sql.Date
 /**
  * Created by mitohato14 on 2019-01-23.
  */
-class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewModel() {
+class ToDoDetailViewModel(
+        private val repository: ToDoInfoRepository
+) : ViewModel() {
     var todo: LiveData<ToDoInfo> = MutableLiveData()
     var dateString: String = ""
 
@@ -20,7 +22,10 @@ class ToDoDetailViewModel(private val repository: ToDoInfoRepository) : ViewMode
             repository.getById(value).subscribeBy(
                     onSuccess = {
                         todo = MutableLiveData(it)
-                        dateString = Date(todo.value?.deadlineDate ?: System.currentTimeMillis()).toString()
+                        dateString = Date(
+                                todo.value?.deadlineDate ?:
+                                System.currentTimeMillis()
+                        ).toString()
                     },
                     onError = {
                         todo
