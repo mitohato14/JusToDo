@@ -49,7 +49,7 @@ class AddFragment : Fragment() {
 
         return binding.root
     }
-    
+
     override fun onResume() {
         super.onResume()
         val appCompatActivity = activity as AppCompatActivity?

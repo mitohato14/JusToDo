@@ -64,7 +64,7 @@ class ToDoListFragment : Fragment() {
         super.onResume()
         viewModel.updateAdapterValue()
         binding.notifyChange()
-        
+
         val appCompatActivity = activity as AppCompatActivity?
         appCompatActivity?.supportActionBar?.let {
             it.title = getString(R.string.app_name)
@@ -72,8 +72,6 @@ class ToDoListFragment : Fragment() {
             it.setHomeButtonEnabled(false)
         }
     }
-    
-    
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

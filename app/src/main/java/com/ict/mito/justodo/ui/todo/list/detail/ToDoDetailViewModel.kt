@@ -12,7 +12,7 @@ import java.sql.Date
  * Created by mitohato14 on 2019-01-23.
  */
 class ToDoDetailViewModel(
-        private val repository: ToDoInfoRepository
+    private val repository: ToDoInfoRepository
 ) : ViewModel() {
     var todo: LiveData<ToDoInfo> = MutableLiveData()
     var dateString: String = ""
@@ -23,8 +23,8 @@ class ToDoDetailViewModel(
                     onSuccess = {
                         todo = MutableLiveData(it)
                         dateString = Date(
-                                todo.value?.deadlineDate ?:
-                                System.currentTimeMillis()
+                                todo.value?.deadlineDate
+                                ?: System.currentTimeMillis()
                         ).toString()
                     },
                     onError = {

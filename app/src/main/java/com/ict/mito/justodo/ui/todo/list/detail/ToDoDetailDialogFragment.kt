@@ -20,7 +20,7 @@ import javax.inject.Inject
 class ToDoDetailDialogFragment : DialogFragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
-    
+
     lateinit var viewmodel: ToDoDetailViewModel
 
     override fun onCreateView(
