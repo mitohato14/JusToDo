@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.databinding.TodoDialogFragmentBinding
+import com.ict.mito.justodo.databinding.TodoFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 /**
  * Created by mito on 2018-12-15.
  */
-class ToDoDetailDialogFragment : DialogFragment() {
+class ToDoDetailDialogFragment : Fragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
@@ -39,9 +39,9 @@ class ToDoDetailDialogFragment : DialogFragment() {
 
         viewmodel.id = safeArgs.toDoId
 
-        val binding: TodoDialogFragmentBinding = DataBindingUtil.inflate(
+        val binding: TodoFragmentBinding = DataBindingUtil.inflate(
                 inflater,
-                R.layout.todo_dialog_fragment,
+                R.layout.todo_fragment,
                 container,
                 false
         )
