@@ -57,7 +57,7 @@ class ToDoDetailDialogFragment : Fragment() {
         super.onResume()
         val appCompatActivity = activity as AppCompatActivity?
         appCompatActivity?.supportActionBar?.let {
-            it.title = viewmodel.todo.value?.title
+            it.title = viewmodel.todo.value?.title ?: getString(R.string.no_title)
             it.setDisplayHomeAsUpEnabled(true)
             it.setHomeButtonEnabled(true)
         }
