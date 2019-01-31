@@ -10,4 +10,5 @@
     <string name="create_todo_button">追加</string>
     <string name="line">line</string>
     <string name="no_title">No title</string>
+    <string name="done">Done</string>
 </resources>
