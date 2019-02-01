@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(
-                R.menu.menu_detail,
+                R.menu.menu_default,
                 menu
         )
         return true
