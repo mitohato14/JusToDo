@@ -55,9 +55,9 @@ class ToDoListFragment : Fragment() {
                 false
         )
 
-        binding.also { it ->
+        binding.also {
             it.viewmodel = viewModel
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
         return binding.root
     }
@@ -74,10 +74,10 @@ class ToDoListFragment : Fragment() {
             it.setHomeButtonEnabled(false)
         }
     }
-    
+
     override fun onCreateOptionsMenu(
-            menu: Menu,
-            inflater: MenuInflater
+        menu: Menu,
+        inflater: MenuInflater
     ) {
         inflater.inflate(
                 R.menu.menu_default,

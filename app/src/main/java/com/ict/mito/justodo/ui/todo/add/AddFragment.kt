@@ -41,12 +41,12 @@ class AddFragment : Fragment() {
                 false
         )
 
-        binding.also { it ->
+        binding.also {
             it.datePicker.setOnDatePickListener { dateSelected ->
                 viewModel.onDateChanged(dateSelected)
             }
             it.viewmodel = viewModel
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
 
         return binding.root
@@ -61,10 +61,10 @@ class AddFragment : Fragment() {
             it.setHomeButtonEnabled(true)
         }
     }
-    
+
     override fun onCreateOptionsMenu(
-            menu: Menu,
-            inflater: MenuInflater
+        menu: Menu,
+        inflater: MenuInflater
     ) {
         inflater.inflate(
                 R.menu.menu_default,

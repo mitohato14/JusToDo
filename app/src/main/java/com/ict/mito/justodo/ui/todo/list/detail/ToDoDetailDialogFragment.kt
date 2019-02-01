@@ -49,7 +49,7 @@ class ToDoDetailDialogFragment : Fragment() {
         )
         binding.also {
             it.viewmodel = viewmodel
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
 
         return binding.root
@@ -66,15 +66,15 @@ class ToDoDetailDialogFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(
-            menu: Menu,
-            inflater: MenuInflater
+        menu: Menu,
+        inflater: MenuInflater
     ) {
         inflater.inflate(
                 R.menu.menu_detail,
                 menu
         )
     }
-    
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
