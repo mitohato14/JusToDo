@@ -3,6 +3,8 @@ package com.ict.mito.justodo.ui.todo.list.detail
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -63,6 +65,16 @@ class ToDoDetailDialogFragment : Fragment() {
         }
     }
 
+    override fun onCreateOptionsMenu(
+            menu: Menu,
+            inflater: MenuInflater
+    ) {
+        inflater.inflate(
+                R.menu.menu_detail,
+                menu
+        )
+    }
+    
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

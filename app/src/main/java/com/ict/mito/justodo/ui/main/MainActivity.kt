@@ -1,6 +1,7 @@
 package com.ict.mito.justodo.ui.main
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -27,4 +28,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onSupportNavigateUp() = findNavController(R.id.navhost).navigateUp()
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(
+                R.menu.menu_detail,
+                menu
+        )
+        return true
+    }
 }
