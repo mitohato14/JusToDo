@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -80,5 +81,21 @@ class ToDoDetailDialogFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+    
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            
+            R.id.action_done -> {
+                if (viewmodel.todo.value?.done == true) {
+                    viewmodel.todo.value?.undone()
+                } else {
+                    viewmodel.todo.value?.done()
+                }
+                viewmodel.updateToDo()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
