@@ -30,6 +30,8 @@ class ToDoDetailDialogFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
+
         val args = arguments ?: return null
         val safeArgs = ToDoDetailDialogFragmentArgs.fromBundle(args)
 
