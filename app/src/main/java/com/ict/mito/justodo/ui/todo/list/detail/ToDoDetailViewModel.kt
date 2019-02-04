@@ -43,7 +43,7 @@ class ToDoDetailViewModel(
             )
             field = value
     }
-    
+
     fun updateToDo() = scope.launch(Dispatchers.IO) {
         todo.value?.let { repository.store(it) }
     }

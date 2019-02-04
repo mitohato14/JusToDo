@@ -82,11 +82,11 @@ class ToDoDetailFragment : Fragment() {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
     }
-    
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         when (id) {
-            
+
             R.id.action_done -> {
                 if (viewmodel.todo.value?.done == true) {
                     viewmodel.todo.value?.undone()
