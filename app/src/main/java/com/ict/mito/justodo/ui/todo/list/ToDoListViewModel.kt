@@ -52,7 +52,7 @@ class ToDoListViewModel(
         )
     }
 
-    fun updateDueDate() = scope.launch(Dispatchers.IO) {
+    private fun updateDueDate() = scope.launch(Dispatchers.IO) {
         repository.getAll().subscribeBy(
                 onSuccess = {
                     it.forEach { todo ->
