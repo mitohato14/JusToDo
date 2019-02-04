@@ -3,8 +3,11 @@ package com.ict.mito.justodo.ui.todo.list
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -52,9 +55,9 @@ class ToDoListFragment : Fragment() {
                 false
         )
 
-        binding.also { it ->
+        binding.also {
             it.viewmodel = viewModel
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }
         return binding.root
     }
@@ -63,8 +66,24 @@ class ToDoListFragment : Fragment() {
         super.onResume()
         viewModel.updateAdapterValue()
         binding.notifyChange()
+
+        val appCompatActivity = activity as AppCompatActivity?
+        appCompatActivity?.supportActionBar?.let {
+            it.title = getString(R.string.app_name)
+            it.setDisplayHomeAsUpEnabled(false)
+            it.setHomeButtonEnabled(false)
+        }
     }
 
+    override fun onCreateOptionsMenu(
+        menu: Menu,
+        inflater: MenuInflater
+    ) {
+        inflater.inflate(
+                R.menu.menu_default,
+                menu
+        )
+    }
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

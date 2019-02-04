@@ -12,7 +12,7 @@ class ToDoInfoLiveData : MutableLiveData<ToDoInfo>() {
         value = ToDoInfo(
                 title = "",
                 description = "",
-                dueData = "",
+                dueDate = "",
                 deadlineDate = -1L,
                 done = false
         )
