@@ -20,7 +20,7 @@ import javax.inject.Inject
 /**
  * Created by mito on 2018-12-15.
  */
-class ToDoDetailDialogFragment : Fragment() {
+class ToDoDetailFragment : Fragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
@@ -34,7 +34,7 @@ class ToDoDetailDialogFragment : Fragment() {
         setHasOptionsMenu(true)
 
         val args = arguments ?: return null
-        val safeArgs = ToDoDetailDialogFragmentArgs.fromBundle(args)
+        val safeArgs = ToDoDetailFragmentArgs.fromBundle(args)
 
         val factory = todoDetailViewModelProvider.provide()
         viewmodel = ViewModelProviders.of(
