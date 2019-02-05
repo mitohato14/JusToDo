@@ -78,15 +78,8 @@ class ToDoDetailFragment : Fragment() {
         )
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        AndroidSupportInjection.inject(this)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-
+        when (item.itemId) {
             R.id.action_done -> {
                 if (viewmodel.todo.value?.done == true) {
                     viewmodel.todo.value?.undone()
@@ -97,5 +90,10 @@ class ToDoDetailFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
     }
 }
