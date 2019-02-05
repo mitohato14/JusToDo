@@ -2,6 +2,7 @@ package com.ict.mito.justodo.ui.todo.list.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import javax.inject.Inject
 
@@ -14,7 +15,10 @@ class ToDoDetailViewModelFactory private constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ToDoDetailViewModel(repository) as T
+        return ToDoDetailViewModel(
+                repository,
+                ToDoInfoLiveDataFactory()
+        ) as T
     }
 
     class Provider @Inject constructor(
