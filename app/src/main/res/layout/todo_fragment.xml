@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ict.mito.justodo.ui.todo.list.detail.ToDoDetailViewModel"/>
+            type="com.ict.mito.justodo.ui.todo.detail.ToDoDetailViewModel"/>
 
     </data>
 

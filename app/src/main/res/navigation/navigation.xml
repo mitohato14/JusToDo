@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/toDoDetailDialogFragment"
-        android:name="com.ict.mito.justodo.ui.todo.list.detail.ToDoDetailFragment"
+        android:name="com.ict.mito.justodo.ui.todo.detail.ToDoDetailFragment"
         android:label="ToDoDetailDialogFragment">
         <argument
             android:name="ToDoId"
