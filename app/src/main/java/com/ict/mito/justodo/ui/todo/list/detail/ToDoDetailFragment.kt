@@ -82,11 +82,10 @@ class ToDoDetailFragment : Fragment() {
         when (item.itemId) {
             R.id.action_done -> {
                 if (viewmodel.todo.value?.done == true) {
-                    viewmodel.todo.value?.undone()
+                    viewmodel.undone()
                 } else {
-                    viewmodel.todo.value?.done()
+                    viewmodel.done()
                 }
-                viewmodel.updateToDo()
             }
         }
         return super.onOptionsItemSelected(item)

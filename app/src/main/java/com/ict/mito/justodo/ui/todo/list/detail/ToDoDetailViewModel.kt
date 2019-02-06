@@ -49,4 +49,12 @@ class ToDoDetailViewModel(
     fun updateToDo() = scope.launch(Dispatchers.IO) {
         todo.value?.let { repository.store(it) }
     }
+
+    fun done() = scope.launch(Dispatchers.IO) {
+        todo.value?.let { repository.done(it) }
+    }
+
+    fun undone() = scope.launch(Dispatchers.IO) {
+        todo.value?.let { repository.undone(it) }
+    }
 }
