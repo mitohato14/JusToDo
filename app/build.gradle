@@ -32,8 +32,8 @@ dependencies {
 
 //    androidx
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha01'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha02'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha02'
     implementation 'com.android.support:multidex:1.0.3'
 //    navigation
     implementation "android.arch.navigation:navigation-common-ktx:$navigation_version"
@@ -43,10 +43,10 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
 //    androidx view
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha02'
     implementation 'androidx.cardview:cardview:1.0.0'
 //    material view
-    implementation 'com.google.android.material:material:1.1.0-alpha02'
+    implementation 'com.google.android.material:material:1.1.0-alpha03'
 //    room
     implementation "android.arch.persistence.room:runtime:$room_version"
     implementation 'android.arch.persistence.room:rxjava2:1.1.1'
