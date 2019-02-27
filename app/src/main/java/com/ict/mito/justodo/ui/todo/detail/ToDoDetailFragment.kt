@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -83,8 +84,18 @@ class ToDoDetailFragment : Fragment() {
             R.id.action_done -> {
                 if (viewmodel.todo.value?.done == true) {
                     viewmodel.undone()
+                    Toast.makeText(
+                        context,
+                        "undone",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
                     viewmodel.done()
+                    Toast.makeText(
+                        context,
+                        "done",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
