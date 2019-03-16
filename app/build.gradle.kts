@@ -40,9 +40,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
 //    androidx
-    implementation("androidx.appcompat:appcompat:1.1.0-alpha02")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.1.0-alpha02")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha02")
+    implementation("androidx.appcompat:appcompat:1.1.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.1.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha03")
     implementation("com.android.support:multidex:1.0.3")
 //    navigation
     val navigationVersion: String? by project
@@ -53,10 +53,10 @@ dependencies {
     implementation("android.arch.navigation:navigation-ui-ktx:$navigationVersion")
 //    androidx view
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-alpha3")
-    implementation("androidx.recyclerview:recyclerview:1.1.0-alpha02")
+    implementation("androidx.recyclerview:recyclerview:1.1.0-alpha03")
     implementation("androidx.cardview:cardview:1.0.0")
 //    material view
-    implementation("com.google.android.material:material:1.1.0-alpha03")
+    implementation("com.google.android.material:material:1.1.0-alpha04")
 //    room
     val roomVersion: String? by project
     implementation("android.arch.persistence.room:runtime:$roomVersion")
