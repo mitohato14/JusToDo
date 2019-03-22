@@ -24,7 +24,7 @@ class ToDoListFragment : Fragment() {
     @Inject
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
 
-    private lateinit var binding: TodoListFragmentBinding
+    private var binding: TodoListFragmentBinding? = null
     private lateinit var viewModel: ToDoListViewModel
 
     override fun onCreateView(
@@ -55,17 +55,17 @@ class ToDoListFragment : Fragment() {
                 false
         )
 
-        binding.also {
+        binding?.let {
             it.viewmodel = viewModel
             it.lifecycleOwner = this
         }
-        return binding.root
+        return binding?.root
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.updateAdapterValue()
-        binding.notifyChange()
+        binding?.notifyChange()
 
         val appCompatActivity = activity as AppCompatActivity?
         appCompatActivity?.supportActionBar?.let {
@@ -87,5 +87,10 @@ class ToDoListFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
