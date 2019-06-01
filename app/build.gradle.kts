@@ -94,7 +94,7 @@ dependencies {
 
 //    test
     testImplementation("junit:junit:4.13-beta-1")
-    androidTestImplementation("androidx.test:runner:1.1.1")
+    androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
 }
 
