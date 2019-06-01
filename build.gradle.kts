@@ -13,7 +13,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.6.0-alpha01")
+        classpath("com.android.tools.build:gradle:3.6.0-alpha02")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("android.arch.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
 
