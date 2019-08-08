@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewmodel"
+            type="com.ict.mito.justodo.ui.todo.add.AddViewModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/todo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_margin"
+            android:autofillHints="@string/title_fill_hints"
+            android:hint="@string/title"
+            android:inputType="text"
+            android:onTextChanged="@{viewmodel::onTitleChanged}"
+            android:text="@{viewmodel.todoInfoLiveData.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="o"/>
+
+        <com.mikhaellopez.lazydatepicker.LazyDatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/todo_title"
+            app:ldp_hint_color="@color/colorAccent"
+            app:ldp_text_color="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/todo_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_margin"
+            android:autofillHints="@string/description_auto_fill_hints"
+            android:background="@color/transparent"
+            android:hint="@string/description"
+            android:inputType="textMultiLine"
+            android:onTextChanged="@{viewmodel::onDescriptionChanged}"
+            android:text="@{viewmodel.todoInfoLiveData.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/datePicker"
+            tools:targetApi="o"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_margin"
+            android:background="@color/transparent"
+            android:onClick="@{viewmodel::onClickAddToDoInfo}"
+            android:text="@string/create_todo_button"
+            android:textColor="@color/colorAccent"
+            android:visibility="@{viewmodel.addable ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
