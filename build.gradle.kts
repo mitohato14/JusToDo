@@ -1,3 +1,5 @@
+import java.nio.file.Files.delete
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -13,7 +15,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.6.0-alpha03")
+        classpath("com.android.tools.build:gradle:3.6.0-alpha05")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("android.arch.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
 
