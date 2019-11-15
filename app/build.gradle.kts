@@ -96,6 +96,8 @@ dependencies {
     testImplementation("junit:junit:4.13-beta-1")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    implementation("android.arch.navigation:navigation-ui-ktx:1.0.0-beta01")
+    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0-beta01")
 }
 
 kapt {
