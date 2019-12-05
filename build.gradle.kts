@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    val kotlinVersion by extra("1.3.31")
+    val kotlinVersion by extra("1.3.50")
     val daggerVersion by extra("2.16")
     val navigationVersion by extra("1.0.0-beta01")
     val roomVersion by extra("1.1.1")
@@ -13,7 +13,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.6.0-alpha12")
+        classpath("com.android.tools.build:gradle:4.0.0-alpha05")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("android.arch.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
 
@@ -27,6 +27,7 @@ allprojects {
         google()
         jcenter()
         maven("https://jitpack.io")
+        maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 }
 tasks.create(
