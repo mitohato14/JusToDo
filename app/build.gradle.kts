@@ -118,6 +118,6 @@ kotlin {
 ktlint {
     version.set("0.31.0")
     android.set(true)
-    reporters.set(setOf(ReporterType.CHECKSTYLE))
+    reporters.set(setOf(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE))
     ignoreFailures.set(true) // NOTE: エラーで中断させないための設定
 }
