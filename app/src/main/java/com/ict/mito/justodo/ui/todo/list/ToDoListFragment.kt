@@ -25,19 +25,18 @@ class ToDoListFragment : Fragment() {
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
 
     private var binding: TodoListFragmentBinding? = null
-    private lateinit var viewModel: ToDoListViewModel
+    private val viewModel: ToDoListViewModel by lazy {
+        ViewModelProviders.of(
+            this,
+            toDoListViewModelFactoryProvider.provide()
+        ).get(ToDoListViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val factory = toDoListViewModelFactoryProvider.provide()
-        viewModel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(ToDoListViewModel::class.java)
-
         viewModel.also {
             it.todos.observe(
                     this,
