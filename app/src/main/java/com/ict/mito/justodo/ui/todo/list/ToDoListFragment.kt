@@ -38,19 +38,19 @@ class ToDoListFragment : Fragment() {
     ): View? {
         viewmodel.also {
             it.todos.observe(
-                    this,
-                    Observer<List<ToDoInfo>> { todoInfoList ->
-                        it.adapter.setToDoListData(todoInfoList)
-                    }
+                this,
+                Observer { todoInfoList ->
+                    it.adapter.setToDoListData(todoInfoList)
+                }
             )
             it.navController = findNavController()
         }
 
         binding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.todo_list_fragment,
-                container,
-                false
+            inflater,
+            R.layout.todo_list_fragment,
+            container,
+            false
         )
 
         binding?.let {
@@ -78,10 +78,11 @@ class ToDoListFragment : Fragment() {
         inflater: MenuInflater
     ) {
         inflater.inflate(
-                R.menu.menu_default,
-                menu
+            R.menu.menu_default,
+            menu
         )
     }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

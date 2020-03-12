@@ -1,8 +1,8 @@
 package com.ict.mito.justodo.ui.main
 
 import com.ict.mito.justodo.ui.todo.add.AddFragment
-import com.ict.mito.justodo.ui.todo.list.ToDoListFragment
 import com.ict.mito.justodo.ui.todo.detail.ToDoDetailFragment
+import com.ict.mito.justodo.ui.todo.list.ToDoListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

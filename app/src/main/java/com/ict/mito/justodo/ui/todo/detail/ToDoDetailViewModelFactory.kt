@@ -16,8 +16,8 @@ class ToDoDetailViewModelFactory private constructor(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return ToDoDetailViewModel(
-                repository,
-                ToDoInfoLiveDataFactory()
+            repository,
+            ToDoInfoLiveDataFactory()
         ) as T
     }
 
@@ -25,6 +25,6 @@ class ToDoDetailViewModelFactory private constructor(
         private val repository: ToDoInfoRepository
     ) {
         fun provide(): ToDoDetailViewModelFactory =
-                ToDoDetailViewModelFactory(repository)
+            ToDoDetailViewModelFactory(repository)
     }
 }

@@ -10,7 +10,7 @@ import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
-import kotlinx.android.synthetic.main.main_activity.toolbar
+import kotlinx.android.synthetic.main.main_activity.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(
-                R.menu.menu_default,
-                menu
+            R.menu.menu_default,
+            menu
         )
         return true
     }

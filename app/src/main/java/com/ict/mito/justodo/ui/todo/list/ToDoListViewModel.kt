@@ -32,7 +32,7 @@ class ToDoListViewModel(
             if (value == null) return
             field = value
             adapter.navController = value
-    }
+        }
 
     var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
     val adapter: ToDoListAdapter = ToDoListAdapter(todos.value ?: listOf())
@@ -43,28 +43,28 @@ class ToDoListViewModel(
 
     private fun readAll() = scope.launch(Dispatchers.IO) {
         repository.getAll().subscribeBy(
-                onSuccess = {
-                    todos = MutableLiveData(it)
-                },
-                onError = {
-                    todos
-                }
+            onSuccess = {
+                todos = MutableLiveData(it)
+            },
+            onError = {
+                todos
+            }
         )
     }
 
     private fun updateDueDate() = scope.launch(Dispatchers.IO) {
         repository.getAll().subscribeBy(
-                onSuccess = {
-                    it.forEach { todo ->
-                        todo.dueDate = (
-                                (todo.deadlineDate - System.currentTimeMillis()) /
-                                        (1000 * 60 * 60 * 24)
-                                ).toString()
-                        scope.launch(Dispatchers.IO) { repository.store(todo) }
-                    }
-                },
-                onError = {
+            onSuccess = {
+                it.forEach { todo ->
+                    todo.dueDate = (
+                        (todo.deadlineDate - System.currentTimeMillis()) /
+                            (1000 * 60 * 60 * 24)
+                        ).toString()
+                    scope.launch(Dispatchers.IO) { repository.store(todo) }
                 }
+            },
+            onError = {
+            }
         )
     }
 

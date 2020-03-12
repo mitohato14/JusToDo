@@ -15,10 +15,10 @@ class AddViewModelFactory private constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-            AddViewModel(
-                    repository = repository,
-                    todoInfoLiveDataFactory = ToDoInfoLiveDataFactory()
-            ) as T
+        AddViewModel(
+            repository = repository,
+            todoInfoLiveDataFactory = ToDoInfoLiveDataFactory()
+        ) as T
 
     class Provider @Inject constructor(
         private val repository: ToDoInfoRepository

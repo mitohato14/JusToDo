@@ -32,19 +32,19 @@ class ToDoDetailViewModel(
     var id: Long = -1L
         set(value) {
             repository.getById(value).subscribeBy(
-                    onSuccess = {
-                        todo = MutableLiveData(it)
-                        dateString = Date(
-                                todo.value?.deadlineDate
-                                ?: System.currentTimeMillis()
-                        ).toString()
-                    },
-                    onError = {
-                        todo
-                    }
+                onSuccess = {
+                    todo = MutableLiveData(it)
+                    dateString = Date(
+                        todo.value?.deadlineDate
+                            ?: System.currentTimeMillis()
+                    ).toString()
+                },
+                onError = {
+                    todo
+                }
             )
             field = value
-    }
+        }
 
     fun updateToDo() = scope.launch(Dispatchers.IO) {
         todo.value?.let { repository.store(it) }

@@ -45,10 +45,10 @@ class ToDoDetailFragment : Fragment() {
         viewmodel.id = safeArgs.toDoId
 
         binding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.todo_fragment,
-                container,
-                false
+            inflater,
+            R.layout.todo_fragment,
+            container,
+            false
         )
         binding?.let {
             it.viewmodel = viewmodel
@@ -73,8 +73,8 @@ class ToDoDetailFragment : Fragment() {
         inflater: MenuInflater
     ) {
         inflater.inflate(
-                R.menu.menu_detail,
-                menu
+            R.menu.menu_detail,
+            menu
         )
     }
 

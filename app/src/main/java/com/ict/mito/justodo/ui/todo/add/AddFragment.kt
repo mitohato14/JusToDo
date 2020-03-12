@@ -38,10 +38,10 @@ class AddFragment : Fragment() {
         viewmodel.navController = findNavController()
 
         binding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.add_fragment,
-                container,
-                false
+            inflater,
+            R.layout.add_fragment,
+            container,
+            false
         )
 
         binding?.let {
@@ -70,10 +70,11 @@ class AddFragment : Fragment() {
         inflater: MenuInflater
     ) {
         inflater.inflate(
-                R.menu.menu_default,
-                menu
+            R.menu.menu_default,
+            menu
         )
     }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

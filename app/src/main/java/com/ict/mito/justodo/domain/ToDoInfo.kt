@@ -18,6 +18,7 @@ data class ToDoInfo(
     fun done() {
         done = true
     }
+
     fun undone() {
         done = true
     }

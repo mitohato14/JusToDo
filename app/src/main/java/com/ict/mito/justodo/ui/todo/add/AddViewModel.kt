@@ -63,8 +63,8 @@ class AddViewModel(
     fun onClickAddToDoInfo(view: View) {
         todoInfoLiveData.value?.let {
             it.dueDate = (
-                    (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
-                    ).toString()
+                (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
+                ).toString()
             scope.launch(Dispatchers.IO) {
                 repository.add(it)
             }
@@ -82,20 +82,20 @@ class AddViewModel(
         cal.also {
             it.time = utilDate
             it.set(
-                    Calendar.HOUR_OF_DAY,
-                    0
+                Calendar.HOUR_OF_DAY,
+                0
             )
             it.set(
-                    Calendar.MINUTE,
-                    0
+                Calendar.MINUTE,
+                0
             )
             it.set(
-                    Calendar.SECOND,
-                    0
+                Calendar.SECOND,
+                0
             )
             it.set(
-                    Calendar.MILLISECOND,
-                    0
+                Calendar.MILLISECOND,
+                0
             )
         }
 

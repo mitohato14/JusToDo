@@ -21,9 +21,9 @@ class App : MultiDexApplication(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         DaggerAppComponent
-                .builder()
-                .dataBaseModule(DataBaseModule(applicationContext))
-                .build()
-                .inject(this)
+            .builder()
+            .dataBaseModule(DataBaseModule(applicationContext))
+            .build()
+            .inject(this)
     }
 }

@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.ui.todo.list.ToDoListFragmentDirections
 
-class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>)
-    : RecyclerView.Adapter<ToDoListViewHolder>() {
+class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
+    RecyclerView.Adapter<ToDoListViewHolder>() {
 
     lateinit var navController: NavController
 
@@ -22,9 +22,9 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>)
         parent: ViewGroup,
         viewType: Int
     ): ToDoListViewHolder = ToDoListViewHolder.create(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+        LayoutInflater.from(parent.context),
+        parent,
+        false
     )
 
     override fun getItemCount(): Int = todoInfoList.size
@@ -37,9 +37,9 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>)
             bind(todoInfoList[position])
             setToRootOnClickListener(View.OnClickListener {
                 val action = ToDoListFragmentDirections
-                        .actionToDoListFragmentToToDoDetailDialogFragment(
-                                todoInfoList[position].id
-                        )
+                    .actionToDoListFragmentToToDoDetailDialogFragment(
+                        todoInfoList[position].id
+                    )
                 navController.navigate(action)
             })
         }

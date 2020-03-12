@@ -11,9 +11,9 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityModule {
     @ContributesAndroidInjector(
-            modules = [
-                MainActivityModule::class
-            ]
+        modules = [
+            MainActivityModule::class
+        ]
     )
     abstract fun mainActivity(): MainActivity
 }

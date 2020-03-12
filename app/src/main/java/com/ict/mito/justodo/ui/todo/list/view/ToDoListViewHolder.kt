@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.databinding.CardTodoBinding
 import com.ict.mito.justodo.domain.ToDoInfo
 
-class ToDoListViewHolder(private val binding: CardTodoBinding)
-    : RecyclerView.ViewHolder(binding.root) {
+class ToDoListViewHolder(private val binding: CardTodoBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(toDoInfo: ToDoInfo) {
         binding.todoInfo = toDoInfo
@@ -22,17 +22,18 @@ class ToDoListViewHolder(private val binding: CardTodoBinding)
     fun setToRootOnClickListener(onClickListener: View.OnClickListener) {
         binding.root.setOnClickListener(onClickListener)
     }
+
     companion object {
         fun create(
             inflater: LayoutInflater,
             parent: ViewGroup,
             attachToRoot: Boolean
         ): ToDoListViewHolder = ToDoListViewHolder(
-                CardTodoBinding.inflate(
-                        inflater,
-                        parent,
-                        attachToRoot
-                )
+            CardTodoBinding.inflate(
+                inflater,
+                parent,
+                attachToRoot
+            )
         )
     }
 }

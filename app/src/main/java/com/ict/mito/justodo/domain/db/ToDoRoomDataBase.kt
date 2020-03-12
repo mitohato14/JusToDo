@@ -24,10 +24,10 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
                         context.applicationContext,
                         ToDoRoomDataBase::class.java,
                         "justodo_database_db"
-                )
-                        .allowMainThreadQueries()
-                        .fallbackToDestructiveMigration()
-                        .build()
+                    )
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

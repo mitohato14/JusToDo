@@ -8,5 +8,4 @@ import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
  */
 class PointViewModel(
     private val repository: ToDoInfoRepository
-) : ViewModel() {
-}
+) : ViewModel()
