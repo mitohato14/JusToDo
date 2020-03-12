@@ -25,7 +25,7 @@ class ToDoDetailFragment : Fragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
-    val viewmodel: ToDoDetailViewModel by lazy {
+    private val viewmodel: ToDoDetailViewModel by lazy {
         ViewModelProviders.of(
             this,
             todoDetailViewModelProvider.provide()
