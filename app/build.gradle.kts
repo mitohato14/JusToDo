@@ -46,6 +46,11 @@ dependencies {
     val kotlinVersion: String? by project
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
+//    KTX
+    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.activity:activity-ktx:1.0.0")
+    implementation("androidx.fragment:fragment-ktx:1.1.0")
+
 //    androidx
     implementation("androidx.appcompat:appcompat:1.1.0-beta01")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01")
