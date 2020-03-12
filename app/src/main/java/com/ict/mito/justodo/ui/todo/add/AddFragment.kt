@@ -21,18 +21,20 @@ class AddFragment : Fragment() {
 
     @Inject
     lateinit var todoViewModelProvider: AddViewModelFactory.Provider
+    private val viewmodel: AddViewModel by lazy {
+
+        ViewModelProviders.of(
+            this,
+            todoViewModelProvider.provide()
+        ).get(AddViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val factory = todoViewModelProvider.provide()
-        val viewModel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(AddViewModel::class.java)
-        viewModel.navController = findNavController()
+        viewmodel.navController = findNavController()
 
         val binding: AddFragmentBinding = DataBindingUtil.inflate(
                 inflater,
@@ -43,9 +45,9 @@ class AddFragment : Fragment() {
 
         binding.also {
             it.datePicker.setOnDatePickListener { dateSelected ->
-                viewModel.onDateChanged(dateSelected)
+                viewmodel.onDateChanged(dateSelected)
             }
-            it.viewmodel = viewModel
+            it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }
 

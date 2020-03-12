@@ -25,7 +25,12 @@ class ToDoDetailFragment : Fragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
-    lateinit var viewmodel: ToDoDetailViewModel
+    val viewmodel: ToDoDetailViewModel by lazy {
+        ViewModelProviders.of(
+            this,
+            todoDetailViewModelProvider.provide()
+        ).get(ToDoDetailViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,13 +41,6 @@ class ToDoDetailFragment : Fragment() {
 
         val args = arguments ?: return null
         val safeArgs = ToDoDetailFragmentArgs.fromBundle(args)
-
-        val factory = todoDetailViewModelProvider.provide()
-        viewmodel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(ToDoDetailViewModel::class.java)
-
         viewmodel.id = safeArgs.toDoId
 
         val binding: TodoFragmentBinding = DataBindingUtil.inflate(

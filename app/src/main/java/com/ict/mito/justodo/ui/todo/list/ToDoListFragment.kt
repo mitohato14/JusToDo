@@ -25,20 +25,19 @@ class ToDoListFragment : Fragment() {
     lateinit var toDoListViewModelFactoryProvider: ToDoListViewModelFactory.Provider
 
     private var binding: TodoListFragmentBinding? = null
-    private lateinit var viewModel: ToDoListViewModel
+    private val viewmodel: ToDoListViewModel by lazy {
+        ViewModelProviders.of(
+            this,
+            toDoListViewModelFactoryProvider.provide()
+        ).get(ToDoListViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val factory = toDoListViewModelFactoryProvider.provide()
-        viewModel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(ToDoListViewModel::class.java)
-
-        viewModel.also {
+        viewmodel.also {
             it.todos.observe(
                     this,
                     Observer<List<ToDoInfo>> { todoInfoList ->
@@ -56,7 +55,7 @@ class ToDoListFragment : Fragment() {
         )
 
         binding?.let {
-            it.viewmodel = viewModel
+            it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }
         return binding?.root
@@ -64,7 +63,7 @@ class ToDoListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.updateAdapterValue()
+        viewmodel.updateAdapterValue()
         binding?.notifyChange()
 
         val appCompatActivity = activity as AppCompatActivity?
