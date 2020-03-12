@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
-import com.ict.mito.justodo.domain.ToDoInfo
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
