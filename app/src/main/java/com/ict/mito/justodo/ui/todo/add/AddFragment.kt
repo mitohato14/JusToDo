@@ -78,4 +78,9 @@ class AddFragment : Fragment() {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 }
