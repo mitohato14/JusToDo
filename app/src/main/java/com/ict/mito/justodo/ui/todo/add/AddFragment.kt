@@ -22,7 +22,6 @@ class AddFragment : Fragment() {
     @Inject
     lateinit var todoViewModelProvider: AddViewModelFactory.Provider
     private val viewmodel: AddViewModel by lazy {
-
         ViewModelProviders.of(
             this,
             todoViewModelProvider.provide()
