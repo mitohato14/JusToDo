@@ -32,6 +32,7 @@ class ToDoDetailFragment : Fragment() {
         ).get(ToDoDetailViewModel::class.java)
     }
 
+    var binding: TodoFragmentBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,18 +44,18 @@ class ToDoDetailFragment : Fragment() {
         val safeArgs = ToDoDetailFragmentArgs.fromBundle(args)
         viewmodel.id = safeArgs.toDoId
 
-        val binding: TodoFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.todo_fragment,
                 container,
                 false
         )
-        binding.also {
+        binding?.let {
             it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onResume() {
@@ -103,5 +104,10 @@ class ToDoDetailFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
