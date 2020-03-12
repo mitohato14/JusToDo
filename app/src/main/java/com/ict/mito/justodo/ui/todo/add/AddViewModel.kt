@@ -42,15 +42,6 @@ class AddViewModel(
         }
     }
 
-    fun onDescriptionChanged(
-        c: CharSequence,
-        start: Int,
-        before: Int,
-        count: Int
-    ) {
-        todoInfoLiveData.value?.description = c.toString()
-    }
-
     fun onClickAddToDoInfo(view: View) {
         todoInfoLiveData.value?.let {
             it.dueDate = (
