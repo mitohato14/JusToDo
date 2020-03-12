@@ -28,6 +28,8 @@ class AddFragment : Fragment() {
         ).get(AddViewModel::class.java)
     }
 
+    private var binding: AddFragmentBinding? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,14 +37,14 @@ class AddFragment : Fragment() {
     ): View? {
         viewmodel.navController = findNavController()
 
-        val binding: AddFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
                 inflater,
                 R.layout.add_fragment,
                 container,
                 false
         )
 
-        binding.also {
+        binding?.let {
             it.datePicker.setOnDatePickListener { dateSelected ->
                 viewmodel.onDateChanged(dateSelected)
             }
@@ -50,7 +52,7 @@ class AddFragment : Fragment() {
             it.lifecycleOwner = this
         }
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onResume() {
