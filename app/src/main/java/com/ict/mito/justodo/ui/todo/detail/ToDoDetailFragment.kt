@@ -32,7 +32,7 @@ class ToDoDetailFragment : Fragment() {
         ).get(ToDoDetailViewModel::class.java)
     }
 
-    var binding: TodoFragmentBinding? = null
+    private var binding: TodoFragmentBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
