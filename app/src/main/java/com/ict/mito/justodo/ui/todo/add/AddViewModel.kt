@@ -42,15 +42,6 @@ class AddViewModel(
         }
     }
 
-    fun onTitleChanged(
-        c: CharSequence,
-        start: Int,
-        before: Int,
-        count: Int
-    ) {
-        todoInfoLiveData.value?.title = c.toString()
-    }
-
     fun onDescriptionChanged(
         c: CharSequence,
         start: Int,
