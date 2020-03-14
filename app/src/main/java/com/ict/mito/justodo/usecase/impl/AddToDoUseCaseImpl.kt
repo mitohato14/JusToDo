@@ -18,10 +18,10 @@ class AddToDoUseCaseImpl @Inject constructor(
 ) : AddToDoUseCase {
     private var parentJob = Job()
     private val mainCoroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Main
+        get() = parentJob + Dispatchers.IO
     private val scope = CoroutineScope(mainCoroutineContext)
 
-    override fun execute(todo: ToDoInfo) = scope.launch(Dispatchers.IO) {
+    override fun execute(todo: ToDoInfo) = scope.launch {
         repository.add(todo)
     }
 }

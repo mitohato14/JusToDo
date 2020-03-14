@@ -17,10 +17,10 @@ class RemoveToDoUseCaseImpl @Inject constructor(
 ) : RemoveToDoUseCase {
     private var parentJob = Job()
     private val mainCoroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Main
+        get() = parentJob + Dispatchers.IO
     private val scope = CoroutineScope(mainCoroutineContext)
 
-    override fun execute(id: Long) = scope.launch(Dispatchers.IO) {
+    override fun execute(id: Long) = scope.launch {
         repository.remove(id)
     }
 }
