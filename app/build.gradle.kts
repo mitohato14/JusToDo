@@ -71,10 +71,10 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0-alpha07")
 //    room
     val roomVersion: String? by project
-    implementation("android.arch.persistence.room:runtime:$roomVersion")
-    implementation("android.arch.persistence.room:rxjava2:1.1.1")
-    kapt("android.arch.persistence.room:compiler:$roomVersion")
-    androidTestImplementation("android.arch.persistence.room:testing:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    androidTestImplementation("androidx.room:room-testing:$roomVersion")
 //    Lifecycle components
     val archLifecycleVerison: String? by project
     implementation("android.arch.lifecycle:extensions:$archLifecycleVerison")
