@@ -3,7 +3,7 @@
 buildscript {
     val kotlinVersion by extra("1.3.70")
     val daggerVersion by extra("2.16")
-    val navigationVersion by extra("1.0.0-beta01")
+    val navigationVersion by extra("1.0.0")
     val roomVersion by extra("2.1.0-alpha06")
     val archLifecycleVersion by extra("1.1.1")
     val coroutinesVersion by extra("0.26.1")

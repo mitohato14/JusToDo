@@ -47,14 +47,14 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
 //    KTX
-    implementation("androidx.core:core-ktx:1.1.0")
-    implementation("androidx.activity:activity-ktx:1.0.0")
-    implementation("androidx.fragment:fragment-ktx:1.1.0")
+    implementation("androidx.core:core-ktx:1.2.0")
+    implementation("androidx.activity:activity-ktx:1.1.0")
+    implementation("androidx.fragment:fragment-ktx:1.2.2")
 
 //    androidx
-    implementation("androidx.appcompat:appcompat:1.1.0-beta01")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01")
+    implementation("androidx.appcompat:appcompat:1.2.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha01")
     implementation("com.android.support:multidex:1.0.3")
 //    navigation
     val navigationVersion: String? by project
@@ -63,12 +63,14 @@ dependencies {
     implementation("androidx.navigation:navigation-ui:$navigationVersion")
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    implementation("android.arch.navigation:navigation-ui-ktx:1.0.0")
+    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0")
 //    androidx view
-    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
-    implementation("androidx.recyclerview:recyclerview:1.1.0-alpha06")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
+    implementation("androidx.recyclerview:recyclerview:1.2.0-alpha01")
     implementation("androidx.cardview:cardview:1.0.0")
 //    material view
-    implementation("com.google.android.material:material:1.1.0-alpha07")
+    implementation("com.google.android.material:material:1.2.0-alpha05")
 //    room
     val roomVersion: String? by project
     implementation("androidx.room:room-runtime:$roomVersion")
@@ -85,11 +87,11 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
 //    Anko
-    implementation("org.jetbrains.anko:anko-commons:0.10.5")
+    implementation("org.jetbrains.anko:anko-commons:0.10.8")
 
 //    Rx
-    implementation("io.reactivex.rxjava2:rxjava:2.1.13")
-    implementation("io.reactivex.rxjava2:rxandroid:2.0.2")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.14")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("io.reactivex.rxjava2:rxkotlin:2.2.0")
 
 //    LazyDatePicker
@@ -108,8 +110,6 @@ dependencies {
     testImplementation("junit:junit:4.13-beta-1")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    implementation("android.arch.navigation:navigation-ui-ktx:1.0.0-beta01")
-    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0-beta01")
 }
 
 kapt {
