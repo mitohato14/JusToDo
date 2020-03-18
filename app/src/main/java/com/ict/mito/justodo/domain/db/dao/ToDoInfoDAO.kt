@@ -19,10 +19,10 @@ interface ToDoInfoDAO {
     suspend fun insert(toDoInfo: ToDoInfo)
 
     @Query("SELECT * FROM justodo_todo_table")
-    suspend fun getAllToDo(): Single<List<ToDoInfo>>
+    suspend fun getAllToDo(): List<ToDoInfo>
 
     @Query("SELECT * FROM justodo_todo_table WHERE id = :todoId")
-    suspend fun getToDoInfoById(todoId: Long): Maybe<ToDoInfo>
+    suspend fun getToDoInfoById(todoId: Long): ToDoInfo
 
     @Update
     suspend fun update(toDoInfo: ToDoInfo)
