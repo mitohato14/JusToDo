@@ -78,9 +78,16 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
 //    Lifecycle components
-    val archLifecycleVerison: String? by project
-    implementation("androidx.lifecycle:lifecycle-extensions:$archLifecycleVerison")
-    kapt("androidx.lifecycle:lifecycle-compiler:$archLifecycleVerison")
+    val lifecycleVersion: String? by project
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
 //    Coroutines
     val coroutinesVersion: String? by project
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
