@@ -16,23 +16,23 @@ import io.reactivex.Single
 @Dao
 interface ToDoInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(toDoInfo: ToDoInfo)
+    suspend fun insert(toDoInfo: ToDoInfo)
 
     @Query("SELECT * FROM justodo_todo_table")
-    fun getAllToDo(): Single<List<ToDoInfo>>
+    suspend fun getAllToDo(): Single<List<ToDoInfo>>
 
     @Query("SELECT * FROM justodo_todo_table WHERE id = :todoId")
-    fun getToDoInfoById(todoId: Long): Maybe<ToDoInfo>
+    suspend fun getToDoInfoById(todoId: Long): Maybe<ToDoInfo>
 
     @Update
-    fun update(toDoInfo: ToDoInfo)
+    suspend fun update(toDoInfo: ToDoInfo)
 
     @Delete
-    fun delete(toDoInfo: ToDoInfo)
+    suspend fun delete(toDoInfo: ToDoInfo)
 
     @Query("DELETE FROM justodo_todo_table WHERE id = :id")
-    fun delete(id: Long)
+    suspend fun delete(id: Long)
 
     @Query("DELETE FROM justodo_todo_table")
-    fun deleteAll()
+    suspend fun deleteAll()
 }
