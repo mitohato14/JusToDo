@@ -18,10 +18,10 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
 
     @WorkerThread
-    override suspend fun getAll(): Single<List<ToDoInfo>> = dao.getAllToDo()
+    override suspend fun getAll(): List<ToDoInfo> = dao.getAllToDo()
 
     @WorkerThread
-    override fun getById(id: Long): Maybe<ToDoInfo> = dao.getToDoInfoById(id)
+    override fun getById(id: Long): ToDoInfo = dao.getToDoInfoById(id)
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo) = dao.insert(toDoInfo)

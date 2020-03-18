@@ -8,7 +8,7 @@ import io.reactivex.Single
  * Created by mito on 2018/09/17.
  */
 interface ToDoInfoReadRepository {
-    suspend fun getAll(): Single<List<ToDoInfo>>
+    suspend fun getAll(): List<ToDoInfo>
 
-    fun getById(id: Long): Maybe<ToDoInfo>
+    fun getById(id: Long): ToDoInfo
 }
