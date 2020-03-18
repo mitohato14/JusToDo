@@ -58,11 +58,11 @@ dependencies {
     implementation("com.android.support:multidex:1.0.3")
 //    navigation
     val navigationVersion: String? by project
-    implementation("android.arch.navigation:navigation-common-ktx:$navigationVersion")
-    implementation("android.arch.navigation:navigation-fragment:$navigationVersion")
-    implementation("android.arch.navigation:navigation-ui:$navigationVersion")
-    implementation("android.arch.navigation:navigation-fragment-ktx:$navigationVersion")
-    implementation("android.arch.navigation:navigation-ui-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-common-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-fragment:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui:$navigationVersion")
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
 //    androidx view
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
     implementation("androidx.recyclerview:recyclerview:1.1.0-alpha06")
@@ -77,8 +77,8 @@ dependencies {
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
 //    Lifecycle components
     val archLifecycleVerison: String? by project
-    implementation("android.arch.lifecycle:extensions:$archLifecycleVerison")
-    kapt("android.arch.lifecycle:compiler:$archLifecycleVerison")
+    implementation("androidx.lifecycle:lifecycle-extensions:$archLifecycleVerison")
+    kapt("androidx.lifecycle:lifecycle-compiler:$archLifecycleVerison")
 //    Coroutines
     val coroutinesVersion: String? by project
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
