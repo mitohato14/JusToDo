@@ -3,6 +3,7 @@ package com.ict.mito.justodo.ui.todo.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
@@ -31,18 +32,13 @@ class ToDoDetailViewModel(
 
     var id: Long = -1L
         set(value) {
-            repository.getById(value).subscribeBy(
-                onSuccess = {
-                    todo = MutableLiveData(it)
-                    dateString = Date(
-                        todo.value?.deadlineDate
-                            ?: System.currentTimeMillis()
-                    ).toString()
-                },
-                onError = {
-                    todo
-                }
-            )
+            viewModelScope.launch(Dispatchers.IO) {
+                todo = MutableLiveData(repository.getById(value))
+                dateString = Date(
+                    todo.value?.deadlineDate
+                        ?: System.currentTimeMillis()
+                ).toString()
+            }
             field = value
         }
 
