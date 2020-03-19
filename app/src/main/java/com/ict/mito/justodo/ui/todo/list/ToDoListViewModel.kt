@@ -4,16 +4,14 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import com.ict.mito.justodo.ui.todo.list.view.ToDoListAdapter
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by mito on 2018/09/04.
@@ -21,10 +19,6 @@ import kotlin.coroutines.CoroutineContext
 class ToDoListViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
-    private var parentJob = Job()
-    private val mainCoroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Main
-    private val scope = CoroutineScope(mainCoroutineContext)
 
     var navController: NavController? = null
         set(value) {
@@ -40,16 +34,16 @@ class ToDoListViewModel(
         readAll()
     }
 
-    private fun readAll() = scope.launch(Dispatchers.IO) {
+    private fun readAll() = viewModelScope.launch(Dispatchers.IO) {
         todos = MutableLiveData(repository.getAll())
     }
 
-    private fun updateDueDate() = scope.launch(Dispatchers.IO) {
+    private fun updateDueDate() = viewModelScope.launch(Dispatchers.IO) {
         repository.getAll().forEach { todo ->
             todo.dueDate = (
                 (todo.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
                 ).toString()
-            scope.launch(Dispatchers.IO) { repository.store(todo) }
+            repository.store(todo)
         }
     }
 
@@ -61,10 +55,5 @@ class ToDoListViewModel(
         updateDueDate()
         readAll()
         todos.value?.let { adapter.setToDoListData(it) }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        parentJob.cancel()
     }
 }
