@@ -9,7 +9,6 @@ import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import com.ict.mito.justodo.ui.todo.list.view.ToDoListAdapter
-import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -42,30 +41,16 @@ class ToDoListViewModel(
     }
 
     private fun readAll() = scope.launch(Dispatchers.IO) {
-        repository.getAll().subscribeBy(
-            onSuccess = {
-                todos = MutableLiveData(it)
-            },
-            onError = {
-                todos
-            }
-        )
+        todos = MutableLiveData(repository.getAll())
     }
 
     private fun updateDueDate() = scope.launch(Dispatchers.IO) {
-        repository.getAll().subscribeBy(
-            onSuccess = {
-                it.forEach { todo ->
-                    todo.dueDate = (
-                        (todo.deadlineDate - System.currentTimeMillis()) /
-                            (1000 * 60 * 60 * 24)
-                        ).toString()
-                    scope.launch(Dispatchers.IO) { repository.store(todo) }
-                }
-            },
-            onError = {
-            }
-        )
+        repository.getAll().forEach { todo ->
+            todo.dueDate = (
+                (todo.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
+                ).toString()
+            scope.launch(Dispatchers.IO) { repository.store(todo) }
+        }
     }
 
     fun fabOnClick(view: View) {
