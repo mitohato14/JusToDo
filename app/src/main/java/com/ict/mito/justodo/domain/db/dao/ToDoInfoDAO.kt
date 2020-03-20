@@ -7,8 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.ict.mito.justodo.domain.ToDoInfo
-import io.reactivex.Maybe
-import io.reactivex.Single
 
 /**
  * Created by mito on 2018-12-18.

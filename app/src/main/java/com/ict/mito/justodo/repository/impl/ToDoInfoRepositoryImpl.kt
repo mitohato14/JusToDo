@@ -4,8 +4,6 @@ import androidx.annotation.WorkerThread
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import io.reactivex.Maybe
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -96,11 +96,6 @@ dependencies {
 //    Anko
     implementation("org.jetbrains.anko:anko-commons:0.10.8")
 
-//    Rx
-    implementation("io.reactivex.rxjava2:rxjava:2.2.14")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("io.reactivex.rxjava2:rxkotlin:2.2.0")
-
 //    LazyDatePicker
     implementation("com.mikhaellopez:lazydatepicker:1.0.0")
 
