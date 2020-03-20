@@ -35,7 +35,7 @@ class AddViewModel(
         }
     }
 
-    fun onClickAddToDoInfo(view: View) {
+    val onClickAddToDoInfoListener = View.OnClickListener {
         todoInfoLiveData.value?.let {
             it.dueDate = (
                 (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)

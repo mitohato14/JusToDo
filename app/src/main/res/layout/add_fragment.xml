@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin"
                 android:background="@color/transparent"
-                android:onClick="@{viewmodel::onClickAddToDoInfo}"
+                android:onClick="@{viewmodel.onClickAddToDoInfoListener}"
                 android:text="@string/create_todo_button"
                 android:textColor="@color/colorAccent"
                 android:visibility="@{viewmodel.addable ? View.VISIBLE : View.GONE}"
