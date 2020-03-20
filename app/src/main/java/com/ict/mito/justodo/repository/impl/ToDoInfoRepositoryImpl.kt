@@ -4,8 +4,6 @@ import androidx.annotation.WorkerThread
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import io.reactivex.Maybe
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,10 +16,10 @@ class ToDoInfoRepositoryImpl @Inject constructor(
 ) : ToDoInfoRepository {
 
     @WorkerThread
-    override suspend fun getAll(): Single<List<ToDoInfo>> = dao.getAllToDo()
+    override suspend fun getAll(): List<ToDoInfo> = dao.getAllToDo()
 
     @WorkerThread
-    override fun getById(id: Long): Maybe<ToDoInfo> = dao.getToDoInfoById(id)
+    override suspend fun getById(id: Long): ToDoInfo = dao.getToDoInfoById(id)
 
     @WorkerThread
     override suspend fun add(toDoInfo: ToDoInfo) = dao.insert(toDoInfo)

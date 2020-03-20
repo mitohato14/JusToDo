@@ -78,9 +78,16 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
 //    Lifecycle components
-    val archLifecycleVerison: String? by project
-    implementation("androidx.lifecycle:lifecycle-extensions:$archLifecycleVerison")
-    kapt("androidx.lifecycle:lifecycle-compiler:$archLifecycleVerison")
+    val lifecycleVersion: String? by project
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
 //    Coroutines
     val coroutinesVersion: String? by project
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -88,11 +95,6 @@ dependencies {
 
 //    Anko
     implementation("org.jetbrains.anko:anko-commons:0.10.8")
-
-//    Rx
-    implementation("io.reactivex.rxjava2:rxjava:2.2.14")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("io.reactivex.rxjava2:rxkotlin:2.2.0")
 
 //    LazyDatePicker
     implementation("com.mikhaellopez:lazydatepicker:1.0.0")
