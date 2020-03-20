@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
@@ -25,7 +25,7 @@ class ToDoListFragment : Fragment() {
 
     private var binding: TodoListFragmentBinding? = null
     private val viewmodel: ToDoListViewModel by lazy {
-        ViewModelProviders.of(
+        ViewModelProvider(
             this,
             toDoListViewModelFactoryProvider.provide()
         ).get(ToDoListViewModel::class.java)

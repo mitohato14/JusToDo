@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoFragmentBinding
 import dagger.android.support.AndroidSupportInjection
@@ -26,7 +26,7 @@ class ToDoDetailFragment : Fragment() {
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
     private val viewmodel: ToDoDetailViewModel by lazy {
-        ViewModelProviders.of(
+        ViewModelProvider(
             this,
             todoDetailViewModelProvider.provide()
         ).get(ToDoDetailViewModel::class.java)
