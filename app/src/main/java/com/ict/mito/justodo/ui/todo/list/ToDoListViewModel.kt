@@ -38,7 +38,7 @@ class ToDoListViewModel(
     }
 
     private fun readAll() = viewModelScope.launch(Dispatchers.IO) {
-        _todoList.value = repository.getAll()
+        _todoList.postValue(repository.getAll())
     }
 
     private fun updateDueDate() = viewModelScope.launch(Dispatchers.IO) {
