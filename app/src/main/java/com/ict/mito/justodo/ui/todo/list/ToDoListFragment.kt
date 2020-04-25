@@ -37,7 +37,7 @@ class ToDoListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewmodel.also {
-            it.todos.observe(
+            it.todoList.observe(
                 viewLifecycleOwner,
                 Observer { todoInfoList ->
                     it.adapter.setToDoListData(todoInfoList)
