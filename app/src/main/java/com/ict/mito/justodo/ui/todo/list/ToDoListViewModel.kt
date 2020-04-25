@@ -27,15 +27,18 @@ class ToDoListViewModel(
             adapter.navController = value
         }
 
-    var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
-    val adapter: ToDoListAdapter = ToDoListAdapter(todos.value ?: listOf())
+    val todoList: LiveData<List<ToDoInfo>>
+        get() = _todoList
+    private val _todoList: MutableLiveData<List<ToDoInfo>> = MutableLiveData()
+
+    val adapter: ToDoListAdapter = ToDoListAdapter(_todoList.value ?: listOf())
 
     init {
         readAll()
     }
 
     private fun readAll() = viewModelScope.launch(Dispatchers.IO) {
-        todos = MutableLiveData(repository.getAll())
+        _todoList.postValue(repository.getAll())
     }
 
     private fun updateDueDate() = viewModelScope.launch(Dispatchers.IO) {
@@ -54,6 +57,6 @@ class ToDoListViewModel(
     fun updateAdapterValue() {
         updateDueDate()
         readAll()
-        todos.value?.let { adapter.setToDoListData(it) }
+        _todoList.value?.let { adapter.setToDoListData(it) }
     }
 }

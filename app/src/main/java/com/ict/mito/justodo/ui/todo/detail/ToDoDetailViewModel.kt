@@ -7,12 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.sql.Date
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by mitohato14 on 2019-01-23.
@@ -22,15 +19,18 @@ class ToDoDetailViewModel(
     toDoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
 
-    var todo: LiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+    val todo: LiveData<ToDoInfo>
+        get() = _todo
+    private val _todo: MutableLiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+
     var dateString: String = ""
 
     var id: Long = -1L
         set(value) {
             viewModelScope.launch(Dispatchers.IO) {
-                todo = MutableLiveData(repository.getById(value))
+                _todo.postValue(repository.getById(value))
                 dateString = Date(
-                    todo.value?.deadlineDate
+                    _todo.value?.deadlineDate
                         ?: System.currentTimeMillis()
                 ).toString()
             }
@@ -38,14 +38,14 @@ class ToDoDetailViewModel(
         }
 
     fun updateToDo() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.store(it) }
+        _todo.value?.let { repository.store(it) }
     }
 
     fun done() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.done(it) }
+        _todo.value?.let { repository.done(it) }
     }
 
     fun undone() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.undone(it) }
+        _todo.value?.let { repository.undone(it) }
     }
 }

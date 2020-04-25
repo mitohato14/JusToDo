@@ -1,12 +1,14 @@
 package com.ict.mito.justodo.ui.todo.add
 
 import android.view.View
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +23,9 @@ class AddViewModel(
     private val repository: ToDoInfoRepository,
     todoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
-    val todoInfoLiveData = todoInfoLiveDataFactory.create()
+    val todoInfoLiveData: LiveData<ToDoInfo>
+        get() = _todoInfoLiveData
+    private val _todoInfoLiveData = todoInfoLiveDataFactory.create()
 
     lateinit var navController: NavController
 
@@ -36,7 +40,7 @@ class AddViewModel(
     }
 
     val onClickAddToDoInfoListener = View.OnClickListener {
-        todoInfoLiveData.value?.let {
+        _todoInfoLiveData.value?.let {
             it.dueDate = (
                 (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
                 ).toString()
@@ -49,7 +53,7 @@ class AddViewModel(
 
     fun onDateChanged(date: java.util.Date) {
         dateTime.value = convertDateToSql(date).time
-        todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
+        _todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
     }
 
     private fun convertDateToSql(utilDate: java.util.Date): Date {
