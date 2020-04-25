@@ -38,7 +38,7 @@ class ToDoListViewModel(
     }
 
     private fun readAll() = viewModelScope.launch(Dispatchers.IO) {
-        todos = MutableLiveData(repository.getAll())
+        _todos.value = repository.getAll()
     }
 
     private fun updateDueDate() = viewModelScope.launch(Dispatchers.IO) {
@@ -57,6 +57,6 @@ class ToDoListViewModel(
     fun updateAdapterValue() {
         updateDueDate()
         readAll()
-        todos.value?.let { adapter.setToDoListData(it) }
+        _todos.value?.let { adapter.setToDoListData(it) }
     }
 }
