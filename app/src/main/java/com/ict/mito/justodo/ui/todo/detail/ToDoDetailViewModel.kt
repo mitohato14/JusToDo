@@ -28,9 +28,9 @@ class ToDoDetailViewModel(
     var id: Long = -1L
         set(value) {
             viewModelScope.launch(Dispatchers.IO) {
-                todo = MutableLiveData(repository.getById(value))
+                _todo.postValue(repository.getById(value))
                 dateString = Date(
-                    todo.value?.deadlineDate
+                    _todo.value?.deadlineDate
                         ?: System.currentTimeMillis()
                 ).toString()
             }
@@ -38,14 +38,14 @@ class ToDoDetailViewModel(
         }
 
     fun updateToDo() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.store(it) }
+        _todo.value?.let { repository.store(it) }
     }
 
     fun done() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.done(it) }
+        _todo.value?.let { repository.done(it) }
     }
 
     fun undone() = viewModelScope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.undone(it) }
+        _todo.value?.let { repository.undone(it) }
     }
 }
