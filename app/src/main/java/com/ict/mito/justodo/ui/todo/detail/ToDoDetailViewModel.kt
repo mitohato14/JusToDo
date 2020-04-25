@@ -19,7 +19,10 @@ class ToDoDetailViewModel(
     toDoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
 
-    val todo: LiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+    val todo: LiveData<ToDoInfo>
+        get() = _todo
+    private val _todo: MutableLiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+
     var dateString: String = ""
 
     var id: Long = -1L
