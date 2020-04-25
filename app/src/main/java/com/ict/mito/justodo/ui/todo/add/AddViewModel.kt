@@ -40,7 +40,7 @@ class AddViewModel(
     }
 
     val onClickAddToDoInfoListener = View.OnClickListener {
-        todoInfoLiveData.value?.let {
+        _todoInfoLiveData.value?.let {
             it.dueDate = (
                 (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
                 ).toString()
@@ -53,7 +53,7 @@ class AddViewModel(
 
     fun onDateChanged(date: java.util.Date) {
         dateTime.value = convertDateToSql(date).time
-        todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
+        _todoInfoLiveData.value?.deadlineDate = dateTime.value ?: -1L
     }
 
     private fun convertDateToSql(utilDate: java.util.Date): Date {
