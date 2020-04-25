@@ -7,12 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.sql.Date
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by mitohato14 on 2019-01-23.
@@ -22,7 +19,7 @@ class ToDoDetailViewModel(
     toDoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
 
-    var todo: LiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+    val todo: LiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
     var dateString: String = ""
 
     var id: Long = -1L
