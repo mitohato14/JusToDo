@@ -27,8 +27,11 @@ class ToDoListViewModel(
             adapter.navController = value
         }
 
-    var todos: LiveData<List<ToDoInfo>> = MutableLiveData()
-    val adapter: ToDoListAdapter = ToDoListAdapter(todos.value ?: listOf())
+    val todos: LiveData<List<ToDoInfo>>
+        get() = _todos
+    private val _todos: MutableLiveData<List<ToDoInfo>> = MutableLiveData()
+
+    val adapter: ToDoListAdapter = ToDoListAdapter(_todos.value ?: listOf())
 
     init {
         readAll()
