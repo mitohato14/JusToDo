@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         setSupportActionBar(toolbar)
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.navhost).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(R.id.navigation_host).navigateUp()
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
