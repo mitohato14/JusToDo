@@ -1,7 +1,7 @@
 package com.ict.mito.justodo
 
-import com.ict.mito.justodo.domain.db.DataBaseModule
-import com.ict.mito.justodo.repository.RepositoryModule
+import com.ict.mito.justodo.infla.db.DataBaseModule
+import com.ict.mito.justodo.infla.repository.module.RepositoryModule
 import com.ict.mito.justodo.ui.ActivityModule
 import com.ict.mito.justodo.usecase.UseCaseModule
 import dagger.Component

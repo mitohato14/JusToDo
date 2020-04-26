@@ -2,7 +2,7 @@ package com.ict.mito.justodo
 
 import android.app.Activity
 import androidx.multidex.MultiDexApplication
-import com.ict.mito.justodo.domain.db.DataBaseModule
+import com.ict.mito.justodo.infla.db.DataBaseModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector

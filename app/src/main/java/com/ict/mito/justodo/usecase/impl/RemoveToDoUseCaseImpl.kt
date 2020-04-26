@@ -1,6 +1,6 @@
 package com.ict.mito.justodo.usecase.impl
 
-import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import com.ict.mito.justodo.usecase.RemoveToDoUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

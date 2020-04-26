@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.domain.db.dao
+package com.ict.mito.justodo.infla.db.dao
 
 import androidx.room.Dao
 import androidx.room.Delete

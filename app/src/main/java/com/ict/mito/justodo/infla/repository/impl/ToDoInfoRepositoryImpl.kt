@@ -1,9 +1,9 @@
-package com.ict.mito.justodo.repository.impl
+package com.ict.mito.justodo.infla.repository.impl
 
 import androidx.annotation.WorkerThread
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
-import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import com.ict.mito.justodo.infla.db.dao.ToDoInfoDAO
+import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,7 +1,7 @@
-package com.ict.mito.justodo.repository
+package com.ict.mito.justodo.infla.repository.module
 
-import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import com.ict.mito.justodo.repository.impl.ToDoInfoRepositoryImpl
+import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
+import com.ict.mito.justodo.infla.repository.impl.ToDoInfoRepositoryImpl
 import dagger.Binds
 import dagger.Module
 
