@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:title="@string/app_name" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navhost"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
