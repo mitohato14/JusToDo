@@ -2,6 +2,8 @@ package com.ict.mito.justodo.ui
 
 import com.ict.mito.justodo.ui.main.MainActivity
 import com.ict.mito.justodo.ui.main.MainActivityModule
+import com.ict.mito.justodo.ui.todo.add.AddActivity
+import com.ict.mito.justodo.ui.todo.add.AddActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,8 +14,10 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
     @ContributesAndroidInjector(
         modules = [
-            MainActivityModule::class
+            MainActivityModule::class,
+            AddActivityModule::class
         ]
     )
     abstract fun mainActivity(): MainActivity
+    abstract fun addActivity(): AddActivity
 }

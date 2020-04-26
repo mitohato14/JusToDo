@@ -15,8 +15,5 @@ abstract class MainActivityModule {
     abstract fun mainFragment(): ToDoListFragment
 
     @ContributesAndroidInjector
-    abstract fun addFragment(): AddFragment
-
-    @ContributesAndroidInjector
     abstract fun todoDetailFragment(): ToDoDetailFragment
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/add_navigation"
+        app:startDestination="@id/addFragment2">
+
+    <fragment
+            android:id="@+id/addFragment2"
+            android:name="com.ict.mito.justodo.ui.todo.add.AddFragment"
+            android:label="AddFragment" />
+</navigation>
