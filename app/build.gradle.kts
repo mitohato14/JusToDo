@@ -24,8 +24,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -39,11 +39,11 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf(
-        "dir" to "libs",
-        "include" to listOf("*.jar")
+            "dir" to "libs",
+            "include" to listOf("*.jar")
     )))
 
-    val kotlinVersion: String? by project
+    val kotlinVersion: String ? by project
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
 
 //    KTX
@@ -57,7 +57,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha01")
     implementation("com.android.support:multidex:1.0.3")
 //    navigation
-    val navigationVersion: String? by project
+    val navigationVersion: String ? by project
     implementation("androidx.navigation:navigation-common-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-fragment:$navigationVersion")
     implementation("androidx.navigation:navigation-ui:$navigationVersion")
@@ -72,13 +72,13 @@ dependencies {
 //    material view
     implementation("com.google.android.material:material:1.2.0-alpha05")
 //    room
-    val roomVersion: String? by project
+    val roomVersion: String ? by project
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
 //    Lifecycle components
-    val lifecycleVersion: String? by project
+    val lifecycleVersion: String ? by project
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     // LiveData
@@ -89,7 +89,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
 //    Coroutines
-    val coroutinesVersion: String? by project
+    val coroutinesVersion: String ? by project
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
@@ -100,7 +100,7 @@ dependencies {
     implementation("com.mikhaellopez:lazydatepicker:1.0.0")
 
 //    Dagger 2
-    val daggerVersion: String? by project
+    val daggerVersion: String ? by project
     implementation("com.google.dagger:dagger:$daggerVersion")
     implementation("com.google.dagger:dagger-android:$daggerVersion")
     implementation("com.google.dagger:dagger-android-support:$daggerVersion")
