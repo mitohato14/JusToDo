@@ -44,6 +44,12 @@ class AddFragment : DaggerFragment() {
         )
 
         viewmodel.apply {
+            todoInfoLiveData.observe(
+                viewLifecycleOwner,
+                Observer {
+                    binding?.notifyChange()
+                }
+            )
             added.observe(
                 viewLifecycleOwner,
                 Observer {
