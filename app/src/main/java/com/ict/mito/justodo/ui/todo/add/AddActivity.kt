@@ -2,18 +2,23 @@ package com.ict.mito.justodo.ui.todo.add
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import com.ict.mito.justodo.DaggerAppComponent
 import com.ict.mito.justodo.R
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
-import kotlinx.android.synthetic.main.main_activity.*
+import dagger.android.HasAndroidInjector
+import kotlinx.android.synthetic.main.add_activity.*
 import javax.inject.Inject
 
-class AddActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class AddActivity : AppCompatActivity(), HasAndroidInjector {
+
     @Inject
-    lateinit var supportFragmentInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> {
+        return androidInjector
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -22,6 +27,4 @@ class AddActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         setSupportActionBar(toolbar)
     }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
 }

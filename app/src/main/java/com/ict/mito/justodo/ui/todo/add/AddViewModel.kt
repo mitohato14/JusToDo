@@ -6,8 +6,6 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
-import com.ict.mito.justodo.R
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
 import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
@@ -26,8 +24,6 @@ class AddViewModel(
     val todoInfoLiveData: LiveData<ToDoInfo>
         get() = _todoInfoLiveData
     private val _todoInfoLiveData = todoInfoLiveDataFactory.create()
-
-    lateinit var navController: NavController
 
     var addable: MediatorLiveData<Boolean> = MediatorLiveData()
 
@@ -48,7 +44,6 @@ class AddViewModel(
                 repository.add(it)
             }
         }
-        navController.navigate(R.id.action_addFragment_to_toDoListFragment)
     }
 
     fun onDateChanged(date: java.util.Date) {

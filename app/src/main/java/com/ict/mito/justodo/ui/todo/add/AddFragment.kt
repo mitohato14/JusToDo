@@ -15,9 +15,10 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class AddFragment : Fragment() {
+class AddFragment : DaggerFragment() {
 
     @Inject
     lateinit var todoViewModelProvider: AddViewModelFactory.Provider
@@ -35,7 +36,6 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewmodel.navController = findNavController()
 
         binding = DataBindingUtil.inflate(
             inflater,
@@ -76,8 +76,8 @@ class AddFragment : Fragment() {
     }
 
     override fun onAttach(context: Context) {
-        super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        super.onAttach(context)
     }
 
     override fun onDestroy() {

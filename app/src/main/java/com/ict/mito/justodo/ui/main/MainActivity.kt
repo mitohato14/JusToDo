@@ -3,19 +3,23 @@ package com.ict.mito.justodo.ui.main
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.ict.mito.justodo.R
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.main_activity.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+
     @Inject
-    lateinit var supportFragmentInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> {
+        return androidInjector
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -27,7 +31,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun onSupportNavigateUp() = findNavController(R.id.navigation_host).navigateUp()
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(
             R.menu.menu_default,

@@ -31,6 +31,10 @@ class ToDoListViewModel(
         get() = _todoList
     private val _todoList: MutableLiveData<List<ToDoInfo>> = MutableLiveData()
 
+    val startAddView: LiveData<Boolean>
+        get() = _startAddView
+    private val _startAddView: MutableLiveData<Boolean> = MutableLiveData(false)
+
     val adapter: ToDoListAdapter = ToDoListAdapter(_todoList.value ?: listOf())
 
     init {
@@ -51,7 +55,7 @@ class ToDoListViewModel(
     }
 
     fun fabOnClick(view: View) {
-        navController?.navigate(R.id.action_toDoListFragment_to_addFragment)
+        _startAddView.postValue(true)
     }
 
     fun updateAdapterValue() {

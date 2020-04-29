@@ -1,6 +1,7 @@
 package com.ict.mito.justodo.ui.todo.list
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -15,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
+import com.ict.mito.justodo.ui.todo.add.AddActivity
+import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -41,6 +44,19 @@ class ToDoListFragment : Fragment() {
                 viewLifecycleOwner,
                 Observer { todoInfoList ->
                     it.adapter.setToDoListData(todoInfoList)
+                }
+            )
+            it.startAddView.observe(
+                viewLifecycleOwner,
+                Observer { start ->
+                    if (start) {
+                        activity?.startActivity(
+                            Intent(
+                                activity,
+                                AddActivity::class.java
+                            )
+                        )
+                    }
                 }
             )
             it.navController = findNavController()
