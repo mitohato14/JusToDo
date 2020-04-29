@@ -53,6 +53,10 @@ class ToDoListViewModel(
         }
     }
 
+    fun startedActivity() {
+        _startAddView.postValue(false)
+    }
+
     val fabOnClickListener = View.OnClickListener {
         _startAddView.postValue(true)
     }

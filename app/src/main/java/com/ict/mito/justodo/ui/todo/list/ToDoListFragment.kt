@@ -17,7 +17,6 @@ import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.ui.todo.add.AddActivity
-import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -56,6 +55,7 @@ class ToDoListFragment : Fragment() {
                                 AddActivity::class.java
                             )
                         )
+                        it.startedActivity()
                     }
                 }
             )
