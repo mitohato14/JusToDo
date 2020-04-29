@@ -9,9 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import dagger.android.support.AndroidSupportInjection
@@ -44,6 +43,16 @@ class AddFragment : DaggerFragment() {
             false
         )
 
+        viewmodel.apply {
+            added.observe(
+                viewLifecycleOwner,
+                Observer {
+                    if (it) {
+                        activity?.finish()
+                    }
+                }
+            )
+        }
         binding?.let {
             it.datePicker.setOnDatePickListener { dateSelected ->
                 viewmodel.onDateChanged(dateSelected)

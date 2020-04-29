@@ -25,6 +25,10 @@ class AddViewModel(
         get() = _todoInfoLiveData
     private val _todoInfoLiveData = todoInfoLiveDataFactory.create()
 
+    val added: LiveData<Boolean>
+        get() = _added
+    private val _added: MutableLiveData<Boolean> = MutableLiveData(false)
+
     var addable: MediatorLiveData<Boolean> = MediatorLiveData()
 
     private var dateTime: MutableLiveData<Long> = MutableLiveData(-1L)
@@ -42,6 +46,7 @@ class AddViewModel(
                 ).toString()
             viewModelScope.launch(Dispatchers.IO) {
                 repository.add(it)
+                _added.postValue(true)
             }
         }
     }
