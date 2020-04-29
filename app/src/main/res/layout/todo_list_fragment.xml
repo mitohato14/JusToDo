@@ -29,7 +29,7 @@
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/margin_float_action_button"
                 android:elevation="@dimen/elevation_float_action_button"
-                android:onClick="@{viewmodel::fabOnClick}"
+                android:onClick="@{viewmodel.fabOnClickListener}"
                 android:src="@drawable/ic_add_white" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
