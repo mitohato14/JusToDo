@@ -2,7 +2,6 @@ package com.ict.mito.justodo.ui.todo.add
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ict.mito.justodo.DaggerAppComponent
 import com.ict.mito.justodo.R
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
