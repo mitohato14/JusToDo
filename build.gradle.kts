@@ -2,7 +2,7 @@
 
 buildscript {
     val kotlinVersion by extra("1.3.70")
-    val daggerVersion by extra("2.16")
+    val daggerVersion by extra("2.23")
     val navigationVersion by extra("1.0.0")
     val roomVersion by extra("2.1.0-alpha06")
     val lifecycleVersion by extra("2.2.0")
@@ -14,7 +14,7 @@ buildscript {
         maven(url = "https://plugins.gradle.org/m2/")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.6.1")
+        classpath("com.android.tools.build:gradle:3.6.3")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("android.arch.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
         classpath("org.jlleitschuh.gradle:ktlint-gradle:8.2.0")
