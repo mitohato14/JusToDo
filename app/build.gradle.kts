@@ -119,9 +119,6 @@ kapt {
         option("-Xmaxerrs", 5000)
     }
 }
-kotlin {
-    experimental.coroutines = Coroutines.ENABLE
-}
 
 ktlint {
     version.set("0.31.0")
