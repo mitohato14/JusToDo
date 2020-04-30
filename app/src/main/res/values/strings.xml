@@ -12,4 +12,6 @@
     <string name="no_title">No title</string>
     <string name="done">Done</string>
     <string name="navigation_point">navigationPoint</string>
+    <string name="list_view_bottom_title">ToDo</string>
+    <string name="point_view_bottom_title">point</string>
 </resources>
