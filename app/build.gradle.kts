@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -10,11 +8,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
     defaultConfig {
         applicationId = "com.ict.mito.justodo"
         minSdkVersion(21)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -49,12 +47,12 @@ dependencies {
 //    KTX
     implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.activity:activity-ktx:1.1.0")
-    implementation("androidx.fragment:fragment-ktx:1.2.2")
+    implementation("androidx.fragment:fragment-ktx:1.2.4")
 
 //    androidx
-    implementation("androidx.appcompat:appcompat:1.2.0-alpha03")
+    implementation("androidx.appcompat:appcompat:1.2.0-beta01")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha02")
     implementation("com.android.support:multidex:1.0.3")
 //    navigation
     val navigationVersion: String ? by project
@@ -67,10 +65,10 @@ dependencies {
     implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0")
 //    androidx view
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
-    implementation("androidx.recyclerview:recyclerview:1.2.0-alpha01")
+    implementation("androidx.recyclerview:recyclerview:1.2.0-alpha02")
     implementation("androidx.cardview:cardview:1.0.0")
 //    material view
-    implementation("com.google.android.material:material:1.2.0-alpha05")
+    implementation("com.google.android.material:material:1.2.0-alpha06")
 //    room
     val roomVersion: String ? by project
     implementation("androidx.room:room-runtime:$roomVersion")
