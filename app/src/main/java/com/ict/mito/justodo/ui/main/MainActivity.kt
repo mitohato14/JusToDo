@@ -5,6 +5,7 @@ import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.databinding.MainActivityBinding
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -21,12 +22,15 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
         return androidInjector
     }
 
+    private var binding: MainActivityBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding?.toolbar)
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.navigation_host).navigateUp()
