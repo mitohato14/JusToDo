@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.databinding.MainActivityBinding
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import kotlinx.android.synthetic.main.main_activity.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasAndroidInjector {
@@ -21,12 +23,25 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
         return androidInjector
     }
 
+    private var binding: MainActivityBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding?.toolbar)
+
+        binding?.bottomNavigationBar?.let {
+            val navController =
+                supportFragmentManager.findFragmentById(R.id.navigation_host)?.findNavController()
+                    ?: return
+            NavigationUI.setupWithNavController(
+                it,
+                navController
+            )
+        }
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.navigation_host).navigateUp()
