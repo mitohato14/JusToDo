@@ -62,8 +62,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui:$navigationVersion")
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
-    implementation("android.arch.navigation:navigation-ui-ktx:1.0.0")
-    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0")
 //    androidx view
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
     implementation("androidx.recyclerview:recyclerview:1.2.0-alpha02")
