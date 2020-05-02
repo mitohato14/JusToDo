@@ -7,12 +7,12 @@
 
     <fragment
             android:id="@+id/navigation_list"
-            android:name="com.ict.mito.justodo.ui.point.PointFragment"
-            android:label="PointFragment"
+            android:name="com.ict.mito.justodo.ui.todo.list.ToDoListFragment"
+            android:label="ToDoListFragment"
             tools:layout="@layout/todo_list_fragment" />
     <fragment
             android:id="@+id/navigation_point"
-            android:name="com.ict.mito.justodo.ui.todo.list.ToDoListFragment"
-            android:label="ToDoListFragment"
+            android:name="com.ict.mito.justodo.ui.point.PointFragment"
+            android:label="PointFragment"
             tools:layout="@layout/point_fragment" />
 </navigation>
