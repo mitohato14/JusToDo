@@ -99,25 +99,25 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="pointFragment">
+                  <entry key="navigation_list">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="40" />
-                            <option name="y" value="40" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="toDoListFragment2">
+                  <entry key="navigation_point">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-229" />
-                            <option name="y" value="-185" />
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
