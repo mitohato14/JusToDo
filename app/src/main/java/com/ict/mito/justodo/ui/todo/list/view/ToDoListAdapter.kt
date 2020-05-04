@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.ui.todo.list.ToDoListFragmentDirections
 
 class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
     RecyclerView.Adapter<ToDoListViewHolder>() {
@@ -36,11 +35,6 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
         holder.apply {
             bind(todoInfoList[position])
             setToRootOnClickListener(View.OnClickListener {
-                val action = ToDoListFragmentDirections
-                    .actionToDoListFragmentToToDoDetailDialogFragment(
-                        todoInfoList[position].id
-                    )
-                navController.navigate(action)
             })
         }
     }
