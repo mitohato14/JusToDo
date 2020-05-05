@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import com.ict.mito.justodo.ui.todo.list.view.ToDoListAdapter
