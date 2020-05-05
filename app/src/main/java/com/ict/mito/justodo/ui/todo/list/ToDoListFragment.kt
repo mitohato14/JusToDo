@@ -59,7 +59,6 @@ class ToDoListFragment : Fragment() {
                     }
                 }
             )
-            it.navController = findNavController()
         }
 
         binding = DataBindingUtil.inflate(

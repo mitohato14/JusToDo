@@ -18,14 +18,6 @@ import kotlinx.coroutines.launch
 class ToDoListViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
-
-    var navController: NavController? = null
-        set(value) {
-            if (value == null) return
-            field = value
-            adapter.navController = value
-        }
-
     val todoList: LiveData<List<ToDoInfo>>
         get() = _todoList
     private val _todoList: MutableLiveData<List<ToDoInfo>> = MutableLiveData()
