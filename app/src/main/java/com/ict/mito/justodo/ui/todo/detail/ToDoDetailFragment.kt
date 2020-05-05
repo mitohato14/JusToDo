@@ -51,7 +51,6 @@ class ToDoDetailFragment : Fragment() {
             false
         )
         binding?.let {
-            it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }
 
