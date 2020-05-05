@@ -3,7 +3,6 @@ package com.ict.mito.justodo.ui.todo.list.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.view.doOnLayout
 import androidx.core.view.doOnNextLayout
@@ -60,7 +59,7 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
 
     private fun expandItem() {
         val animator = getValueAnimator(
-            isExpanded,
+            !isExpanded,
             1000,
             AccelerateDecelerateInterpolator()
         ) { progress ->
@@ -75,9 +74,9 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
         }
 
         if (isExpanded) {
-            animator.doOnEnd {
+            animator.doOnStart {
                 binding.cardTodoDetail.root.isVisible = false
-                binding.cardTodo.root.isVisible = false
+                binding.cardTodo.root.isVisible = true
             }
         } else {
             animator.doOnStart {
@@ -86,6 +85,7 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
             }
         }
 
+        isExpanded = !isExpanded
         animator.start()
     }
 
