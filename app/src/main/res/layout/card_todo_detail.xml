@@ -6,34 +6,30 @@
     <data>
 
         <variable
-                name="viewmodel"
-                type="com.ict.mito.justodo.ui.todo.detail.ToDoDetailViewModel" />
+                name="todoInfo"
+                type="com.ict.mito.justodo.domain.ToDoInfo" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/expand_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
         <TextView
                 android:id="@+id/title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="@{viewmodel.todo.title}"
-                android:textSize="30sp"
+                android:text="@{todoInfo.title}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tool:text="title" />
+                tool:text="task title" />
 
         <TextView
                 android:id="@+id/date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:text="@{viewmodel.dateString}"
-                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@id/title_text"
                 app:layout_constraintStart_toEndOf="@id/title_text"
                 app:layout_constraintTop_toTopOf="@id/title_text"
@@ -41,30 +37,35 @@
 
         <ImageView
                 android:id="@+id/line"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:background="#000000"
                 android:contentDescription="@string/line"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/title_text"
                 app:layout_constraintTop_toBottomOf="@id/title_text" />
 
         <TextView
                 android:id="@+id/description_text"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
-                android:text="@{viewmodel.todo.description}"
+                android:text="@{todoInfo.description}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/title_text"
                 app:layout_constraintTop_toBottomOf="@id/line"
                 tool:text="description" />
 
+        <Button
+                android:id="@+id/toggle_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
