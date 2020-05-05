@@ -1,17 +1,16 @@
 package com.ict.mito.justodo.ui.todo.list.view
 
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.ui.todo.list.ToDoListFragmentDirections
 
 class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
     RecyclerView.Adapter<ToDoListViewHolder>() {
 
-    lateinit var navController: NavController
+    var recyclerView: RecyclerView? = null
 
     fun setToDoListData(newData: List<ToDoInfo>) {
         todoInfoList = newData
@@ -33,15 +32,11 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
         holder: ToDoListViewHolder,
         position: Int
     ) {
-        holder.apply {
-            bind(todoInfoList[position])
-            setToRootOnClickListener(View.OnClickListener {
-                val action = ToDoListFragmentDirections
-                    .actionToDoListFragmentToToDoDetailDialogFragment(
-                        todoInfoList[position].id
-                    )
-                navController.navigate(action)
-            })
+        holder.bind(todoInfoList[position])
+        holder.binding.root.setOnClickListener {
+            TransitionManager.beginDelayedTransition(recyclerView, AutoTransition())
+            holder.switchExpand()
+            notifyDataSetChanged()
         }
     }
 }

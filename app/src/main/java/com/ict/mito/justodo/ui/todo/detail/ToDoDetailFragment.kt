@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.databinding.TodoFragmentBinding
+import com.ict.mito.justodo.databinding.CardTodoDetailBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -32,7 +32,7 @@ class ToDoDetailFragment : Fragment() {
         ).get(ToDoDetailViewModel::class.java)
     }
 
-    private var binding: TodoFragmentBinding? = null
+    private var binding: CardTodoDetailBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +46,7 @@ class ToDoDetailFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.todo_fragment,
+            R.layout.card_todo_detail,
             container,
             false
         )

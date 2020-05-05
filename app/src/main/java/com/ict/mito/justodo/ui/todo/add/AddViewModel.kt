@@ -44,6 +44,7 @@ class AddViewModel(
             it.dueDate = (
                 (it.deadlineDate - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
                 ).toString()
+            it.deadlineDateString = Date(it.deadlineDate).toString()
             viewModelScope.launch(Dispatchers.IO) {
                 repository.add(it)
                 _added.postValue(true)

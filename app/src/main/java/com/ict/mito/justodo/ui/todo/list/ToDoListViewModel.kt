@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import com.ict.mito.justodo.ui.todo.list.view.ToDoListAdapter
@@ -18,14 +17,6 @@ import kotlinx.coroutines.launch
 class ToDoListViewModel(
     private val repository: ToDoInfoRepository
 ) : ViewModel() {
-
-    var navController: NavController? = null
-        set(value) {
-            if (value == null) return
-            field = value
-            adapter.navController = value
-        }
-
     val todoList: LiveData<List<ToDoInfo>>
         get() = _todoList
     private val _todoList: MutableLiveData<List<ToDoInfo>> = MutableLiveData()

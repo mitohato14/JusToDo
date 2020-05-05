@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
 
         setSupportActionBar(binding?.toolbar)
 
-        binding?.bottomNavigationBar?.let {
+        binding?.bottomNavigationView?.let {
             val navController =
                 supportFragmentManager.findFragmentById(R.id.navigation_host)?.findNavController()
                     ?: return
