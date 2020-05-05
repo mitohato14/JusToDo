@@ -25,13 +25,12 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
         0
     )
 
+    private var isExpanded = false
+
     fun bind(toDoInfo: ToDoInfo) {
         binding.todoInfo = toDoInfo
         binding.root.setOnClickListener {
-            expandItem(
-                holder = this,
-                expand = true
-            )
+            expandItem()
         }
         binding.executePendingBindings()
         getViewHeightAndWidth()
@@ -59,36 +58,31 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
         binding.unbind()
     }
 
-    private fun expandItem(
-        holder: ToDoListViewHolder,
-        expand: Boolean
-    ) {
+    private fun expandItem() {
         val animator = getValueAnimator(
-            expand,
+            isExpanded,
             1000,
             AccelerateDecelerateInterpolator()
         ) { progress ->
-            holder.binding.root.layoutParams.height =
-                (originalHeightWidthPair.first +
-                    (expandedHeightWidthPair.first - originalHeightWidthPair.first)
-                    * progress).toInt()
-            holder.binding.root.layoutParams.width =
-                (originalHeightWidthPair.second +
-                    (expandedHeightWidthPair.second - originalHeightWidthPair.second)
-                    * progress).toInt()
+            binding.root.layoutParams.height = (originalHeightWidthPair.first +
+                (expandedHeightWidthPair.first - originalHeightWidthPair.first)
+                * progress).toInt()
+            binding.root.layoutParams.width = (originalHeightWidthPair.second +
+                (expandedHeightWidthPair.second - originalHeightWidthPair.second)
+                * progress).toInt()
 
-            holder.binding.root.requestLayout()
+            binding.root.requestLayout()
         }
 
-        if (expand) {
-            animator.doOnStart {
-                holder.binding.cardTodoDetail.root.isVisible = true
-                holder.binding.cardTodo.root.isVisible = false
+        if (isExpanded) {
+            animator.doOnEnd {
+                binding.cardTodoDetail.root.isVisible = false
+                binding.cardTodo.root.isVisible = false
             }
         } else {
-            animator.doOnEnd {
-                holder.binding.cardTodoDetail.root.isVisible = false
-                holder.binding.cardTodo.root.isVisible = false
+            animator.doOnStart {
+                binding.cardTodoDetail.root.isVisible = true
+                binding.cardTodo.root.isVisible = false
             }
         }
 
