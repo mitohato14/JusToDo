@@ -34,10 +34,10 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
             )
         }
         binding.executePendingBindings()
-        calcSize()
+        getViewHeightAndWidth()
     }
 
-    private fun calcSize() {
+    private fun getViewHeightAndWidth() {
         binding.root.doOnLayout { view ->
             originalHeightWidthPair = Pair(
                 view.height,
