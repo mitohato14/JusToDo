@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+                android:text="@{todoInfo.deadlineDateString}"
                 app:layout_constraintBottom_toBottomOf="@id/title_text"
                 app:layout_constraintStart_toEndOf="@id/title_text"
                 app:layout_constraintTop_toTopOf="@id/title_text"

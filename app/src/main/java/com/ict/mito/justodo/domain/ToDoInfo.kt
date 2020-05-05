@@ -10,6 +10,7 @@ data class ToDoInfo(
     var description: String,
     @ColumnInfo(name = "due_date") var dueDate: String,
     @ColumnInfo(name = "deadline_date") var deadlineDate: Long,
+    @ColumnInfo(name = "deadline_date_string") var deadlineDateString: String,
     var done: Boolean
 ) {
     @PrimaryKey(autoGenerate = true)
