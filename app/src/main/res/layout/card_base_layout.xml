@@ -9,6 +9,7 @@
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/base_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/base_margin"
@@ -16,15 +17,21 @@
             android:layout_marginEnd="@dimen/base_margin"
             android:layout_marginBottom="@dimen/half_base_margin">
 
-        <include
-                android:id="@+id/card_todo"
-                layout="@layout/card_todo"
-                bind:todoInfo="@{todoInfo}" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <include
-                android:id="@+id/card_todo_detail"
-                layout="@layout/card_todo_detail"
-                android:visibility="gone"
-                bind:todoInfo="@{todoInfo}" />
+            <include
+                    android:id="@+id/card_todo"
+                    layout="@layout/card_todo"
+                    bind:todoInfo="@{todoInfo}" />
+
+            <include
+                    android:id="@+id/card_todo_detail"
+                    layout="@layout/card_todo_detail"
+                    android:visibility="gone"
+                    bind:todoInfo="@{todoInfo}" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

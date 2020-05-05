@@ -13,7 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.TodoListFragmentBinding
 import com.ict.mito.justodo.ui.todo.add.AddActivity
@@ -38,6 +38,13 @@ class ToDoListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.todo_list_fragment,
+            container,
+            false
+        )
+
         viewmodel.also {
             it.todoList.observe(
                 viewLifecycleOwner,
@@ -61,14 +68,9 @@ class ToDoListFragment : Fragment() {
             )
         }
 
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.todo_list_fragment,
-            container,
-            false
-        )
-
         binding?.let {
+            it.recycler.setHasFixedSize(true)
+            (it.recycler.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
             it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }

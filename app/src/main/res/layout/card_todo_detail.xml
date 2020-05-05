@@ -16,37 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-                android:id="@+id/title_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{todoInfo.title}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tool:text="task title" />
-
-        <TextView
-                android:id="@+id/date_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="@{todoInfo.deadlineDateString}"
-                app:layout_constraintBottom_toBottomOf="@id/title_text"
-                app:layout_constraintStart_toEndOf="@id/title_text"
-                app:layout_constraintTop_toTopOf="@id/title_text"
-                tool:text="yyyy/mm/dd" />
-
-        <ImageView
-                android:id="@+id/line"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:background="#000000"
-                android:contentDescription="@string/line"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/title_text"
-                app:layout_constraintTop_toBottomOf="@id/title_text" />
 
         <TextView
                 android:id="@+id/description_text"
@@ -57,16 +26,28 @@
                 android:text="@{todoInfo.description}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/title_text"
-                app:layout_constraintTop_toBottomOf="@id/line"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tool:text="description" />
+
+        <TextView
+                android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/base_margin"
+                android:text="@{todoInfo.deadlineDateString}"
+                app:layout_constraintTop_toTopOf="@id/toggle_done"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/toggle_done"
+                tool:text="yyyy/mm/dd" />
 
         <Button
                 android:id="@+id/toggle_done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/base_margin"
                 android:text="@string/done"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/description_text"
+                app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
