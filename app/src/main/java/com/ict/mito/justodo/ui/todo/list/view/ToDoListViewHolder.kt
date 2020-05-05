@@ -109,5 +109,3 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
         )
     }
 }
-
-data class ViewSize(val width: Int, val height: Int)
