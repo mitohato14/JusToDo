@@ -1,7 +1,6 @@
 package com.ict.mito.justodo.ui.todo.list.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.animation.doOnEnd
@@ -20,8 +19,7 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
         binding.root.setOnClickListener {
             expandItem(
                 holder = this,
-                expand = true,
-                animate = true
+                expand = true
             )
         }
         binding.executePendingBindings()
@@ -33,38 +31,34 @@ class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
 
     private fun expandItem(
         holder: ToDoListViewHolder,
-        expand: Boolean,
-        animate: Boolean
+        expand: Boolean
     ) {
-        if (animate) {
-            val animator = getValueAnimator(
-                expand,
-                1000,
-                AccelerateDecelerateInterpolator()
-            ) { progress ->
+        val animator = getValueAnimator(
+            expand,
+            1000,
+            AccelerateDecelerateInterpolator()
+        ) { progress ->
 //                holder.binding.root.layoutParams.height =
 //                    (originalHeight + (expandedHeight - originalHeight) * progress).toInt()
 //                holder.binding.root.layoutParams.width =
 //                    (originalWidth + (expandedWidth - originalWidth) * progress).toInt()
 
-                holder.binding.root.requestLayout()
-
-            }
-
-            if (expand) {
-                animator.doOnStart {
-                    holder.binding.cardTodoDetail.root.isVisible = true
-                    holder.binding.cardTodo.root.isVisible = false
-                }
-            } else {
-                animator.doOnEnd {
-                    holder.binding.cardTodoDetail.root.isVisible = false
-                    holder.binding.cardTodo.root.isVisible = false
-                }
-            }
-
-            animator.start()
+            holder.binding.root.requestLayout()
         }
+
+        if (expand) {
+            animator.doOnStart {
+                holder.binding.cardTodoDetail.root.isVisible = true
+                holder.binding.cardTodo.root.isVisible = false
+            }
+        } else {
+            animator.doOnEnd {
+                holder.binding.cardTodoDetail.root.isVisible = false
+                holder.binding.cardTodo.root.isVisible = false
+            }
+        }
+
+        animator.start()
     }
 
     companion object {
