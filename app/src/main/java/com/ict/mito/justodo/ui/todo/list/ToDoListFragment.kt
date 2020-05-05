@@ -46,6 +46,7 @@ class ToDoListFragment : Fragment() {
         )
 
         viewmodel.also {
+            it.adapter.recyclerView = binding?.recycler
             it.todoList.observe(
                 viewLifecycleOwner,
                 Observer { todoInfoList ->
