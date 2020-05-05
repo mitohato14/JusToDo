@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ict.mito.justodo.databinding.CardTodoBinding
+import com.ict.mito.justodo.databinding.CardBaseLayoutBinding
 import com.ict.mito.justodo.domain.ToDoInfo
 
-class ToDoListViewHolder(private val binding: CardTodoBinding) :
+class ToDoListViewHolder(private val binding: CardBaseLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(toDoInfo: ToDoInfo) {
@@ -29,7 +29,7 @@ class ToDoListViewHolder(private val binding: CardTodoBinding) :
             parent: ViewGroup,
             attachToRoot: Boolean
         ): ToDoListViewHolder = ToDoListViewHolder(
-            CardTodoBinding.inflate(
+            CardBaseLayoutBinding.inflate(
                 inflater,
                 parent,
                 attachToRoot
