@@ -34,7 +34,10 @@ class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
     ) {
         holder.bind(todoInfoList[position])
         holder.binding.root.setOnClickListener {
-            TransitionManager.beginDelayedTransition(recyclerView, AutoTransition())
+            TransitionManager.beginDelayedTransition(
+                recyclerView,
+                AutoTransition()
+            )
             holder.switchExpand()
             notifyDataSetChanged()
         }
