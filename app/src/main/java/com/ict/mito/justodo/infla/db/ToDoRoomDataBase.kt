@@ -21,10 +21,10 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
         fun getDataBase(context: Context): ToDoRoomDataBase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        ToDoRoomDataBase::class.java,
-                        "justodo_database_db"
-                    )
+                    context.applicationContext,
+                    ToDoRoomDataBase::class.java,
+                    "justodo_database_db"
+                )
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build()

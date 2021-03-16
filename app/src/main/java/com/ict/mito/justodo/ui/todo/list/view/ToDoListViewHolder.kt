@@ -8,39 +8,39 @@ import com.ict.mito.justodo.databinding.CardBaseLayoutBinding
 import com.ict.mito.justodo.domain.ToDoInfo
 
 class ToDoListViewHolder(val binding: CardBaseLayoutBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+  RecyclerView.ViewHolder(binding.root) {
 
-    private var expand = false
+  private var expand = false
 
-    fun switchExpand() {
-        if (expand) {
-            binding.cardTodoDetail.root.visibility = View.GONE
-        } else {
-            binding.cardTodoDetail.root.visibility = View.VISIBLE
-        }
-        expand = !expand
+  fun switchExpand() {
+    if (expand) {
+      binding.cardTodoDetail.root.visibility = View.GONE
+    } else {
+      binding.cardTodoDetail.root.visibility = View.VISIBLE
     }
+    expand = !expand
+  }
 
-    fun bind(toDoInfo: ToDoInfo) {
-        binding.todoInfo = toDoInfo
-        binding.executePendingBindings()
-    }
+  fun bind(toDoInfo: ToDoInfo) {
+    binding.todoInfo = toDoInfo
+    binding.executePendingBindings()
+  }
 
-    fun unbind() {
-        binding.unbind()
-    }
+  fun unbind() {
+    binding.unbind()
+  }
 
-    companion object {
-        fun create(
-            inflater: LayoutInflater,
-            parent: ViewGroup,
-            attachToRoot: Boolean
-        ): ToDoListViewHolder = ToDoListViewHolder(
-            CardBaseLayoutBinding.inflate(
-                inflater,
-                parent,
-                attachToRoot
-            )
-        )
-    }
+  companion object {
+    fun create(
+      inflater: LayoutInflater,
+      parent: ViewGroup,
+      attachToRoot: Boolean
+    ): ToDoListViewHolder = ToDoListViewHolder(
+      CardBaseLayoutBinding.inflate(
+        inflater,
+        parent,
+        attachToRoot
+      )
+    )
+  }
 }

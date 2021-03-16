@@ -8,38 +8,38 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ict.mito.justodo.domain.ToDoInfo
 
 class ToDoListAdapter(private var todoInfoList: List<ToDoInfo>) :
-    RecyclerView.Adapter<ToDoListViewHolder>() {
+  RecyclerView.Adapter<ToDoListViewHolder>() {
 
-    var recyclerView: RecyclerView? = null
+  var recyclerView: RecyclerView? = null
 
-    fun setToDoListData(newData: List<ToDoInfo>) {
-        todoInfoList = newData
-        notifyDataSetChanged()
+  fun setToDoListData(newData: List<ToDoInfo>) {
+    todoInfoList = newData
+    notifyDataSetChanged()
+  }
+
+  override fun onCreateViewHolder(
+    parent: ViewGroup,
+    viewType: Int
+  ): ToDoListViewHolder = ToDoListViewHolder.create(
+    LayoutInflater.from(parent.context),
+    parent,
+    false
+  )
+
+  override fun getItemCount(): Int = todoInfoList.size
+
+  override fun onBindViewHolder(
+    holder: ToDoListViewHolder,
+    position: Int
+  ) {
+    holder.bind(todoInfoList[position])
+    holder.binding.root.setOnClickListener {
+      TransitionManager.beginDelayedTransition(
+        recyclerView,
+        AutoTransition()
+      )
+      holder.switchExpand()
+      notifyDataSetChanged()
     }
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ToDoListViewHolder = ToDoListViewHolder.create(
-        LayoutInflater.from(parent.context),
-        parent,
-        false
-    )
-
-    override fun getItemCount(): Int = todoInfoList.size
-
-    override fun onBindViewHolder(
-        holder: ToDoListViewHolder,
-        position: Int
-    ) {
-        holder.bind(todoInfoList[position])
-        holder.binding.root.setOnClickListener {
-            TransitionManager.beginDelayedTransition(
-                recyclerView,
-                AutoTransition()
-            )
-            holder.switchExpand()
-            notifyDataSetChanged()
-        }
-    }
+  }
 }
