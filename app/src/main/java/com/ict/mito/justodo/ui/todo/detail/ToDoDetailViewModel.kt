@@ -3,16 +3,13 @@ package com.ict.mito.justodo.ui.todo.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.ict.mito.justodo.domain.ToDoInfo
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
-import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
-import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.coroutines.CoroutineScope
+import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.sql.Date
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by mitohato14 on 2019-01-23.
@@ -21,40 +18,34 @@ class ToDoDetailViewModel(
     private val repository: ToDoInfoRepository,
     toDoInfoLiveDataFactory: ToDoInfoLiveDataFactory
 ) : ViewModel() {
-    private var parentJob = Job()
-    private val mainCoroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Main
-    private val scope = CoroutineScope(mainCoroutineContext)
 
-    var todo: LiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+    val todo: LiveData<ToDoInfo>
+        get() = _todo
+    private val _todo: MutableLiveData<ToDoInfo> = toDoInfoLiveDataFactory.create()
+
     var dateString: String = ""
 
     var id: Long = -1L
         set(value) {
-            repository.getById(value).subscribeBy(
-                    onSuccess = {
-                        todo = MutableLiveData(it)
-                        dateString = Date(
-                                todo.value?.deadlineDate
-                                ?: System.currentTimeMillis()
-                        ).toString()
-                    },
-                    onError = {
-                        todo
-                    }
-            )
+            viewModelScope.launch(Dispatchers.IO) {
+                _todo.postValue(repository.getById(value))
+                dateString = Date(
+                    _todo.value?.deadlineDate
+                        ?: System.currentTimeMillis()
+                ).toString()
+            }
             field = value
+        }
+
+    fun updateToDo() = viewModelScope.launch(Dispatchers.IO) {
+        _todo.value?.let { repository.store(it) }
     }
 
-    fun updateToDo() = scope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.store(it) }
+    fun done() = viewModelScope.launch(Dispatchers.IO) {
+        _todo.value?.let { repository.done(it) }
     }
 
-    fun done() = scope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.done(it) }
-    }
-
-    fun undone() = scope.launch(Dispatchers.IO) {
-        todo.value?.let { repository.undone(it) }
+    fun undone() = viewModelScope.launch(Dispatchers.IO) {
+        _todo.value?.let { repository.undone(it) }
     }
 }

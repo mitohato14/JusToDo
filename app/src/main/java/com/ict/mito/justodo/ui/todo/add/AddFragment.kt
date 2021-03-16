@@ -9,47 +9,65 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.ict.mito.justodo.R
 import com.ict.mito.justodo.databinding.AddFragmentBinding
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class AddFragment : Fragment() {
+class AddFragment : DaggerFragment() {
 
     @Inject
     lateinit var todoViewModelProvider: AddViewModelFactory.Provider
+    private val viewmodel: AddViewModel by lazy {
+        ViewModelProvider(
+            this,
+            todoViewModelProvider.provide()
+        ).get(AddViewModel::class.java)
+    }
+
+    private var binding: AddFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val factory = todoViewModelProvider.provide()
-        val viewModel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(AddViewModel::class.java)
-        viewModel.navController = findNavController()
 
-        val binding: AddFragmentBinding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.add_fragment,
-                container,
-                false
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.add_fragment,
+            container,
+            false
         )
 
-        binding.also {
+        viewmodel.apply {
+            todoInfoLiveData.observe(
+                viewLifecycleOwner,
+                Observer {
+                    binding?.notifyChange()
+                }
+            )
+            added.observe(
+                viewLifecycleOwner,
+                Observer {
+                    if (it) {
+                        activity?.finish()
+                    }
+                }
+            )
+        }
+        binding?.let {
             it.datePicker.setOnDatePickListener { dateSelected ->
-                viewModel.onDateChanged(dateSelected)
+                viewmodel.onDateChanged(dateSelected)
             }
-            it.viewmodel = viewModel
+            it.viewmodel = viewmodel
             it.lifecycleOwner = this
         }
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onResume() {
@@ -67,12 +85,18 @@ class AddFragment : Fragment() {
         inflater: MenuInflater
     ) {
         inflater.inflate(
-                R.menu.menu_default,
-                menu
+            R.menu.menu_default,
+            menu
         )
     }
+
     override fun onAttach(context: Context) {
-        super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

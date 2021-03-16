@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.domain.repository
+package com.ict.mito.justodo.infla.repository
 
 import com.ict.mito.justodo.domain.ToDoInfo
 

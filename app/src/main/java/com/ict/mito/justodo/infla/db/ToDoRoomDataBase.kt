@@ -1,11 +1,11 @@
-package com.ict.mito.justodo.domain.db
+package com.ict.mito.justodo.infla.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ict.mito.justodo.domain.ToDoInfo
-import com.ict.mito.justodo.domain.db.dao.ToDoInfoDAO
+import com.ict.mito.justodo.infla.db.dao.ToDoInfoDAO
 
 /**
  * Created by mito on 2018-12-18.
@@ -21,13 +21,13 @@ abstract class ToDoRoomDataBase : RoomDatabase() {
         fun getDataBase(context: Context): ToDoRoomDataBase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        ToDoRoomDataBase::class.java,
-                        "justodo_database_db"
+                    context.applicationContext,
+                    ToDoRoomDataBase::class.java,
+                    "justodo_database_db"
                 )
-                        .allowMainThreadQueries()
-                        .fallbackToDestructiveMigration()
-                        .build()
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

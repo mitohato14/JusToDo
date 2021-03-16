@@ -3,35 +3,53 @@ package com.ict.mito.justodo.ui.main
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.ict.mito.justodo.R
+import com.ict.mito.justodo.databinding.MainActivityBinding
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
-import kotlinx.android.synthetic.main.main_activity.toolbar
+import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+
     @Inject
-    lateinit var supportFragmentInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> {
+        return androidInjector
+    }
+
+    private var binding: MainActivityBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding?.toolbar)
+
+        binding?.bottomNavigationView?.let {
+            val navController =
+                supportFragmentManager.findFragmentById(R.id.navigation_host)?.findNavController()
+                    ?: return
+            NavigationUI.setupWithNavController(
+                it,
+                navController
+            )
+        }
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.navhost).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(R.id.navigation_host).navigateUp()
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = supportFragmentInjector
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(
-                R.menu.menu_default,
-                menu
+            R.menu.menu_default,
+            menu
         )
         return true
     }

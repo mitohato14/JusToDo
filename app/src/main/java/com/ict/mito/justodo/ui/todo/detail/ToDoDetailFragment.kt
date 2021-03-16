@@ -12,9 +12,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.ict.mito.justodo.R
-import com.ict.mito.justodo.databinding.TodoFragmentBinding
+import com.ict.mito.justodo.databinding.CardTodoDetailBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -25,8 +25,14 @@ class ToDoDetailFragment : Fragment() {
     @Inject
     lateinit var todoDetailViewModelProvider: ToDoDetailViewModelFactory.Provider
 
-    lateinit var viewmodel: ToDoDetailViewModel
+    private val viewmodel: ToDoDetailViewModel by lazy {
+        ViewModelProvider(
+            this,
+            todoDetailViewModelProvider.provide()
+        ).get(ToDoDetailViewModel::class.java)
+    }
 
+    private var binding: CardTodoDetailBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,27 +42,19 @@ class ToDoDetailFragment : Fragment() {
 
         val args = arguments ?: return null
         val safeArgs = ToDoDetailFragmentArgs.fromBundle(args)
-
-        val factory = todoDetailViewModelProvider.provide()
-        viewmodel = ViewModelProviders.of(
-                this,
-                factory
-        ).get(ToDoDetailViewModel::class.java)
-
         viewmodel.id = safeArgs.toDoId
 
-        val binding: TodoFragmentBinding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.todo_fragment,
-                container,
-                false
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.card_todo_detail,
+            container,
+            false
         )
-        binding.also {
-            it.viewmodel = viewmodel
+        binding?.let {
             it.lifecycleOwner = this
         }
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onResume() {
@@ -74,8 +72,8 @@ class ToDoDetailFragment : Fragment() {
         inflater: MenuInflater
     ) {
         inflater.inflate(
-                R.menu.menu_detail,
-                menu
+            R.menu.menu_detail,
+            menu
         )
     }
 
@@ -105,5 +103,10 @@ class ToDoDetailFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

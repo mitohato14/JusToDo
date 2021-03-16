@@ -10,11 +10,12 @@ class ToDoInfoLiveData : MutableLiveData<ToDoInfo>() {
     override fun onActive() {
         super.onActive()
         value = ToDoInfo(
-                title = "",
-                description = "",
-                dueDate = "",
-                deadlineDate = -1L,
-                done = false
+            title = "",
+            description = "",
+            dueDate = "",
+            deadlineDate = -1L,
+            deadlineDateString = "",
+            done = false
         )
     }
 }

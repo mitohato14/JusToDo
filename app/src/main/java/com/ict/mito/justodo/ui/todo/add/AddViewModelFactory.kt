@@ -3,7 +3,7 @@ package com.ict.mito.justodo.ui.todo.add
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ict.mito.justodo.domain.livedata.ToDoInfoLiveDataFactory
-import com.ict.mito.justodo.domain.repository.ToDoInfoRepository
+import com.ict.mito.justodo.infla.repository.ToDoInfoRepository
 import javax.inject.Inject
 
 /**
@@ -15,10 +15,10 @@ class AddViewModelFactory private constructor(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-            AddViewModel(
-                    repository = repository,
-                    todoInfoLiveDataFactory = ToDoInfoLiveDataFactory()
-            ) as T
+        AddViewModel(
+            repository = repository,
+            todoInfoLiveDataFactory = ToDoInfoLiveDataFactory()
+        ) as T
 
     class Provider @Inject constructor(
         private val repository: ToDoInfoRepository

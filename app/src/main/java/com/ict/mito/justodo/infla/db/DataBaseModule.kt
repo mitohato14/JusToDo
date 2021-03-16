@@ -1,4 +1,4 @@
-package com.ict.mito.justodo.domain.db
+package com.ict.mito.justodo.infla.db
 
 import android.content.Context
 import dagger.Module
